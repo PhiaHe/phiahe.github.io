@@ -74,16 +74,17 @@ void main(){
   vec2 uv = (gl_FragCoord.xy - 0.5*u_res) / min(u_res.x, u_res.y);
   float s = clamp(u_scroll, 0.0, 1.0);
 
-  // Compose the blob further to the RIGHT in the hero (partly off-screen) so it
-  // never crowds the left-side copy, drifting toward center as we scroll.
-  uv.x -= mix(0.62, -0.02, smoothstep(0.05, 0.7, s));
+  // Compose the blob to the RIGHT in the hero (right of the copy) but mostly
+  // ON-screen so it's a clearly visible主视觉, drifting toward center on scroll.
+  // (Previously pushed to 0.62 + dist 3.85, which made it a tiny sliver off the
+  // right edge — the real reason it "disappeared".)
+  uv.x -= mix(0.46, -0.05, smoothstep(0.05, 0.7, s));
   uv += u_mouse * 0.03;
 
-  // Scroll-driven CAMERA (reference mechanic): orbit drift + dolly in/out.
-  // Base distance pulled back (3.2 → 3.85) to shrink the body ~20% — more
-  // restrained, less crowding than before.
-  vec2 drift = vec2(sin(s*3.0)*0.6, cos(s*2.4)*0.26 - 0.04);
-  float dist = 3.85 + 0.8*sin(s*3.14159) - 0.7*smoothstep(0.82, 1.0, s);
+  // Scroll-driven CAMERA: orbit drift + dolly in/out. Base distance 3.3 keeps
+  // the body large and clearly present in the hero without overrunning the copy.
+  vec2 drift = vec2(sin(s*3.0)*0.55, cos(s*2.4)*0.24 - 0.04);
+  float dist = 3.3 + 0.7*sin(s*3.14159) - 0.6*smoothstep(0.82, 1.0, s);
   vec3 ro = vec3(drift.x, drift.y, dist);
   vec3 rd = normalize(vec3(uv, -1.6));
 
