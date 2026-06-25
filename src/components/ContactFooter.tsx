@@ -58,7 +58,7 @@ export default function ContactFooter() {
               variant="lockup"
               tone="light"
               alt={site.brand}
-              className="h-7"
+              className="h-auto w-[116px]"
             />
             <p className="font-mono text-[11px] text-accent-silver/40">
               {site.domain}

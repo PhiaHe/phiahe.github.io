@@ -4,7 +4,6 @@ import { hero } from "../data/siteData";
 import { useLanguage } from "../i18n/LanguageContext";
 import SplitText from "./SplitText";
 import MagneticButton from "./MagneticButton";
-import BrandLogo from "./BrandLogo";
 
 /**
  * Hero — cinematic text stage (V4).
@@ -50,22 +49,6 @@ export default function Hero() {
               "radial-gradient(70% 65% at 16% 50%, rgba(4,6,10,0.45), transparent 68%)",
           }}
         />
-
-        {/* Decorative brand watermark — the official display wordmark at very low
-            opacity, bottom-right, behind the copy. Subtle brand presence that
-            never competes with the live "Phia Games" title. Fades out on scroll. */}
-        <motion.div
-          aria-hidden
-          style={{ opacity: copyOpacity }}
-          className="pointer-events-none absolute bottom-[8%] right-[4%] z-[1] hidden lg:block"
-        >
-          <BrandLogo
-            variant="display"
-            tone="light"
-            alt=""
-            className="h-24 opacity-[0.08] xl:h-28"
-          />
-        </motion.div>
 
         <motion.div
           style={{ y: copyY, opacity: copyOpacity, scale: copyScale }}

@@ -57,7 +57,7 @@ export default function BrandLogo({
       decoding="async"
       loading={priority ? "eager" : "lazy"}
       draggable={false}
-      className={`w-auto select-none object-contain ${className}`}
+      className={`max-w-none select-none object-contain ${className}`}
     />
   );
 }

@@ -1,10 +1,9 @@
 import { useRef } from "react";
 import { MotionConfig, useScroll } from "framer-motion";
-// EXPERIMENT (branch experiment/motionliquid-reference-fluid): the reference-
-// inspired lighter fluid scene replaces the production GlobalLiquidScene here so
-// the two can be compared. To revert visually, swap this import back to
-// "./components/GlobalLiquidScene" (or check out master).
-import GlobalLiquidScene from "./components/MotionLiquidReferenceScene";
+// The site's global liquid visual: the reference-inspired single-blob scene,
+// recolored to Phia's palette. (The earlier 4-metaball GlobalLiquidScene was
+// retired in favor of this lighter, smoother implementation.)
+import MotionLiquidReferenceScene from "./components/MotionLiquidReferenceScene";
 import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -46,7 +45,7 @@ export default function App() {
           (body::before/after at -2/-1), below all content (z-10+). It carries a
           single, gentle global readability gradient internally (see component),
           so individual sections don't need their own dark panels. */}
-      <GlobalLiquidScene progress={pageProgress} />
+      <MotionLiquidReferenceScene progress={pageProgress} />
 
       {/* Refined trailing cursor (fine-pointer only; no-op under reduced-motion). */}
       <CustomCursor />

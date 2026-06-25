@@ -69,13 +69,16 @@ void main(){
   vec2 uv = (gl_FragCoord.xy - 0.5*u_res) / min(u_res.x, u_res.y);
   float s = clamp(u_scroll, 0.0, 1.0);
 
-  // Compose the blob toward the RIGHT in the hero, drifting center as we scroll.
-  uv.x -= mix(0.42, -0.05, smoothstep(0.05, 0.7, s));
+  // Compose the blob further to the RIGHT in the hero (partly off-screen) so it
+  // never crowds the left-side copy, drifting toward center as we scroll.
+  uv.x -= mix(0.62, -0.02, smoothstep(0.05, 0.7, s));
   uv += u_mouse * 0.03;
 
   // Scroll-driven CAMERA (reference mechanic): orbit drift + dolly in/out.
+  // Base distance pulled back (3.2 → 3.85) to shrink the body ~20% — more
+  // restrained, less crowding than before.
   vec2 drift = vec2(sin(s*3.0)*0.6, cos(s*2.4)*0.26 - 0.04);
-  float dist = 3.2 + 0.8*sin(s*3.14159) - 0.7*smoothstep(0.82, 1.0, s);
+  float dist = 3.85 + 0.8*sin(s*3.14159) - 0.7*smoothstep(0.82, 1.0, s);
   vec3 ro = vec3(drift.x, drift.y, dist);
   vec3 rd = normalize(vec3(uv, -1.6));
 
@@ -116,19 +119,21 @@ void main(){
     float spec2 = pow(max(dot(reflect(-l, n), -rd), 0.0), 14.0);
 
     col = vec3(0.012, 0.018, 0.03);
-    col += inner * (fre*1.2 + 0.08);          // bright cool rim
-    col += GOLD * fre * 0.18;                  // subtle gold edge refraction
-    col += vec3(0.85, 0.97, 1.0) * spec * 1.1; // wet hot highlight
-    col += CYAN * spec2 * 0.25;                // soft sheen
-    col += inner * dif * 0.12;
+    col += inner * (fre*1.0 + 0.06);           // cool rim (dialed back)
+    col += GOLD * fre * 0.15;                   // subtle gold edge refraction
+    col += vec3(0.85, 0.97, 1.0) * spec * 0.9;  // wet hot highlight (softer)
+    col += CYAN * spec2 * 0.2;                  // soft sheen
+    col += inner * dif * 0.1;
   } else {
     // faint cool halo where the ray nearly grazed the body
-    col += CYAN * pow(max(0.0, 1.0 - dmin*1.2), 6.0) * 0.22;
+    col += CYAN * pow(max(0.0, 1.0 - dmin*1.2), 6.0) * 0.16;
   }
 
   // vignette
   col *= 1.0 - 0.34*pow(length(uv*vec2(0.85,1.0)), 2.2);
   col *= intensity;
+  // overall restraint — keep the core premium and not over-bright in the hero
+  col *= 0.86;
 
   // filmic
   col = col / (col + vec3(0.55));

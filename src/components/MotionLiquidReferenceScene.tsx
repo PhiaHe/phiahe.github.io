@@ -49,7 +49,8 @@ export default function MotionLiquidReferenceScene({ progress }: Props) {
     let scroll = 0;
     let W = 0;
     let H = 0;
-    const renderScale = isMobile ? 0.5 : 0.62;
+    // Desktop renders a touch higher for smoother blob edges; mobile stays low.
+    const renderScale = isMobile ? 0.5 : 0.66;
     const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
 
     const resize = () => {
@@ -166,7 +167,7 @@ export default function MotionLiquidReferenceScene({ progress }: Props) {
       <canvas
         ref={canvasRef}
         aria-hidden="true"
-        className="fixed inset-0 z-0 h-screen w-screen"
+        className="fixed inset-0 z-0 h-screen w-screen opacity-60 sm:opacity-100"
         style={{ pointerEvents: "none" }}
       />
       {/* Global readability veil (same idea as production scene). */}

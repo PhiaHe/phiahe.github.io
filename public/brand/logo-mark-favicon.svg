@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#fff" role="img" aria-label="Phia Games small-size icon">
-  <rect width="64" height="64" rx="10" fill="#000"/>
-  <g transform="translate(8 8) scale(.5)">
-    <path d="M9 65C13 54 35 40 58 35C78 31 87 38 76 50C60 67 22 77 9 68C6 66 6 63 9 60" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4.4"/>
-    <path d="M32 84V16H59C76 16 86 26 86 40C86 54 75 64 59 64H45V76L32 84ZM45 52H58C67 52 73 47 73 40C73 32 67 28 58 28H45V52Z" fill="currentColor" fill-rule="evenodd"/>
-    <path d="M12 66C27 72 55 63 78 42" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4.4"/>
-    <circle cx="13" cy="62" r="5.2" fill="currentColor"/>
-  </g>
-</svg>

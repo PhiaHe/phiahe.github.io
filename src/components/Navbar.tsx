@@ -40,19 +40,22 @@ export default function Navbar() {
         {/* Brand — official PNG lockup on desktop, compact mark on mobile.
             Dark navbar → white (light-tone) assets. */}
         <a href="#top" className="group flex items-center" aria-label={site.brand}>
+          {/* Desktop: width-controlled horizontal lockup (≈128px, up to 148px on
+              lg) so the PHIA GAMES wordmark is clearly legible. */}
           <BrandLogo
             variant="lockup"
             tone="light"
             priority
             alt={site.brand}
-            className="hidden h-8 transition-opacity group-hover:opacity-90 sm:block lg:h-9"
+            className="hidden h-auto w-[128px] transition-opacity group-hover:opacity-90 sm:block lg:w-[148px]"
           />
+          {/* Mobile: compact mark, height-controlled (~30px). */}
           <BrandLogo
             variant="mark"
             tone="light"
             priority
             alt={site.brand}
-            className="h-8 transition-opacity group-hover:opacity-90 sm:hidden"
+            className="h-[30px] w-auto transition-opacity group-hover:opacity-90 sm:hidden"
           />
         </a>
 
