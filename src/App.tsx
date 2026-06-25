@@ -1,6 +1,10 @@
 import { useRef } from "react";
 import { MotionConfig, useScroll } from "framer-motion";
-import GlobalLiquidScene from "./components/GlobalLiquidScene";
+// EXPERIMENT (branch experiment/motionliquid-reference-fluid): the reference-
+// inspired lighter fluid scene replaces the production GlobalLiquidScene here so
+// the two can be compared. To revert visually, swap this import back to
+// "./components/GlobalLiquidScene" (or check out master).
+import GlobalLiquidScene from "./components/MotionLiquidReferenceScene";
 import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
