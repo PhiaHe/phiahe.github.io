@@ -1,0 +1,448 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   Phia Games — Design System
+   A dark sci-fi creation lab with subtle ink-like energy and fluid systems.
+   ========================================================================= */
+
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    /* Core surface ramp */
+    --c-void-900: #04060a;
+    --c-void-800: #070b12;
+    --c-void-700: #0b1220;
+
+    /* Accents — low saturation, premium */
+    --c-cyan: #5fd7d2;
+    --c-violet: #8a7cf0;
+    --c-silver: #c7d2e0;
+    --c-gold: #d8b367;
+
+    --c-text: #dfe7f2;
+    --c-text-dim: #8895a8;
+    --c-line: rgba(140, 165, 200, 0.12);
+  }
+
+  * {
+    border-color: var(--c-line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--c-void-900);
+    color: var(--c-text);
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "cv05", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Atmospheric base gradient applied to the whole page behind content. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(95, 215, 210, 0.07), transparent 55%),
+      radial-gradient(90% 70% at 85% 20%, rgba(138, 124, 240, 0.06), transparent 60%),
+      radial-gradient(80% 60% at 10% 80%, rgba(216, 179, 103, 0.035), transparent 60%),
+      linear-gradient(180deg, #04060a 0%, #05080f 40%, #04060a 100%);
+    pointer-events: none;
+  }
+
+  /* Faint interface grid overlay across the page. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(rgba(120, 150, 190, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120, 150, 190, 0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(120% 90% at 50% 0%, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000 30%, transparent 80%);
+    pointer-events: none;
+  }
+
+  ::selection {
+    background: rgba(95, 215, 210, 0.26);
+    color: #ffffff;
+  }
+
+  /* Custom scrollbar — slim and on-brand. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #05080f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1b2436, #27344c);
+    border-radius: 999px;
+    border: 2px solid #05080f;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #27344c, #36486a);
+  }
+}
+
+@layer components {
+  /* Section rhythm + max width */
+  .container-lab {
+    @apply mx-auto w-full max-w-[1240px] px-6 md:px-10;
+  }
+
+  .section-pad {
+    @apply py-24 md:py-32;
+  }
+
+  /* Eyebrow label — interface caption */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-ultra text-accent-cyan/80;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply inline-block h-[1px] w-7 bg-accent-cyan/50;
+  }
+
+  /* Glass panel base */
+  .glass {
+    background:
+      linear-gradient(180deg, rgba(20, 30, 48, 0.62), rgba(10, 16, 28, 0.5));
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    border: 1px solid rgba(140, 165, 200, 0.12);
+    border-radius: 18px;
+  }
+
+  /* Holographic edge — top highlight line that catches light. */
+  .holo-edge {
+    position: relative;
+    overflow: hidden;
+  }
+  .holo-edge::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      130deg,
+      rgba(95, 215, 210, 0.55),
+      rgba(138, 124, 240, 0.25) 35%,
+      transparent 55%,
+      rgba(216, 179, 103, 0.25) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+  .holo-edge:hover::before {
+    opacity: 1;
+  }
+
+  /* Gradient brand text */
+  .text-holo {
+    background: linear-gradient(
+      100deg,
+      #eaf2ff 0%,
+      var(--c-cyan) 38%,
+      var(--c-silver) 58%,
+      var(--c-violet) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300;
+  }
+  .btn-primary {
+    color: #03070a;
+    background: linear-gradient(120deg, #74e3dd, #5fd7d2 45%, #8a7cf0 130%);
+    box-shadow: 0 10px 30px -10px rgba(95, 215, 210, 0.6);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 14px 40px -8px rgba(95, 215, 210, 0.8);
+    transform: translateY(-1px);
+  }
+  .btn-ghost {
+    @apply text-accent-silver;
+    border: 1px solid rgba(140, 165, 200, 0.22);
+    background: rgba(140, 165, 200, 0.04);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(95, 215, 210, 0.5);
+    color: #eaf2ff;
+    background: rgba(95, 215, 210, 0.07);
+  }
+
+  /* Tag chips */
+  .chip {
+    @apply inline-flex items-center rounded-full px-3 py-1 font-mono text-[11px] tracking-wide text-accent-silver/80;
+    border: 1px solid rgba(140, 165, 200, 0.16);
+    background: rgba(140, 165, 200, 0.04);
+  }
+
+  /* Section heading */
+  .h-section {
+    @apply font-display text-3xl font-semibold leading-tight text-white md:text-5xl;
+  }
+
+  /* ---------------------------------------------------------------------------
+     SpotlightCard — unified premium card interaction.
+     Driven by --mx/--my (cursor) and --rx/--ry (tilt), set in JS.
+     --rgb is the accent color; --spot-r the spotlight radius.
+     --------------------------------------------------------------------------- */
+  .spotlight-card {
+    position: relative;
+    display: block;
+    border-radius: 20px;
+    perspective: 900px;
+    --mx: 50%;
+    --my: 50%;
+    --rx: 0deg;
+    --ry: 0deg;
+    --rgb: 95, 215, 210;
+    --spot-r: 460px;
+  }
+
+  .spotlight-card__inner {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+    border: 1px solid rgba(140, 165, 200, 0.12);
+    background:
+      linear-gradient(180deg, rgba(20, 30, 48, 0.6), rgba(10, 16, 28, 0.5));
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    box-shadow: 0 24px 70px -34px rgba(0, 0, 0, 0.85);
+    transform: rotateX(var(--rx)) rotateY(var(--ry));
+    transform-style: preserve-3d;
+    transition:
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+    will-change: transform;
+  }
+  .spotlight-card:hover .spotlight-card__inner {
+    border-color: rgba(var(--rgb), 0.32);
+    box-shadow:
+      0 30px 80px -34px rgba(0, 0, 0, 0.9),
+      0 0 40px -12px rgba(var(--rgb), 0.25);
+  }
+
+  /* Border-light — bright trace following the cursor along the edge. */
+  .spotlight-card__border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+      var(--spot-r) circle at var(--mx) var(--my),
+      rgba(var(--rgb), 0.9),
+      rgba(var(--rgb), 0.12) 40%,
+      transparent 60%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .spotlight-card:hover .spotlight-card__border {
+    opacity: 1;
+  }
+
+  /* Spotlight + inner glow — soft local reflection that tracks the cursor. */
+  .spotlight-card__glow {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      var(--spot-r) circle at var(--mx) var(--my),
+      rgba(var(--rgb), 0.16),
+      transparent 45%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 2;
+  }
+  .spotlight-card:hover .spotlight-card__glow {
+    opacity: 1;
+  }
+
+  /* Energy texture — fine diagonal lines that fade in near the cursor on hover,
+     giving the surface a faint holographic "circuitry / ink-grain" quality. */
+  .spotlight-card__texture {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: repeating-linear-gradient(
+      115deg,
+      rgba(var(--rgb), 0.16) 0px,
+      rgba(var(--rgb), 0.16) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+    -webkit-mask: radial-gradient(
+      calc(var(--spot-r) * 0.7) circle at var(--mx) var(--my),
+      #000 0%,
+      transparent 60%
+    );
+    mask: radial-gradient(
+      calc(var(--spot-r) * 0.7) circle at var(--mx) var(--my),
+      #000 0%,
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 1;
+  }
+  .spotlight-card:hover .spotlight-card__texture {
+    opacity: 0.5;
+  }
+
+  /* Lift card content slightly toward the viewer for parallax depth. */
+  .spotlight-lift {
+    transform: translateZ(24px);
+  }
+
+  /* ---------------------------------------------------------------------------
+     SplitText — per-character rise reveal (random-order cascade).
+     SAFE DEFAULT: chars are fully visible. Only `.split-prep` (applied in a
+     layout-effect before paint, motion allowed) hides them, and `.split-go`
+     animates them back. If JS never runs, the text just stays visible.
+     The per-char delay is set inline via --d (randomized in JS).
+     --------------------------------------------------------------------------- */
+  .split-line {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+  .split-char {
+    display: inline-block;
+    transform: none;
+    opacity: 1;
+    will-change: transform, opacity;
+  }
+  /* hidden start state — only while prepping the animation */
+  .split-prep .split-char {
+    transform: translateY(0.5em) rotate(5deg);
+    opacity: 0;
+  }
+  /* animate in */
+  .split-go .split-char {
+    transform: none;
+    opacity: 1;
+    transition:
+      transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.7s ease;
+    transition-delay: var(--d, 0ms);
+  }
+
+  /* ---------------------------------------------------------------------------
+     Custom cursor — trailing ring + dot (fine-pointer only, augments the native
+     cursor rather than hiding it). Hidden on touch via the component guard.
+     --------------------------------------------------------------------------- */
+  .cursor-dot,
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 90;
+    pointer-events: none;
+    border-radius: 9999px;
+    opacity: 0;
+    will-change: transform;
+  }
+  .cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--c-cyan);
+    box-shadow: 0 0 10px rgba(95, 215, 210, 0.8);
+    transition: opacity 0.3s ease;
+  }
+  .cursor-ring {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(199, 210, 224, 0.5);
+    transition:
+      width 0.3s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)),
+      height 0.3s ease,
+      border-color 0.3s ease,
+      background 0.3s ease,
+      opacity 0.3s ease;
+  }
+  .cursor-ring--hover {
+    width: 58px;
+    height: 58px;
+    border-color: rgba(95, 215, 210, 0.8);
+    background: rgba(95, 215, 210, 0.08);
+  }
+  @media (hover: none) {
+    .cursor-dot,
+    .cursor-ring {
+      display: none;
+    }
+  }
+
+  /* Magnetic element easing back to rest. */
+  .magnetic {
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent);
+    mask-image: linear-gradient(180deg, #000 70%, transparent);
+  }
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+}
+
+/* Respect reduced-motion globally — kill non-essential animation. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

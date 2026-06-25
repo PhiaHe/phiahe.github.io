@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="360" viewBox="0 0 560 360" role="img" aria-label="log-combat placeholder">
+  
+  <defs>
+    <radialGradient id="aur-logcombat" cx="32%" cy="8%" r="90%">
+      <stop offset="0%" stop-color="#d8b367" stop-opacity="0.55"/>
+      <stop offset="38%" stop-color="#8a7cf0" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#04060a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bg-logcombat" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#070b12"/>
+      <stop offset="100%" stop-color="#04060a"/>
+    </linearGradient>
+    <linearGradient id="ink-logcombat" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d8b367" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#8a7cf0" stop-opacity="0.5"/>
+    </linearGradient>
+    <filter id="soft-logcombat" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="grain-logcombat">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="560" height="360" fill="url(#bg-logcombat)"/>
+  <rect width="560" height="360" fill="url(#aur-logcombat)"/>
+  <g><line x1="0" y1="0" x2="0" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="40" y1="0" x2="40" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="80" y1="0" x2="80" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="120" y1="0" x2="120" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="200" y1="0" x2="200" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="240" y1="0" x2="240" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="280" y1="0" x2="280" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="360" y1="0" x2="360" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="400" y1="0" x2="400" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="440" y1="0" x2="440" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="480" y1="0" x2="480" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="520" y1="0" x2="520" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="560" y1="0" x2="560" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="0" x2="560" y2="0" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="40" x2="560" y2="40" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="80" x2="560" y2="80" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="120" x2="560" y2="120" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="160" x2="560" y2="160" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="200" x2="560" y2="200" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="240" x2="560" y2="240" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="280" x2="560" y2="280" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="320" x2="560" y2="320" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/><line x1="0" y1="360" x2="560" y2="360" stroke="#8ca5c8" stroke-opacity="0.05" stroke-width="1"/></g>
+  
+      <circle cx="347.2" cy="151.2" r="100.80000000000001" fill="url(#ink-logcombat)" fill-opacity="0.18" filter="url(#soft-logcombat)"/>
+      <circle cx="347.2" cy="151.2" r="100.80000000000001" fill="none" stroke="url(#ink-logcombat)" stroke-opacity="0.6" stroke-width="1.5"/>
+      <circle cx="347.2" cy="151.2" r="62.49600000000001" fill="none" stroke="#c7d2e0" stroke-opacity="0.18" stroke-width="1"/>
+      <g filter="url(#soft-logcombat)" opacity="0.9"><path d="M -56 252.4150513346342
+      C 162.7108157246166 142.39241857807906, 422.9639773161532 362.43768409118934, 616 208.40599823201214" fill="none" stroke="#d8b367" stroke-opacity="0.12570291329308014" stroke-width="1.273173138935392" stroke-linecap="round"/><path d="M -56 125.34907012929885
+      C 132.54720744223968 55.7758449488729, 374.89944384035175 194.9222953097248, 616 97.51978005712847" fill="none" stroke="#8a7cf0" stroke-opacity="0.1560300986180152" stroke-width="1.41106211925183" stroke-linecap="round"/><path d="M -56 176.83973623645485
+      C 170.3720265166769 108.37308960118635, 379.85466234289447 245.30638287172337, 616 149.45307758234745" fill="none" stroke="#d8b367" stroke-opacity="0.18145390605122175" stroke-width="2.8912626460872737" stroke-linecap="round"/></g>
+  <g><circle cx="469.5" cy="205.0" r="2.1" fill="#c7d2e0" fill-opacity="0.19"/><circle cx="249.5" cy="6.2" r="1.7" fill="#c7d2e0" fill-opacity="0.48"/><circle cx="141.8" cy="290.5" r="1.8" fill="#c7d2e0" fill-opacity="0.50"/><circle cx="168.1" cy="336.1" r="1.0" fill="#c7d2e0" fill-opacity="0.21"/><circle cx="7.4" cy="182.0" r="2.0" fill="#c7d2e0" fill-opacity="0.48"/><circle cx="494.6" cy="5.4" r="0.5" fill="#c7d2e0" fill-opacity="0.18"/><circle cx="244.4" cy="334.4" r="1.9" fill="#c7d2e0" fill-opacity="0.40"/><circle cx="323.7" cy="222.7" r="1.7" fill="#c7d2e0" fill-opacity="0.16"/><circle cx="355.7" cy="320.6" r="0.9" fill="#c7d2e0" fill-opacity="0.51"/><circle cx="379.7" cy="229.0" r="1.4" fill="#c7d2e0" fill-opacity="0.15"/><circle cx="531.1" cy="131.6" r="1.8" fill="#c7d2e0" fill-opacity="0.20"/><circle cx="264.6" cy="229.9" r="2.1" fill="#c7d2e0" fill-opacity="0.46"/><circle cx="104.0" cy="239.3" r="0.7" fill="#c7d2e0" fill-opacity="0.17"/><circle cx="83.3" cy="208.7" r="1.4" fill="#c7d2e0" fill-opacity="0.22"/><circle cx="382.8" cy="61.6" r="2.2" fill="#c7d2e0" fill-opacity="0.15"/><circle cx="282.3" cy="23.2" r="1.9" fill="#c7d2e0" fill-opacity="0.58"/><circle cx="97.9" cy="229.6" r="1.2" fill="#c7d2e0" fill-opacity="0.19"/><circle cx="263.7" cy="64.3" r="2.2" fill="#c7d2e0" fill-opacity="0.26"/><circle cx="263.4" cy="18.1" r="1.5" fill="#c7d2e0" fill-opacity="0.38"/><circle cx="255.2" cy="317.4" r="1.7" fill="#c7d2e0" fill-opacity="0.30"/><circle cx="533.9" cy="17.8" r="2.2" fill="#c7d2e0" fill-opacity="0.22"/><circle cx="273.6" cy="346.3" r="0.4" fill="#c7d2e0" fill-opacity="0.22"/><circle cx="495.7" cy="330.8" r="0.8" fill="#c7d2e0" fill-opacity="0.43"/><circle cx="104.2" cy="199.4" r="1.4" fill="#c7d2e0" fill-opacity="0.27"/><circle cx="294.2" cy="47.8" r="0.8" fill="#c7d2e0" fill-opacity="0.32"/><circle cx="295.3" cy="78.4" r="0.5" fill="#c7d2e0" fill-opacity="0.19"/><circle cx="35.3" cy="168.3" r="1.9" fill="#c7d2e0" fill-opacity="0.25"/><circle cx="247.0" cy="210.2" r="1.1" fill="#c7d2e0" fill-opacity="0.50"/><circle cx="202.0" cy="243.5" r="0.8" fill="#c7d2e0" fill-opacity="0.50"/><circle cx="115.7" cy="200.0" r="0.9" fill="#c7d2e0" fill-opacity="0.38"/></g>
+  <rect width="560" height="360" filter="url(#grain-logcombat)" opacity="0.5"/>
+  <g>
+    <path d="M16 42 L16 16 L42 16" stroke="#d8b367" stroke-opacity="0.7" stroke-width="1.5" fill="none"/>
+    <path d="M518 16 L544 16 L544 42" stroke="#d8b367" stroke-opacity="0.7" stroke-width="1.5" fill="none"/>
+    <path d="M544 318 L544 344 L518 344" stroke="#d8b367" stroke-opacity="0.7" stroke-width="1.5" fill="none"/>
+    <path d="M42 344 L16 344 L16 318" stroke="#d8b367" stroke-opacity="0.7" stroke-width="1.5" fill="none"/>
+  </g>
+  <g font-family="'JetBrains Mono', monospace">
+    <rect x="20" y="316" width="120" height="24" rx="12"
+      fill="#04060a" fill-opacity="0.55" stroke="#d8b367" stroke-opacity="0.4"/>
+    <circle cx="36" cy="328" r="3" fill="#d8b367"/>
+    <text x="48" y="332" fill="#c7d2e0" fill-opacity="0.85" font-size="11" letter-spacing="2">GAME FEEL</text>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import cairosvg; print\\('cairosvg ok'\\)\")",
+      "Bash(node -e \"console.log\\('node ok'\\)\")",
+      "Bash(python -c \"import cairosvg; print\\('cairosvg OK'\\)\")",
+      "Bash(node -e \"const {Resvg}=require\\('@resvg/resvg-js'\\); console.log\\('resvg OK'\\)\")",
+      "Bash(cd g:/phia-website/phia-site-claude && mkdir -p src/components/brand public/brand /tmp/logodev && echo \"dirs ready\")",
+      "Bash(node /tmp/logodev/render.cjs /tmp/logodev/mark.svg /tmp/logodev/mark.png white 480)",
+      "Bash(cygpath -w /tmp/logodev/render.cjs)",
+      "Bash(ls -la /tmp/logodev/render.cjs 2>/dev/null; echo \"---\"; find / -name \"mark.svg\" -path \"*logodev*\" 2>/dev/null | head; echo \"---g tmp---\"; ls -la g:/tmp/ 2>/dev/null | head)",
+      "Read(//g//**)",
+      "Bash(mkdir -p g:/tmp/logodev && cp g:/tmp/*.png g:/tmp/logodev/ 2>/dev/null; cp /tmp/logodev/render.cjs g:/tmp/logodev/render.cjs 2>/dev/null; ls g:/tmp/logodev/render.cjs 2>/dev/null && echo \"copied\" || echo \"need rewrite\")",
+      "Bash(node render.cjs mark.svg mark.png white 360)",
+      "Bash(python -c \"import numpy; print\\('np ok'\\)\")"
+    ],
+    "additionalDirectories": [
+      "\\tmp",
+      "g:\\tmp"
+    ]
+  }
+}
