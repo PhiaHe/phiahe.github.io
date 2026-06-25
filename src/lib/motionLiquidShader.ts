@@ -29,10 +29,15 @@ uniform vec2  u_mouse;
 uniform float u_scroll;
 uniform float u_quality;
 
-const vec3 CYAN   = vec3(0.373, 0.843, 0.824);
-const vec3 TEAL   = vec3(0.180, 0.580, 0.580);
-const vec3 VIOLET = vec3(0.541, 0.486, 0.941);
-const vec3 GOLD   = vec3(0.847, 0.702, 0.404);
+// Phia cold-sci-fi palette — blue-forward (icy cyan / electric blue / violet),
+// only a faint blue-teal, plus tiny gold micro-highlights. Deliberately NOT
+// green: TEAL is pulled toward blue so the body never reads as acid/teal-green.
+const CYAN   = vec3(0.45, 0.84, 0.95);   // icy cyan (more blue than the old green-cyan)
+const TEAL   = vec3(0.16, 0.42, 0.62);   // blue-teal (blue-dominant, low green)
+const ELECTRIC = vec3(0.27, 0.55, 1.0);  // electric blue
+const VIOLET = vec3(0.55, 0.46, 0.95);   // violet / purple-blue
+const NAVY   = vec3(0.03, 0.06, 0.13);   // deep navy core
+const GOLD   = vec3(0.85, 0.72, 0.42);   // subtle gold micro-highlight only
 
 float hash(vec3 p){ p = fract(p*0.3183099+0.1); p *= 17.0; return fract(p.x*p.y*p.z*(p.x+p.y+p.z)); }
 float noise(vec3 x){
@@ -100,33 +105,34 @@ void main(){
     if(tt > 8.0) break;
   }
 
-  // deep blue-black base + faint cool vignette glow
-  vec3 col = vec3(0.016, 0.022, 0.035);
-  col += 0.03*mix(TEAL, VIOLET, 0.5+0.5*sin(s*3.0+0.5)) * (1.0 - length(uv)*0.7);
+  // deep navy base + faint cool blue vignette glow
+  vec3 col = NAVY;
+  col += 0.03*mix(ELECTRIC, VIOLET, 0.5+0.5*sin(s*3.0+0.5)) * (1.0 - length(uv)*0.7);
 
   if(hit > 0.0){
     vec3 p = ro + rd*hit;
     vec3 n = norm(p);
     float fre = pow(1.0 - max(dot(n, -rd), 0.0), 2.4);
     float m = fbm(p*1.4 + u_time*0.18);
-    // internal cool iridescence: cyan↔violet by internal flow + facing
-    vec3 inner = mix(CYAN, VIOLET, clamp(m*0.9 + n.y*0.25 + 0.3, 0.0, 1.0));
-    inner = mix(inner, TEAL, 0.25);
+    // internal currents: electric-blue ↔ violet by internal flow + facing,
+    // with a touch of icy cyan. Blue-dominant, violet for depth — no green.
+    vec3 inner = mix(ELECTRIC, VIOLET, clamp(m*0.9 + n.y*0.25 + 0.3, 0.0, 1.0));
+    inner = mix(inner, CYAN, 0.22);
 
     vec3 l = normalize(vec3(0.5, 0.8, 0.55));
     float dif = max(dot(n, l), 0.0);
     float spec = pow(max(dot(reflect(-l, n), -rd), 0.0), 42.0);
     float spec2 = pow(max(dot(reflect(-l, n), -rd), 0.0), 14.0);
 
-    col = vec3(0.012, 0.018, 0.03);
-    col += inner * (fre*1.0 + 0.06);           // cool rim (dialed back)
-    col += GOLD * fre * 0.15;                   // subtle gold edge refraction
-    col += vec3(0.85, 0.97, 1.0) * spec * 0.9;  // wet hot highlight (softer)
-    col += CYAN * spec2 * 0.2;                  // soft sheen
-    col += inner * dif * 0.1;
+    col = NAVY * 0.7;                                  // deep navy body
+    col += mix(CYAN, ELECTRIC, 0.5) * (fre*1.05 + 0.06); // icy-blue rim light
+    col += GOLD * fre * 0.1;                            // tiny gold edge micro-hl
+    col += vec3(0.82, 0.93, 1.0) * spec * 0.95;         // cyan-white wet highlight
+    col += mix(CYAN, vec3(0.85,0.92,1.0), 0.5) * spec2 * 0.22; // silver-blue sheen
+    col += inner * dif * 0.12;                          // violet/blue inner flow
   } else {
-    // faint cool halo where the ray nearly grazed the body
-    col += CYAN * pow(max(0.0, 1.0 - dmin*1.2), 6.0) * 0.16;
+    // faint icy-blue halo where the ray nearly grazed the body
+    col += mix(CYAN, ELECTRIC, 0.4) * pow(max(0.0, 1.0 - dmin*1.2), 6.0) * 0.16;
   }
 
   // vignette

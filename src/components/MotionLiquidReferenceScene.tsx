@@ -49,8 +49,13 @@ export default function MotionLiquidReferenceScene({ progress }: Props) {
     let scroll = 0;
     let W = 0;
     let H = 0;
-    // Desktop renders a touch higher for smoother blob edges; mobile stays low.
-    const renderScale = isMobile ? 0.5 : 0.66;
+    // Adaptive renderScale — desktop starts a touch higher for smooth edges and
+    // drops resolution (not framerate) if fps sags, recovering when it's healthy.
+    const BASE_SCALE = isMobile ? 0.5 : 0.66;
+    const MIN_SCALE = isMobile ? 0.4 : 0.5;
+    let renderScale = BASE_SCALE;
+    let lowStreak = 0;
+    let highStreak = 0;
     const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
 
     const resize = () => {
@@ -92,31 +97,55 @@ export default function MotionLiquidReferenceScene({ progress }: Props) {
       prog.draw();
     };
 
-    // Desktop targets 60fps in the visible zone; eases off only deep in scroll.
-    const targetFpsFor = (s: number) => {
-      if (isMobile) return 30;
-      return s < 0.85 ? 60 : 30;
-    };
-    const PAST_END = 0.995;
+    // Desktop holds a flat 60fps across the WHOLE visible page (no per-section
+    // fps switching — that read as stutter). Mobile runs 30fps. Perf headroom
+    // comes from renderScale + the shader quality step-down, never from cutting
+    // the visible framerate. The liquid NEVER pauses on scroll position — only
+    // tab-hidden / reduced-motion / unmount stop it — so Contact still drifts.
+    const targetFps = isMobile ? 30 : 60;
 
     const loop = (tMs: number) => {
       if (!running) return;
       raf = requestAnimationFrame(loop);
       scroll = progress.get();
-      if (scroll >= PAST_END) return; // pause at the very end
-      const interval = 1000 / targetFpsFor(scroll);
+      const interval = 1000 / targetFps;
       if (tMs - lastDraw < interval) return;
       lastDraw = tMs;
       render(tMs);
 
-      if (isDev) {
-        frames++;
-        if (tMs - fpsT >= 500) {
-          const fps = Math.round((frames * 1000) / (tMs - fpsT));
-          frames = 0;
-          fpsT = tMs;
+      frames++;
+      if (tMs - fpsT >= 500) {
+        const fps = Math.round((frames * 1000) / (tMs - fpsT));
+        frames = 0;
+        fpsT = tMs;
+
+        // adaptive resolution (desktop only): protect 60fps by trading pixels.
+        if (!isMobile && !reduced) {
+          if (fps < 45) {
+            lowStreak++;
+            highStreak = 0;
+            if (lowStreak >= 2 && renderScale > MIN_SCALE) {
+              renderScale = Math.max(MIN_SCALE, renderScale - 0.08);
+              lowStreak = 0;
+              resize();
+            }
+          } else if (fps > 56) {
+            highStreak++;
+            lowStreak = 0;
+            if (highStreak >= 6 && renderScale < BASE_SCALE) {
+              renderScale = Math.min(BASE_SCALE, renderScale + 0.06);
+              highStreak = 0;
+              resize();
+            }
+          } else {
+            lowStreak = 0;
+            highStreak = 0;
+          }
+        }
+
+        if (isDev) {
           setFpsLabel(
-            `motionliquid · scale ${renderScale} · dpr ${dpr.toFixed(2)} · fps≈${fps} · s ${scroll.toFixed(2)}`
+            `motionliquid · scale ${renderScale.toFixed(2)} · dpr ${dpr.toFixed(2)} · fps≈${fps} · s ${scroll.toFixed(2)}`
           );
         }
       }
