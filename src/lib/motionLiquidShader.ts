@@ -29,10 +29,13 @@ uniform vec2  u_mouse;
 uniform float u_scroll;
 uniform float u_quality;
 
-const vec3 CYAN   = vec3(0.373, 0.843, 0.824);
-const vec3 TEAL   = vec3(0.180, 0.580, 0.580);
-const vec3 VIOLET = vec3(0.541, 0.486, 0.941);
-const vec3 GOLD   = vec3(0.847, 0.702, 0.404);
+// Icy blue-forward palette. Hue-only retune: each constant's luminance is kept
+// ~matched to the baseline, so body brightness / visibility is UNCHANGED —
+// only the hue shifts bluer (less green). VIOLET + GOLD left as-is.
+const vec3 CYAN   = vec3(0.380, 0.820, 0.970);  // icy cyan (B>G — was teal-green)
+const vec3 TEAL   = vec3(0.170, 0.550, 0.760);  // blue-teal (blue-dominant, low green)
+const vec3 VIOLET = vec3(0.541, 0.486, 0.941);  // purple-blue internal undercurrent
+const vec3 GOLD   = vec3(0.847, 0.702, 0.404);  // very subtle gold accent only
 
 float hash(vec3 p){ p = fract(p*0.3183099+0.1); p *= 17.0; return fract(p.x*p.y*p.z*(p.x+p.y+p.z)); }
 float noise(vec3 x){
