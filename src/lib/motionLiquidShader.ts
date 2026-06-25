@@ -105,9 +105,9 @@ void main(){
     if(tt > 8.0) break;
   }
 
-  // deep navy base + faint cool blue vignette glow
-  vec3 col = NAVY;
-  col += 0.03*mix(ELECTRIC, VIOLET, 0.5+0.5*sin(s*3.0+0.5)) * (1.0 - length(uv)*0.7);
+  // deep blue-black BACKGROUND (kept darker than the body so the object pops)
+  vec3 col = vec3(0.015, 0.025, 0.045);
+  col += 0.035*mix(ELECTRIC, VIOLET, 0.5+0.5*sin(s*3.0+0.5)) * (1.0 - length(uv)*0.7);
 
   if(hit > 0.0){
     vec3 p = ro + rd*hit;
@@ -124,12 +124,15 @@ void main(){
     float spec = pow(max(dot(reflect(-l, n), -rd), 0.0), 42.0);
     float spec2 = pow(max(dot(reflect(-l, n), -rd), 0.0), 14.0);
 
-    col = NAVY * 0.7;                                  // deep navy body
-    col += mix(CYAN, ELECTRIC, 0.5) * (fre*1.05 + 0.06); // icy-blue rim light
-    col += GOLD * fre * 0.1;                            // tiny gold edge micro-hl
-    col += vec3(0.82, 0.93, 1.0) * spec * 0.95;         // cyan-white wet highlight
-    col += mix(CYAN, vec3(0.85,0.92,1.0), 0.5) * spec2 * 0.22; // silver-blue sheen
-    col += inner * dif * 0.12;                          // violet/blue inner flow
+    // BODY: a clearly-visible blue-gray base + diffuse-lit inner glow so the
+    // object always reads brighter than the background (this contrast is what
+    // went missing — the body was darker than the bg). Then rim + spec on top.
+    vec3 bodyBase = mix(vec3(0.06, 0.12, 0.22), inner * 0.9, 0.45);
+    col = bodyBase + inner * dif * 0.55;                  // lit body fill (glows)
+    col += mix(CYAN, ELECTRIC, 0.5) * (fre*1.15 + 0.10);  // icy-blue rim light
+    col += GOLD * fre * 0.12;                             // tiny gold edge micro-hl
+    col += vec3(0.82, 0.93, 1.0) * spec * 1.0;            // cyan-white wet highlight
+    col += mix(CYAN, vec3(0.85,0.92,1.0), 0.5) * spec2 * 0.28; // silver-blue sheen
   } else {
     // faint icy-blue halo where the ray nearly grazed the body
     col += mix(CYAN, ELECTRIC, 0.4) * pow(max(0.0, 1.0 - dmin*1.2), 6.0) * 0.16;
