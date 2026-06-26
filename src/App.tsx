@@ -14,12 +14,14 @@ import AboutSection from "./components/AboutSection";
 import ContactFooter from "./components/ContactFooter";
 import SectionDivider from "./components/SectionDivider";
 import { useReducedMotion } from "./hooks/useReducedMotion";
+import { useWheelSmoothScroll } from "./hooks/useWheelSmoothScroll";
 import { useLanguage } from "./i18n/LanguageContext";
 import { ui } from "./data/siteData";
 
 export default function App() {
   const reduced = useReducedMotion();
   const { t } = useLanguage();
+  useWheelSmoothScroll({ enabled: !reduced });
 
   // The liquid is a GLOBAL motif across the WHOLE page. Track progress over the
   // entire scrollable document so the shader's intensity ramp spans every

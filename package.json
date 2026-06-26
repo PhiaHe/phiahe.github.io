@@ -9,6 +9,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "tsc --noEmit",
+    "test:smooth-scroll": "node scripts/test-smooth-scroll.mjs",
     "gen:assets": "node scripts/generate-placeholders.mjs"
   },
   "dependencies": {
