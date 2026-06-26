@@ -6,6 +6,7 @@ const siteData = readFileSync("src/data/siteData.ts", "utf8");
 const aramPage = readFileSync("src/components/tools/AramMayhemPage.tsx", "utf8");
 const aramData = readFileSync("src/data/aramMayhemData.ts", "utf8");
 const toolsSection = readFileSync("src/components/ToolsSection.tsx", "utf8");
+const dataPath = "public/data/aram-mayhem.json";
 
 let passed = 0;
 function check(label, fn) {
@@ -14,7 +15,7 @@ function check(label, fn) {
   console.log(`  ok ${label}`);
 }
 
-console.log("ARAM Mayhem tool-page tests");
+console.log("ARAM Mayhem tool-page tests (schema v3)");
 
 // --- Routing / navigation ---
 check("route and nav are wired", () => {
@@ -26,10 +27,10 @@ check("route and nav are wired", () => {
 });
 
 // --- Data loading ---
-check("page loads the public JSON snapshot", () => {
+check("page loads and validates the v3 public JSON snapshot", () => {
   assert.match(aramPage, /\/data\/aram-mayhem\.json/, "page should fetch the public JSON");
   assert.match(aramPage, /isAramMayhemSnapshot/, "page should validate the snapshot before use");
-  assert.match(aramPage, /schemaVersion === 2/, "page should accept the v2 schema");
+  assert.match(aramPage, /version === 3/, "page should accept the v3 schema");
 });
 
 check("page keeps a typed fallback but does not claim it is live", () => {
@@ -38,40 +39,44 @@ check("page keeps a typed fallback but does not claim it is live", () => {
 });
 
 // --- Status surfacing ---
-check("page surfaces live/stale/curated/fallback status", () => {
-  for (const status of ["live", "stale", "curated", "fallback"]) {
+check("page surfaces live/stale/fallback status + coverage", () => {
+  for (const status of ["live", "stale", "fallback"]) {
     assert.match(aramPage, new RegExp(`\\b${status}\\b`), `page should handle ${status} status`);
   }
+  assert.match(aramPage, /Live OP\.GG snapshot/, "page should show the live snapshot label");
   assert.match(aramPage, /Last synced|更新时间/, "page should show last synced time");
-  assert.match(aramPage, /Patch|版本/, "page should show the patch when available");
+  assert.match(aramPage, /Patch|版本/, "page should show the patch");
+  assert.match(aramPage, /Detail coverage|详情覆盖/, "page should show detail coverage");
 });
 
-// --- No fake data ---
-check("page no longer ships the 'Sample data' label or fake win rates", () => {
-  assert.doesNotMatch(aramPage, /Sample data/, "page should not show a 'Sample data' chip");
-  assert.doesNotMatch(aramData, /winRate|pickRate/, "curated data should not carry fake winRate/pickRate fields");
+// --- The whole champion pool, not a few samples ---
+check("page is driven by the full champion list", () => {
+  assert.match(aramPage, /dataSnapshot\.champions/, "page should render from the champions list");
+  assert.match(aramPage, /searchChampions/, "search should run over the champion list");
 });
 
-check("page is driven by the live tier list, not 4 hard-coded samples", () => {
-  assert.match(aramPage, /dataSnapshot\.tierList/, "page should render from the tier list");
-  assert.match(aramPage, /searchTierList/, "search should run over the tier list");
-  // The list item should not key off a 4-champion curated array.
-  assert.doesNotMatch(aramPage, /champions\.map\(\(champion\)/, "list should not map a fixed champions array");
+// --- Required detail fields rendered ---
+check("page renders augments, item build, and skill order", () => {
+  assert.match(aramPage, /Recommended Augments/, "page should use the 'Recommended Augments' heading");
+  assert.match(aramPage, /推荐海克斯/, "page should use the 推荐海克斯 heading");
+  assert.match(aramPage, /Item build|推荐装备/, "page should render the item build");
+  assert.match(aramPage, /Skill order|技能加点/, "page should render the skill order");
+  assert.match(aramPage, /Boots|鞋子/, "page should render boots");
+  assert.match(aramPage, /Core|核心装/, "page should render core items");
 });
 
-// --- Tier-only state for non-curated champions ---
-check("page renders a tier-only state for champions without a curated guide", () => {
-  assert.match(aramPage, /Tier only|仅榜单数据/, "page should show a tier-only state");
-  assert.match(aramPage, /aramMayhemCuratedByKey/, "page should look up curated guides by key");
+// --- Missing fields are honest, not faked ---
+check("missing fields show 'Unavailable from source', not fake data", () => {
+  assert.match(aramPage, /Unavailable from source|来源未提供/, "page should show an unavailable state");
 });
 
-// --- Wording guardrails ---
-check("page renders silver/gold/prismatic labels and avoids 棱镜", () => {
-  assert.match(aramPage, /OP\.GG/, "page should cite OP.GG");
-  assert.match(aramPage, /银色/, "page should render silver tier text");
-  assert.match(aramPage, /黄金/, "page should render gold tier text");
-  assert.match(aramPage, /棱彩/, "page should render prismatic tier text as 棱彩");
-  assert.doesNotMatch(`${siteData}\n${aramPage}\n${aramData}`, /棱镜/, "should not use 棱镜");
+// --- Forbidden wording / faked structures ---
+check("page does not use runes, rarity buckets, or 'Sample data'", () => {
+  assert.doesNotMatch(aramPage, /Sample data/, "no 'Sample data' label");
+  assert.doesNotMatch(aramPage, /Rune build|符文配置|rune build/i, "no rune build section");
+  assert.doesNotMatch(aramPage, /银色海克斯|黄金海克斯|棱彩海克斯|棱镜/, "no rarity-bucketed augments");
+  // The data layer must not carry rune or fabricated rarity fields either.
+  assert.doesNotMatch(aramData, /"rarity"|HexTier|silver:|prismatic:/, "data should not carry rarity buckets");
 });
 
 // --- Assets ---
@@ -82,6 +87,17 @@ check("tool cover and hero assets exist", () => {
   ]) {
     assert.equal(existsSync(file), true, `${file} should exist`);
   }
+});
+
+// --- The shipped data actually backs the UI claims ---
+check("shipped snapshot has the fields the UI renders", () => {
+  const snapshot = JSON.parse(readFileSync(dataPath, "utf8"));
+  const sample = snapshot.champions[0];
+  for (const field of ["key", "name", "image", "tier", "tierLabel", "rank", "detailStatus", "augments", "items", "skills"]) {
+    assert.ok(field in sample, `champion should expose ${field}`);
+  }
+  assert.ok("starter" in sample.items && "boots" in sample.items && "core" in sample.items, "items has starter/boots/core");
+  assert.ok(!("runes" in sample), "champion should not expose a runes field");
 });
 
 console.log(`\nAll ${passed} ARAM Mayhem tool-page checks passed.`);

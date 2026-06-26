@@ -1,58 +1,30 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   ARAM_MAYHEM_STALE_AFTER_DAYS,
-  aramMayhemCuratedByKey,
   aramMayhemFallbackData,
   aramMayhemSource,
   type AramMayhemChampion,
   type AramMayhemSnapshot,
   type AramMayhemStatus,
-  type AramMayhemTierEntry,
-  type HexPick,
-  type HexTier,
+  type ChampionItems,
+  type ItemRow,
 } from "../../data/aramMayhemData";
 import { useLanguage } from "../../i18n/LanguageContext";
 
 const DATA_URL = "/data/aram-mayhem.json";
 
-const tierMeta: Record<HexTier, { en: string; zh: string; className: string }> = {
-  silver: {
-    en: "Silver",
-    zh: "银色",
-    className: "border-slate-300/25 bg-slate-200/[0.07] text-slate-100",
-  },
-  gold: {
-    en: "Gold",
-    zh: "黄金",
-    className: "border-accent-gold/30 bg-accent-gold/[0.08] text-accent-gold",
-  },
-  prismatic: {
-    en: "Prismatic",
-    zh: "棱彩",
-    className: "border-accent-violet/35 bg-accent-violet/[0.09] text-accent-cyan",
-  },
-};
-
-const priorityLabel = {
-  core: { en: "Core", zh: "核心" },
-  good: { en: "Good", zh: "推荐" },
-  situational: { en: "Situational", zh: "看情况" },
-  avoid: { en: "Avoid", zh: "不推荐" },
-} as const;
-
 function isAramMayhemSnapshot(value: unknown): value is AramMayhemSnapshot {
   if (!value || typeof value !== "object") return false;
   const snapshot = value as Partial<AramMayhemSnapshot>;
   return (
-    snapshot.schemaVersion === 2 &&
-    !!snapshot.source &&
-    snapshot.source.url === aramMayhemSource.url &&
-    Array.isArray(snapshot.tierList) &&
-    snapshot.tierList.length > 0
+    snapshot.version === 3 &&
+    snapshot.sourceUrl === aramMayhemSource.url &&
+    Array.isArray(snapshot.champions) &&
+    snapshot.champions.length > 0
   );
 }
 
-/** Days between an ISO timestamp and now; large/Infinity when missing. */
+/** Days between an ISO timestamp and now; Infinity when missing/invalid. */
 function daysSince(iso: string | undefined): number {
   if (!iso) return Number.POSITIVE_INFINITY;
   const then = Date.parse(iso);
@@ -60,32 +32,24 @@ function daysSince(iso: string | undefined): number {
   return (Date.now() - then) / (1000 * 60 * 60 * 24);
 }
 
-/**
- * Decide the effective status shown to the user. A loaded live snapshot is
- * downgraded to "stale" once its sync is older than the threshold.
- */
+/** Downgrade a live snapshot to "stale" once its sync is older than the limit. */
 function resolveStatus(snapshot: AramMayhemSnapshot): AramMayhemStatus {
-  if (snapshot.source.status === "live" && daysSince(snapshot.source.syncedAt) > ARAM_MAYHEM_STALE_AFTER_DAYS) {
+  if (snapshot.status === "live" && daysSince(snapshot.syncedAt) > ARAM_MAYHEM_STALE_AFTER_DAYS) {
     return "stale";
   }
-  return snapshot.source.status;
+  return snapshot.status;
 }
 
 const statusMeta: Record<AramMayhemStatus, { en: string; zh: string; className: string }> = {
   live: {
-    en: "Live snapshot",
-    zh: "实时快照",
+    en: "Live OP.GG snapshot",
+    zh: "OP.GG 实时快照",
     className: "border-accent-cyan/40 bg-accent-cyan/[0.08] text-accent-cyan",
   },
   stale: {
     en: "Stale snapshot",
     zh: "快照偏旧",
     className: "border-accent-gold/40 bg-accent-gold/[0.08] text-accent-gold",
-  },
-  curated: {
-    en: "Curated snapshot",
-    zh: "手动整理快照",
-    className: "border-slate-300/25 bg-slate-200/[0.07] text-slate-100",
   },
   fallback: {
     en: "Fallback data",
@@ -94,48 +58,58 @@ const statusMeta: Record<AramMayhemStatus, { en: string; zh: string; className: 
   },
 };
 
-function searchTierList(entries: AramMayhemTierEntry[], query: string) {
+function searchChampions(champions: AramMayhemChampion[], query: string) {
   const normalized = query.trim().toLowerCase();
-  if (!normalized) return entries;
-  return entries.filter((entry) => {
-    const curated = aramMayhemCuratedByKey[entry.key];
-    const haystack = [entry.nameZh, entry.nameEn, entry.key, ...(curated?.aliases ?? [])]
-      .join(" ")
-      .toLowerCase();
+  if (!normalized) return champions;
+  return champions.filter((champion) => {
+    const haystack = [champion.name.zh, champion.name.en, champion.key].join(" ").toLowerCase();
     return haystack.includes(normalized);
   });
 }
 
-function getTopHexes(champion: AramMayhemChampion) {
-  return [...champion.hexes.prismatic, ...champion.hexes.gold, ...champion.hexes.silver]
-    .filter((hex) => hex.priority === "core" || hex.priority === "good")
-    .slice(0, 3);
-}
-
-function HexCard({ hex }: { hex: HexPick }) {
-  const { t, lang } = useLanguage();
-  const meta = tierMeta[hex.tier];
-
+function ItemPath({ row }: { row: ItemRow }) {
   return (
-    <div className={`rounded-xl border p-4 ${meta.className}`}>
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="font-display text-base font-semibold text-white">
-            {lang === "zh" ? hex.nameZh : hex.nameEn}
-          </p>
-          <p className="mt-1 text-xs text-accent-silver/55">
-            {t(priorityLabel[hex.priority])}
-          </p>
-        </div>
-        <span className="rounded-full border border-current/20 px-2 py-1 font-mono text-[10px] uppercase tracking-widest">
-          {t(meta)}
+    <div className="flex flex-wrap items-center gap-1.5">
+      {row.items.map((item, index) => (
+        <span key={`${item.id}-${index}`} className="flex items-center gap-1.5">
+          {index > 0 && <span className="text-accent-silver/30">›</span>}
+          <span className="rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1.5 text-xs text-white">
+            {item.name}
+          </span>
         </span>
-      </div>
-      <p className="mt-3 text-sm leading-relaxed text-accent-silver/68">
-        {lang === "zh" ? hex.reasonZh : hex.reasonEn}
-      </p>
+      ))}
     </div>
   );
+}
+
+function ItemSection({
+  title,
+  rows,
+}: {
+  title: { en: string; zh: string };
+  rows: ItemRow[];
+}) {
+  const { t } = useLanguage();
+  return (
+    <div>
+      <p className="font-mono text-[11px] uppercase tracking-widest text-accent-silver/55">{t(title)}</p>
+      {rows.length === 0 ? (
+        <p className="mt-2 text-sm text-accent-silver/45">
+          {t({ en: "Unavailable from source", zh: "来源未提供" })}
+        </p>
+      ) : (
+        <div className="mt-2 space-y-2">
+          {rows.map((row) => (
+            <ItemPath key={row.row} row={row} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function hasAnyItems(items: ChampionItems) {
+  return items.starter.length > 0 || items.boots.length > 0 || items.core.length > 0;
 }
 
 export default function AramMayhemPage() {
@@ -144,16 +118,12 @@ export default function AramMayhemPage() {
   const [dataSnapshot, setDataSnapshot] = useState<AramMayhemSnapshot>(aramMayhemFallbackData);
 
   const status = useMemo(() => resolveStatus(dataSnapshot), [dataSnapshot]);
-  const tierList = dataSnapshot.tierList;
-  const results = useMemo(() => searchTierList(tierList, query), [tierList, query]);
-  const [selectedKey, setSelectedKey] = useState(tierList[0]?.key ?? "");
+  const champions = dataSnapshot.champions;
+  const results = useMemo(() => searchChampions(champions, query), [champions, query]);
+  const [selectedKey, setSelectedKey] = useState(champions[0]?.key ?? "");
 
-  const selectedEntry =
-    tierList.find((entry) => entry.key === selectedKey) ?? results[0] ?? tierList[0];
-  const curated: AramMayhemChampion | undefined = selectedEntry
-    ? aramMayhemCuratedByKey[selectedEntry.key]
-    : undefined;
-  const topHexes = curated ? getTopHexes(curated) : [];
+  const selected =
+    champions.find((champion) => champion.key === selectedKey) ?? results[0] ?? champions[0];
   const meta = statusMeta[status];
 
   useEffect(() => {
@@ -183,18 +153,22 @@ export default function AramMayhemPage() {
   }, []);
 
   useEffect(() => {
-    if (!tierList.some((entry) => entry.key === selectedKey)) {
-      setSelectedKey(tierList[0]?.key ?? "");
+    if (!champions.some((champion) => champion.key === selectedKey)) {
+      setSelectedKey(champions[0]?.key ?? "");
     }
-  }, [tierList, selectedKey]);
+  }, [champions, selectedKey]);
 
   const handleQueryChange = (value: string) => {
     setQuery(value);
-    const [first] = searchTierList(tierList, value);
+    const [first] = searchChampions(champions, value);
     if (first) setSelectedKey(first.key);
   };
 
-  const lastSynced = dataSnapshot.source.syncedAt?.slice(0, 10) ?? dataSnapshot.source.updatedAt;
+  const lastSynced = dataSnapshot.syncedAt ? dataSnapshot.syncedAt.slice(0, 10) : "—";
+  const detailCoverage =
+    dataSnapshot.championCount > 0
+      ? Math.round((dataSnapshot.detailCount / dataSnapshot.championCount) * 100)
+      : 0;
 
   return (
     <main id="aram-tool-main" className="min-h-screen pb-24 pt-28 md:pt-32">
@@ -223,20 +197,24 @@ export default function AramMayhemPage() {
             </h1>
             <p className="mt-5 max-w-[30ch] text-base leading-relaxed text-accent-silver/70 sm:max-w-2xl md:text-lg">
               {t({
-                en: "Pick a champion, scan the strongest silver, gold, and prismatic augment priorities, then follow a practical item route.",
-                zh: "选到英雄后，快速查看银色、黄金、棱彩海克斯优先级，并按推荐装备路线出装。",
+                en: "Search any champion in the mode, then scan their recommended augments, item build, and skill order from a live OP.GG snapshot.",
+                zh: "搜索模式内任意英雄，查看来自 OP.GG 实时快照的推荐海克斯、出装路线与技能加点。",
               })}
             </p>
             <div className="mt-7 flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap">
               <span className={`rounded-full border px-3 py-1 font-mono text-[11px] uppercase tracking-widest ${meta.className}`}>
                 {t(meta)}
               </span>
-              <span className="chip">{t({ en: "Source: OP.GG", zh: "数据来源：OP.GG" })}</span>
-              {dataSnapshot.source.version && (
-                <span className="chip">{t({ en: `Patch ${dataSnapshot.source.version}`, zh: `版本 ${dataSnapshot.source.version}` })}</span>
+              {dataSnapshot.patch && (
+                <span className="chip">{t({ en: `Patch ${dataSnapshot.patch}`, zh: `版本 ${dataSnapshot.patch}` })}</span>
               )}
               <span className="chip">{t({ en: `Last synced ${lastSynced}`, zh: `更新时间 ${lastSynced}` })}</span>
-              <span className="chip">{t({ en: `${tierList.length} champions`, zh: `${tierList.length} 个英雄` })}</span>
+              <span className="chip">
+                {t({
+                  en: `Detail coverage ${detailCoverage}% (${dataSnapshot.detailCount}/${dataSnapshot.championCount})`,
+                  zh: `详情覆盖 ${detailCoverage}%（${dataSnapshot.detailCount}/${dataSnapshot.championCount}）`,
+                })}
+              </span>
             </div>
           </div>
         </div>
@@ -254,50 +232,46 @@ export default function AramMayhemPage() {
             onKeyDown={(event) => {
               if (event.key === "Enter" && results[0]) setSelectedKey(results[0].key);
             }}
-            placeholder={t({ en: "Ashe, Ezreal, Lux...", zh: "寒冰、EZ、光辉..." })}
+            placeholder={t({ en: "Jinx, Ashe, Lux...", zh: "金克丝、寒冰、光辉..." })}
             className="mt-3 w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-accent-silver/35 focus:border-accent-cyan/60"
           />
+          <p className="mt-3 font-mono text-[11px] text-accent-silver/40">
+            {t({ en: `${results.length} champions`, zh: `${results.length} 个英雄` })}
+          </p>
 
-          <div className="mt-4 max-h-[520px] space-y-2 overflow-y-auto pr-1">
+          <div className="mt-3 max-h-[560px] space-y-2 overflow-y-auto pr-1">
             {results.length === 0 ? (
               <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm text-accent-silver/60">
                 {t({ en: "No champions found.", zh: "未找到英雄。" })}
               </div>
             ) : (
-              results.map((entry) => {
-                const active = selectedEntry ? entry.key === selectedEntry.key : false;
-                const hasGuide = !!aramMayhemCuratedByKey[entry.key];
+              results.map((champion) => {
+                const active = selected ? champion.key === selected.key : false;
                 return (
                   <button
                     type="button"
-                    key={entry.key}
-                    onClick={() => setSelectedKey(entry.key)}
+                    key={champion.key}
+                    onClick={() => setSelectedKey(champion.key)}
                     className={`flex w-full items-center gap-3 rounded-xl border p-3 text-left transition-colors ${
                       active
                         ? "border-accent-cyan/45 bg-accent-cyan/[0.08]"
                         : "border-white/10 bg-white/[0.025] hover:border-white/20 hover:bg-white/[0.05]"
                     }`}
                   >
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-void-700 font-display text-lg text-white">
-                      {entry.imageUrl ? (
-                        <img
-                          src={entry.imageUrl}
-                          alt=""
-                          loading="lazy"
-                          className="h-full w-full object-cover"
-                        />
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-void-700 font-display text-sm text-white">
+                      {champion.image ? (
+                        <img src={champion.image} alt="" loading="lazy" className="h-full w-full object-cover" />
                       ) : (
-                        (lang === "zh" ? entry.nameZh : entry.nameEn).slice(0, 1)
+                        (lang === "zh" ? champion.name.zh : champion.name.en).slice(0, 1)
                       )}
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="block truncate text-sm font-medium text-white">
-                        {lang === "zh" ? entry.nameZh : entry.nameEn}
+                        {lang === "zh" ? champion.name.zh : champion.name.en}
                       </span>
                       <span className="mt-0.5 block font-mono text-[11px] text-accent-silver/45">
-                        {t({ en: `Tier ${entry.tierLabel}`, zh: `强度 ${entry.tierLabel}` })}
-                        {entry.rank > 0 ? ` · #${entry.rank}` : ""}
-                        {hasGuide ? " · ★" : ""}
+                        {t({ en: `Tier ${champion.tierLabel}`, zh: `强度 ${champion.tierLabel}` })}
+                        {champion.rank > 0 ? ` · #${champion.rank}` : ""}
                       </span>
                     </span>
                   </button>
@@ -307,151 +281,148 @@ export default function AramMayhemPage() {
           </div>
         </aside>
 
-        {selectedEntry && (
+        {selected && (
           <div className="min-w-0 space-y-6">
             <section className="glass p-5 md:p-7">
-                <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+              <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+                <div className="flex items-start gap-4">
+                  {selected.image && (
+                    <img
+                      src={selected.image}
+                      alt=""
+                      className="h-16 w-16 shrink-0 rounded-xl border border-white/10 object-cover"
+                    />
+                  )}
                   <div>
                     <p className="eyebrow">{t({ en: "Selected champion", zh: "当前英雄" })}</p>
-                    <h2 className="mt-3 font-display text-3xl font-semibold text-white md:text-4xl">
-                      {lang === "zh" ? selectedEntry.nameZh : selectedEntry.nameEn}
+                    <h2 className="mt-2 font-display text-3xl font-semibold text-white md:text-4xl">
+                      {lang === "zh" ? selected.name.zh : selected.name.en}
                     </h2>
-                    <p className="mt-3 max-w-[32ch] text-sm leading-relaxed text-accent-silver/68 sm:max-w-2xl">
-                      {curated
-                        ? lang === "zh"
-                          ? curated.patternZh
-                          : curated.patternEn
-                        : t({
-                            en: "Live OP.GG tier and rank only. A hand-written augment and build guide for this champion is not available yet.",
-                            zh: "仅提供 OP.GG 实时强度与排名。该英雄的海克斯与出装详解尚未手动整理。",
-                          })}
+                    {selected.detailStatus === "failed" && (
+                      <p className="mt-2 max-w-[40ch] text-sm text-accent-silver/55">
+                        {t({
+                          en: "Live tier and rank only — detailed build data was unavailable at the last sync.",
+                          zh: "仅提供实时强度与排名——上次同步未取到该英雄的详情数据。",
+                        })}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="grid w-full grid-cols-2 gap-3 text-sm md:min-w-[220px] md:w-auto">
+                  <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+                    <p className="text-accent-silver/45">{t({ en: "Tier", zh: "强度" })}</p>
+                    <p className="mt-1 font-mono text-xl text-white">{selected.tierLabel}</p>
+                  </div>
+                  <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+                    <p className="text-accent-silver/45">{t({ en: "Rank", zh: "排名" })}</p>
+                    <p className="mt-1 font-mono text-xl text-white">
+                      {selected.rank > 0 ? `#${selected.rank}` : t({ en: "N/A", zh: "暂无" })}
                     </p>
                   </div>
-                  <div className="grid w-full grid-cols-1 gap-3 text-sm sm:grid-cols-2 md:min-w-[220px] md:w-auto">
-                    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-                      <p className="text-accent-silver/45">{t({ en: "Tier", zh: "强度" })}</p>
-                      <p className="mt-1 font-mono text-xl text-white">{selectedEntry.tierLabel}</p>
+                </div>
+              </div>
+            </section>
+
+            <section className="glass p-5 md:p-7">
+              <p className="eyebrow">{t({ en: "Recommended Augments", zh: "推荐海克斯" })}</p>
+              <h3 className="mt-3 font-display text-2xl font-semibold text-white">
+                {t({ en: "Augment priority", zh: "海克斯优先级" })}
+              </h3>
+              {selected.augments.length === 0 ? (
+                <p className="mt-4 text-sm text-accent-silver/45">
+                  {t({ en: "Unavailable from source", zh: "来源未提供" })}
+                </p>
+              ) : (
+                <ol className="mt-5 grid gap-2 sm:grid-cols-2">
+                  {selected.augments.map((augment) => (
+                    <li
+                      key={augment.id || augment.priority}
+                      className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3"
+                    >
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-accent-cyan/30 bg-accent-cyan/[0.08] font-mono text-xs text-accent-cyan">
+                        {augment.priority}
+                      </span>
+                      <span className="text-sm font-medium text-white">
+                        {lang === "zh" ? augment.name.zh : augment.name.en}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </section>
+
+            <section className="glass p-5 md:p-7">
+              <p className="eyebrow">{t({ en: "Item build", zh: "推荐装备" })}</p>
+              {hasAnyItems(selected.items) ? (
+                <div className="mt-5 space-y-5">
+                  <ItemSection title={{ en: "Starter", zh: "出门装" }} rows={selected.items.starter} />
+                  <ItemSection title={{ en: "Boots", zh: "鞋子" }} rows={selected.items.boots} />
+                  <ItemSection title={{ en: "Core", zh: "核心装" }} rows={selected.items.core} />
+                </div>
+              ) : (
+                <p className="mt-4 text-sm text-accent-silver/45">
+                  {t({ en: "Unavailable from source", zh: "来源未提供" })}
+                </p>
+              )}
+            </section>
+
+            <section className="glass p-5 md:p-7">
+              <p className="eyebrow">{t({ en: "Skill order", zh: "技能加点" })}</p>
+              {selected.skills ? (
+                <div className="mt-5 space-y-5">
+                  <div>
+                    <p className="font-mono text-[11px] uppercase tracking-widest text-accent-silver/55">
+                      {t({ en: "Max priority", zh: "主升顺序" })}
+                    </p>
+                    <div className="mt-2 flex items-center gap-2">
+                      {selected.skills.order.map((letter, index) => (
+                        <span key={`${letter}-${index}`} className="flex items-center gap-2">
+                          {index > 0 && <span className="text-accent-silver/30">›</span>}
+                          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-accent-cyan/30 bg-accent-cyan/[0.08] font-display text-base text-white">
+                            {letter}
+                          </span>
+                        </span>
+                      ))}
                     </div>
-                    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
-                      <p className="text-accent-silver/45">{t({ en: "Rank", zh: "排名" })}</p>
-                      <p className="mt-1 font-mono text-xl text-white">
-                        {selectedEntry.rank > 0 ? `#${selectedEntry.rank}` : t({ en: "N/A", zh: "暂无" })}
-                      </p>
+                  </div>
+                  <div>
+                    <p className="font-mono text-[11px] uppercase tracking-widest text-accent-silver/55">
+                      {t({ en: "Leveling sequence", zh: "升级序列" })}
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {selected.skills.sequence.map((letter, index) => (
+                        <span
+                          key={index}
+                          className="flex h-7 w-7 items-center justify-center rounded-md border border-white/10 bg-white/[0.04] font-mono text-xs text-accent-silver/75"
+                        >
+                          {letter}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
-
-                {curated && (
-                  <div className="mt-6 grid gap-3 md:grid-cols-3">
-                    {[
-                      { label: { en: "Take First", zh: "优先拿" }, value: topHexes[0] ? (lang === "zh" ? topHexes[0].nameZh : topHexes[0].nameEn) : "-" },
-                      { label: { en: "Acceptable", zh: "可接受" }, value: topHexes[1] ? (lang === "zh" ? topHexes[1].nameZh : topHexes[1].nameEn) : "-" },
-                      { label: { en: "Build Toward", zh: "装备走向" }, value: lang === "zh" ? curated.builds[0]?.nameZh : curated.builds[0]?.nameEn },
-                    ].map((item) => (
-                      <div key={item.label.en} className="rounded-xl border border-accent-cyan/15 bg-accent-cyan/[0.045] p-4">
-                        <p className="font-mono text-[11px] uppercase tracking-widest text-accent-cyan/70">
-                          {t(item.label)}
-                        </p>
-                        <p className="mt-2 text-sm font-medium text-white">{item.value}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
+              ) : (
+                <p className="mt-4 text-sm text-accent-silver/45">
+                  {t({ en: "Unavailable from source", zh: "来源未提供" })}
+                </p>
+              )}
             </section>
 
-            {curated ? (
-              <>
-                <section className="glass p-5 md:p-7">
-                    <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-                      <div>
-                        <p className="eyebrow">{t({ en: "Hex priority", zh: "海克斯优先级" })}</p>
-                        <h3 className="mt-3 font-display text-2xl font-semibold text-white">
-                          {t({ en: "Silver / Gold / Prismatic", zh: "银色 / 黄金 / 棱彩" })}
-                        </h3>
-                      </div>
-                      <p className="text-sm text-accent-silver/45">
-                        {t({ en: "Curated priorities", zh: "手动整理的优先级" })}
-                      </p>
-                    </div>
-
-                    <div className="mt-6 grid gap-4 xl:grid-cols-3">
-                      {(["silver", "gold", "prismatic"] as HexTier[]).map((tier) => (
-                        <div key={tier} className="space-y-3">
-                          <p className={`w-fit rounded-full border px-3 py-1 font-mono text-[11px] uppercase tracking-widest ${tierMeta[tier].className}`}>
-                            {t(tierMeta[tier])}
-                          </p>
-                          {curated.hexes[tier].map((hex) => (
-                            <HexCard key={hex.id} hex={hex} />
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                </section>
-
-                <section className="glass p-5 md:p-7">
-                    <p className="eyebrow">{t({ en: "Item routes", zh: "装备路线" })}</p>
-                    <div className="mt-6 grid gap-4 lg:grid-cols-2">
-                      {curated.builds.map((build) => (
-                        <article key={build.id} className="rounded-xl border border-white/10 bg-white/[0.035] p-5">
-                          <div className="flex items-start justify-between gap-4">
-                            <div>
-                              <h3 className="font-display text-xl font-semibold text-white">
-                                {lang === "zh" ? build.nameZh : build.nameEn}
-                              </h3>
-                              <p className="mt-2 text-sm leading-relaxed text-accent-silver/65">
-                                {lang === "zh" ? build.notesZh : build.notesEn}
-                              </p>
-                            </div>
-                            <span className="chip">{build.role}</span>
-                          </div>
-                          <div className="mt-5 flex flex-wrap gap-2">
-                            {build.coreItems.map((item) => (
-                              <span key={item} className="rounded-lg border border-accent-cyan/20 bg-accent-cyan/[0.06] px-3 py-2 text-sm text-white">
-                                {item}
-                              </span>
-                            ))}
-                          </div>
-                          {build.situationalItems.length > 0 && (
-                            <div className="mt-4 flex flex-wrap gap-2">
-                              {build.situationalItems.map((item) => (
-                                <span key={item} className="rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-accent-silver/65">
-                                  {item}
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                        </article>
-                      ))}
-                    </div>
-                </section>
-              </>
-            ) : (
-              <section className="glass p-5 md:p-7">
-                <p className="eyebrow">{t({ en: "Tier only", zh: "仅榜单数据" })}</p>
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-accent-silver/65">
-                  {t({
-                    en: "Detailed augment priorities and item routes are hand-curated and currently cover a few featured champions. Live OP.GG tier and rank are shown for every champion in the mode.",
-                    zh: "海克斯优先级与出装路线为手动整理，目前覆盖部分精选英雄。该模式下每个英雄都会显示来自 OP.GG 的实时强度与排名。",
-                  })}
-                </p>
-              </section>
-            )}
-
             <section className="rounded-[18px] border border-white/10 bg-white/[0.035] p-5 text-sm leading-relaxed text-accent-silver/60">
-                <p>
-                  {t({
-                    en: "Live tier list is synced from OP.GG ARAM Mayhem on a schedule. Augment priorities and item routes for featured champions are hand-curated and clearly labeled.",
-                    zh: "英雄强度榜单按计划从 OP.GG 海克斯大乱斗同步。精选英雄的海克斯优先级与出装路线为手动整理，并已明确标注。",
-                  })}
-                </p>
-                <a
-                  href={aramMayhemSource.url}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="mt-3 inline-flex text-accent-cyan transition-colors hover:text-white"
-                >
-                  {aramMayhemSource.url}
-                </a>
+              <p>
+                {t({
+                  en: "Data is synced from OP.GG ARAM Mayhem on a schedule. OP.GG does not publish rune data for this mode, and augments are shown as a single recommended priority list (not split by rarity).",
+                  zh: "数据按计划从 OP.GG 海克斯大乱斗同步。OP.GG 当前不发布该模式的符文数据，海克斯以单一推荐优先级列表展示（不按稀有度分组）。",
+                })}
+              </p>
+              <a
+                href={selected.sourceUrl || aramMayhemSource.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="mt-3 inline-flex text-accent-cyan transition-colors hover:text-white"
+              >
+                {selected.sourceUrl || aramMayhemSource.url}
+              </a>
             </section>
           </div>
         )}

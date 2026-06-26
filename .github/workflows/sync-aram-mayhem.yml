@@ -20,6 +20,8 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    # Full sync fetches the list + ~173 detail pages with polite delays.
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
