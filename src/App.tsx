@@ -8,12 +8,14 @@ import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import FeaturedWorkSection from "./components/FeaturedWorkSection";
+import ToolsSection from "./components/ToolsSection";
 import VisualLabSection from "./components/VisualLabSection";
 import DevLogSection from "./components/DevLogSection";
 import AboutSection from "./components/AboutSection";
 import ContactFooter from "./components/ContactFooter";
 import SectionDivider from "./components/SectionDivider";
 import ProjectDetailPage from "./components/project/ProjectDetailPage";
+import AramMayhemPage from "./components/tools/AramMayhemPage";
 import { useReducedMotion } from "./hooks/useReducedMotion";
 import { useWheelSmoothScroll } from "./hooks/useWheelSmoothScroll";
 import { useLanguage } from "./i18n/LanguageContext";
@@ -38,6 +40,8 @@ export default function App() {
   }, []);
 
   const isInkvokerPage = route === "#/projects/inkvoker";
+  const isAramMayhemPage = route === "#/tools/aram-mayhem";
+  const isDetailPage = isInkvokerPage || isAramMayhemPage;
   useWheelSmoothScroll({ enabled: shouldUseCustomWheelScroll(route, reduced) });
 
   // Scroll reset is handled in AnimatePresence's onExitComplete (below), not
@@ -94,7 +98,7 @@ export default function App() {
   return (
     <MotionConfig reducedMotion={reduced ? "always" : "user"}>
       <a
-        href={isInkvokerPage ? "#project-main" : "#work"}
+        href={isInkvokerPage ? "#project-main" : isAramMayhemPage ? "#aram-tool-main" : "#work"}
         onClick={
           isInkvokerPage
             ? (e) => {
@@ -103,6 +107,13 @@ export default function App() {
                   .getElementById("project-main")
                   ?.scrollIntoView({ behavior: "smooth", block: "start" });
               }
+            : isAramMayhemPage
+              ? (e) => {
+                  e.preventDefault();
+                  document
+                    .getElementById("aram-tool-main")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
             : undefined
         }
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-void-700 focus:px-4 focus:py-2 focus:text-sm focus:text-white"
@@ -133,7 +144,7 @@ export default function App() {
       <div ref={pageRef} className="relative z-10">
         <AnimatePresence mode="wait" onExitComplete={finalizeRouteScroll}>
           <motion.div
-            key={isInkvokerPage ? "project-inkvoker" : "home"}
+            key={isDetailPage ? route : "home"}
             initial={{ opacity: 0, scale: 0.985 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.99 }}
@@ -141,10 +152,14 @@ export default function App() {
           >
             {isInkvokerPage ? (
               <ProjectDetailPage onBackToWork={handleBackToWork} />
+            ) : isAramMayhemPage ? (
+              <AramMayhemPage />
             ) : (
               <>
                 <Hero />
                 <FeaturedWorkSection />
+                <SectionDivider />
+                <ToolsSection />
                 <SectionDivider />
                 <VisualLabSection />
                 <SectionDivider />

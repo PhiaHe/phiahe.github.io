@@ -1,0 +1,45 @@
+name: Sync ARAM Mayhem data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 20 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "aram-mayhem-data-sync"
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync ARAM Mayhem data
+        run: node scripts/sync-aram-mayhem-data.mjs
+
+      - name: Commit updated snapshot
+        run: |
+          if git diff --quiet -- public/data/aram-mayhem.json; then
+            echo "No ARAM Mayhem data changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/aram-mayhem.json
+          git commit -m "chore: sync ARAM Mayhem data"
+          git push

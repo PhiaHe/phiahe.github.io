@@ -51,5 +51,7 @@ assert.equal(shouldUseCustomWheelScroll("", false), true);
 assert.equal(shouldUseCustomWheelScroll("#work", false), true);
 assert.equal(shouldUseCustomWheelScroll("#/projects/inkvoker", false), false);
 assert.equal(shouldUseCustomWheelScroll("#/projects/inkvoker", true), false);
+assert.equal(shouldUseCustomWheelScroll("#/tools/aram-mayhem", false), false);
+assert.equal(shouldUseCustomWheelScroll("#/tools/aram-mayhem", true), false);
 
 rmSync(outDir, { recursive: true, force: true });

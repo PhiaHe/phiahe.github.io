@@ -43,6 +43,16 @@ export interface LabCategory {
   count: Localized;
 }
 
+export interface ToolEntry {
+  id: string;
+  title: Localized;
+  description: Localized;
+  cover: string;
+  href: string;
+  status: Localized;
+  tags: Localized[];
+}
+
 export interface DevLogEntry {
   id: string;
   title: Localized;
@@ -83,6 +93,7 @@ export const ui = {
 
 export const nav: NavLink[] = [
   { label: { en: "Work", zh: "作品" }, href: "#work" },
+  { label: { en: "Tools", zh: "工具" }, href: "#tools" },
   { label: { en: "Visual Lab", zh: "视觉实验" }, href: "#lab" },
   { label: { en: "Dev Log", zh: "开发日志" }, href: "#devlog" },
   { label: { en: "About", zh: "关于" }, href: "#about" },
@@ -171,6 +182,25 @@ export const featuredWork: FeaturedWork[] = [
     cover: "/assets/placeholders/work-pixel.svg",
     accent: "gold",
     status: { en: "Sprite work", zh: "精灵创作中" },
+  },
+];
+
+export const tools: ToolEntry[] = [
+  {
+    id: "aram-mayhem",
+    title: { en: "ARAM Mayhem Hex Helper", zh: "海克斯大乱斗速查" },
+    description: {
+      en: "Pick a champion, scan the best augments, and follow the item route.",
+      zh: "选到英雄后，快速查看优先海克斯和装备路线。",
+    },
+    cover: "/assets/tools/aram-mayhem/tool-aram-mayhem-cover.jpg",
+    href: "#/tools/aram-mayhem",
+    status: { en: "Sample data", zh: "样例数据" },
+    tags: [
+      { en: "Champion search", zh: "英雄搜索" },
+      { en: "Silver / Gold / Prismatic", zh: "银色 / 黄金 / 棱彩" },
+      { en: "Item routes", zh: "装备路线" },
+    ],
   },
 ];
 
