@@ -131,7 +131,7 @@ export const featuredWork: FeaturedWork[] = [
       { en: "Visual Feedback", zh: "视觉反馈" },
       { en: "AI-assisted Development", zh: "AI 辅助开发" },
     ],
-    cover: "/assets/placeholders/work-inkvoker.svg",
+    cover: "/assets/projects/inkvoker/work-inkvoker-cover.jpg",
     accent: "cyan",
     status: { en: "Prototype in motion", zh: "原型进行中" },
     href: "#/projects/inkvoker",

@@ -64,7 +64,7 @@ export const inkvokerProject: ProjectDetail = {
   primaryCta: { en: "Explore Systems", zh: "查看系统" },
   secondaryCta: { en: "Back to Work", zh: "返回作品" },
   heroImage: {
-    src: asset("hero-concept.jpg"),
+    src: asset("hero-concept-gemini.jpg"),
     alt: {
       en: "Concept visual for Inkvoker showing martial arts technique cards orbiting an ink formation.",
       zh: "墨唤战场：水墨风格的竞技场，武学自动战斗在此展开。",
