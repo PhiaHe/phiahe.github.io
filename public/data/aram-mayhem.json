@@ -1,357 +1,1749 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "source": {
     "name": "OP.GG ARAM Mayhem",
     "url": "https://op.gg/zh-cn/lol/modes/aram-mayhem",
+    "version": "16.13",
     "updatedAt": "2026-06-26",
-    "syncedAt": "2026-06-26T18:25:35.237Z",
-    "syncStatus": "opgg-page-fetched",
-    "pageTitle": "OP.GG LOL英雄联盟「ARAM：Mayhem」模式英雄分析 - 最新版本的Meta和T0英雄，最佳的装备、符文、技能分析",
-    "checksum": "db73b40220d274179da38e743b375348b6c1e634f4be572b85a115b730d03672",
-    "contentLength": 1840290
+    "syncedAt": "2026-06-26T18:57:17.142Z",
+    "sourceHash": "a5daf6a0d234611fec24c780f22b295fc283d62288e5f0033fe49087d4bbcc6b",
+    "status": "live"
   },
   "tiers": {
     "silver": "银色",
     "gold": "黄金",
     "prismatic": "棱彩"
   },
-  "champions": [
+  "tierList": [
     {
-      "id": "ashe",
+      "key": "jinx",
+      "championId": 222,
+      "nameZh": "暴走萝莉",
+      "nameEn": "Jinx",
+      "tier": 1,
+      "tierLabel": "S",
+      "rank": 1,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Jinx.png"
+    },
+    {
+      "key": "brand",
+      "championId": 63,
+      "nameZh": "复仇焰魂",
+      "nameEn": "Brand",
+      "tier": 1,
+      "tierLabel": "S",
+      "rank": 2,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Brand.png"
+    },
+    {
+      "key": "vayne",
+      "championId": 67,
+      "nameZh": "暗夜猎手",
+      "nameEn": "Vayne",
+      "tier": 1,
+      "tierLabel": "S",
+      "rank": 3,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Vayne.png"
+    },
+    {
+      "key": "seraphine",
+      "championId": 147,
+      "nameZh": "星籁歌姬",
+      "nameEn": "Seraphine",
+      "tier": 1,
+      "tierLabel": "S",
+      "rank": 4,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Seraphine.png"
+    },
+    {
+      "key": "caitlyn",
+      "championId": 51,
+      "nameZh": "皮城女警",
+      "nameEn": "Caitlyn",
+      "tier": 1,
+      "tierLabel": "S",
+      "rank": 5,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Caitlyn.png"
+    },
+    {
+      "key": "sett",
+      "championId": 875,
+      "nameZh": "腕豪",
+      "nameEn": "Sett",
+      "tier": 2,
+      "tierLabel": "A",
+      "rank": 6,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Sett.png"
+    },
+    {
+      "key": "drmundo",
+      "championId": 36,
+      "nameZh": "祖安狂人",
+      "nameEn": "Drmundo",
+      "tier": 2,
+      "tierLabel": "A",
+      "rank": 7,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/DrMundo.png"
+    },
+    {
+      "key": "sion",
+      "championId": 14,
+      "nameZh": "亡灵战神",
+      "nameEn": "Sion",
+      "tier": 2,
+      "tierLabel": "A",
+      "rank": 8,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Sion.png"
+    },
+    {
+      "key": "lillia",
+      "championId": 876,
+      "nameZh": "含羞蓓蕾",
+      "nameEn": "Lillia",
+      "tier": 2,
+      "tierLabel": "A",
+      "rank": 9,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Lillia.png"
+    },
+    {
+      "key": "graves",
+      "championId": 104,
+      "nameZh": "法外狂徒",
+      "nameEn": "Graves",
+      "tier": 2,
+      "tierLabel": "A",
+      "rank": 10,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Graves.png"
+    },
+    {
+      "key": "kayle",
+      "championId": 10,
+      "nameZh": "正义天使",
+      "nameEn": "Kayle",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 11,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Kayle.png"
+    },
+    {
+      "key": "ashe",
+      "championId": 22,
       "nameZh": "寒冰射手",
       "nameEn": "Ashe",
-      "aliases": [
-        "寒冰",
-        "艾希",
-        "ashe",
-        "adc"
-      ],
-      "marker": "A",
-      "tier": "A",
-      "winRate": "Sample",
-      "pickRate": "Sample",
-      "patternZh": "远程消耗与持续减速，优先强化技能频率和团队控制。",
-      "patternEn": "Long-range poke and constant slows. Prioritize cast frequency and team control.",
-      "hexes": {
-        "silver": [
-          {
-            "id": "ashe-silver-haste",
-            "nameZh": "技能急速",
-            "nameEn": "Ability Haste",
-            "tier": "silver",
-            "priority": "good",
-            "reasonZh": "让 W 和大招更频繁，稳定提供消耗与开团机会。",
-            "reasonEn": "More W casts and ult windows create reliable poke and engage pressure."
-          },
-          {
-            "id": "ashe-silver-move",
-            "nameZh": "机动补强",
-            "nameEn": "Mobility Patch",
-            "tier": "silver",
-            "priority": "situational",
-            "reasonZh": "被强开阵容针对时优先级提高。",
-            "reasonEn": "Rises in value when the enemy team can hard engage."
-          }
-        ],
-        "gold": [
-          {
-            "id": "ashe-gold-poke",
-            "nameZh": "远程消耗",
-            "nameEn": "Poke Pattern",
-            "tier": "gold",
-            "priority": "core",
-            "reasonZh": "直接放大寒冰最稳定的输出方式。",
-            "reasonEn": "Amplifies Ashe's most reliable damage pattern."
-          },
-          {
-            "id": "ashe-gold-utility",
-            "nameZh": "团队辅助",
-            "nameEn": "Team Utility",
-            "tier": "gold",
-            "priority": "good",
-            "reasonZh": "适合己方已有足够伤害时补控制价值。",
-            "reasonEn": "Best when the team already has enough damage."
-          }
-        ],
-        "prismatic": [
-          {
-            "id": "ashe-prismatic-volley",
-            "nameZh": "万箭齐发强化",
-            "nameEn": "Volley Upgrade",
-            "tier": "prismatic",
-            "priority": "core",
-            "reasonZh": "看到就优先拿，直接决定消耗流上限。",
-            "reasonEn": "Take first when offered; it defines the poke build ceiling."
-          }
-        ]
-      },
-      "builds": [
-        {
-          "id": "ashe-poke",
-          "nameZh": "消耗急速流",
-          "nameEn": "Poke Haste",
-          "role": "poke",
-          "coreItems": [
-            "魔宗",
-            "帝国指令",
-            "赛瑞尔达的怨恨"
-          ],
-          "situationalItems": [
-            "炼金朋克链锯剑",
-            "公理圆弧"
-          ],
-          "notesZh": "适合拿到技能急速、远程消耗、万箭齐发强化时。",
-          "notesEn": "Best with haste, poke, or Volley-focused augments.",
-          "linkedHexes": [
-            "ashe-silver-haste",
-            "ashe-gold-poke",
-            "ashe-prismatic-volley"
-          ]
-        }
-      ],
-      "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem",
-      "updatedAt": "2026-06-26"
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 12,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Ashe.png"
     },
     {
-      "id": "ezreal",
-      "nameZh": "探险家",
-      "nameEn": "Ezreal",
-      "aliases": [
-        "ez",
-        "ezreal",
-        "伊泽瑞尔",
-        "探险家"
-      ],
-      "marker": "E",
-      "tier": "A",
-      "winRate": "Sample",
-      "pickRate": "Sample",
-      "patternZh": "安全距离内连续命中技能，围绕技能急速与命中收益构筑。",
-      "patternEn": "Repeated skill hits from safe range. Build around haste and on-hit spell value.",
-      "hexes": {
-        "silver": [
-          {
-            "id": "ezreal-silver-mana",
-            "nameZh": "法力续航",
-            "nameEn": "Mana Sustain",
-            "tier": "silver",
-            "priority": "good",
-            "reasonZh": "保证持续 Q 消耗，不因蓝量断节奏。",
-            "reasonEn": "Keeps Q pressure online without mana stalls."
-          }
-        ],
-        "gold": [
-          {
-            "id": "ezreal-gold-spellblade",
-            "nameZh": "咒刃循环",
-            "nameEn": "Spellblade Loop",
-            "tier": "gold",
-            "priority": "core",
-            "reasonZh": "强化 Q 命中后的核心输出节奏。",
-            "reasonEn": "Strengthens the core Q-hit damage loop."
-          }
-        ],
-        "prismatic": [
-          {
-            "id": "ezreal-prismatic-skillshot",
-            "nameZh": "精准弹幕",
-            "nameEn": "Precision Barrage",
-            "tier": "prismatic",
-            "priority": "core",
-            "reasonZh": "命中越稳定收益越高，适合熟练度高时优先。",
-            "reasonEn": "High value when you can reliably land skillshots."
-          },
-          {
-            "id": "ezreal-prismatic-reset",
-            "nameZh": "奥术重置",
-            "nameEn": "Arcane Reset",
-            "tier": "prismatic",
-            "priority": "good",
-            "reasonZh": "给 E 和 Q 循环更多容错。",
-            "reasonEn": "Adds safety and tempo to E/Q rotations."
-          }
-        ]
-      },
-      "builds": [
-        {
-          "id": "ezreal-trinity",
-          "nameZh": "咒刃消耗流",
-          "nameEn": "Spellblade Poke",
-          "role": "poke",
-          "coreItems": [
-            "魔宗",
-            "三相之力",
-            "赛瑞尔达的怨恨"
-          ],
-          "situationalItems": [
-            "朔极之矛",
-            "守护天使"
-          ],
-          "notesZh": "默认路线，海克斯围绕 Q 命中收益和技能急速选择。",
-          "notesEn": "Default route. Pick augments that reward Q hits and haste.",
-          "linkedHexes": [
-            "ezreal-gold-spellblade",
-            "ezreal-prismatic-skillshot"
-          ]
-        }
-      ],
-      "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem",
-      "updatedAt": "2026-06-26"
+      "key": "aurelionsol",
+      "championId": 136,
+      "nameZh": "铸星龙王",
+      "nameEn": "Aurelionsol",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 13,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/AurelionSol.png"
     },
     {
-      "id": "lux",
+      "key": "morgana",
+      "championId": 25,
+      "nameZh": "堕落天使",
+      "nameEn": "Morgana",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 14,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Morgana.png"
+    },
+    {
+      "key": "maokai",
+      "championId": 57,
+      "nameZh": "扭曲树精",
+      "nameEn": "Maokai",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 15,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Maokai.png"
+    },
+    {
+      "key": "ryze",
+      "championId": 13,
+      "nameZh": "符文法师",
+      "nameEn": "Ryze",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 16,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Ryze.png"
+    },
+    {
+      "key": "galio",
+      "championId": 3,
+      "nameZh": "正义巨像",
+      "nameEn": "Galio",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 17,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Galio.png"
+    },
+    {
+      "key": "rell",
+      "championId": 526,
+      "nameZh": "镕铁少女",
+      "nameEn": "Rell",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 18,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Rell.png"
+    },
+    {
+      "key": "yunara",
+      "championId": 804,
+      "nameZh": "不破之誓",
+      "nameEn": "Yunara",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 19,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Yunara.png"
+    },
+    {
+      "key": "leona",
+      "championId": 89,
+      "nameZh": "曙光女神",
+      "nameEn": "Leona",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 20,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Leona.png"
+    },
+    {
+      "key": "shen",
+      "championId": 98,
+      "nameZh": "暮光之眼",
+      "nameEn": "Shen",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 21,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Shen.png"
+    },
+    {
+      "key": "viktor",
+      "championId": 112,
+      "nameZh": "奥术先驱",
+      "nameEn": "Viktor",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 22,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Viktor.png"
+    },
+    {
+      "key": "sona",
+      "championId": 37,
+      "nameZh": "琴瑟仙女",
+      "nameEn": "Sona",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 23,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Sona.png"
+    },
+    {
+      "key": "hwei",
+      "championId": 910,
+      "nameZh": "异画师",
+      "nameEn": "Hwei",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 24,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Hwei.png"
+    },
+    {
+      "key": "soraka",
+      "championId": 16,
+      "nameZh": "众星之子",
+      "nameEn": "Soraka",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 25,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Soraka.png"
+    },
+    {
+      "key": "senna",
+      "championId": 235,
+      "nameZh": "涤魂圣枪",
+      "nameEn": "Senna",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 26,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Senna.png"
+    },
+    {
+      "key": "malzahar",
+      "championId": 90,
+      "nameZh": "虚空先知",
+      "nameEn": "Malzahar",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 27,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Malzahar.png"
+    },
+    {
+      "key": "masteryi",
+      "championId": 11,
+      "nameZh": "无极剑圣",
+      "nameEn": "Masteryi",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 28,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/MasterYi.png"
+    },
+    {
+      "key": "tahmkench",
+      "championId": 223,
+      "nameZh": "河流之王",
+      "nameEn": "Tahmkench",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 29,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/TahmKench.png"
+    },
+    {
+      "key": "aurora",
+      "championId": 893,
+      "nameZh": "双界灵兔",
+      "nameEn": "Aurora",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 30,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Aurora.png"
+    },
+    {
+      "key": "aphelios",
+      "championId": 523,
+      "nameZh": "残月之肃",
+      "nameEn": "Aphelios",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 31,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Aphelios.png"
+    },
+    {
+      "key": "zyra",
+      "championId": 143,
+      "nameZh": "荆棘之兴",
+      "nameEn": "Zyra",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 32,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Zyra.png"
+    },
+    {
+      "key": "twistedfate",
+      "championId": 4,
+      "nameZh": "卡牌大师",
+      "nameEn": "Twistedfate",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 33,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/TwistedFate.png"
+    },
+    {
+      "key": "akshan",
+      "championId": 166,
+      "nameZh": "影哨",
+      "nameEn": "Akshan",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 34,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Akshan.png"
+    },
+    {
+      "key": "nautilus",
+      "championId": 111,
+      "nameZh": "深海泰坦",
+      "nameEn": "Nautilus",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 35,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Nautilus.png"
+    },
+    {
+      "key": "sivir",
+      "championId": 15,
+      "nameZh": "战争女神",
+      "nameEn": "Sivir",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 36,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Sivir.png"
+    },
+    {
+      "key": "kogmaw",
+      "championId": 96,
+      "nameZh": "深渊巨口",
+      "nameEn": "Kogmaw",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 37,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/KogMaw.png"
+    },
+    {
+      "key": "karthus",
+      "championId": 30,
+      "nameZh": "死亡颂唱者",
+      "nameEn": "Karthus",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 38,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Karthus.png"
+    },
+    {
+      "key": "missfortune",
+      "championId": 21,
+      "nameZh": "赏金猎人",
+      "nameEn": "Missfortune",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 39,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/MissFortune.png"
+    },
+    {
+      "key": "yuumi",
+      "championId": 350,
+      "nameZh": "魔法猫咪",
+      "nameEn": "Yuumi",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 40,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Yuumi.png"
+    },
+    {
+      "key": "yone",
+      "championId": 777,
+      "nameZh": "封魔剑魂",
+      "nameEn": "Yone",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 41,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Yone.png"
+    },
+    {
+      "key": "ekko",
+      "championId": 245,
+      "nameZh": "时间刺客",
+      "nameEn": "Ekko",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 42,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Ekko.png"
+    },
+    {
+      "key": "xayah",
+      "championId": 498,
+      "nameZh": "逆羽",
+      "nameEn": "Xayah",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 43,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Xayah.png"
+    },
+    {
+      "key": "lucian",
+      "championId": 236,
+      "nameZh": "圣枪游侠",
+      "nameEn": "Lucian",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 44,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Lucian.png"
+    },
+    {
+      "key": "alistar",
+      "championId": 12,
+      "nameZh": "牛头酋长",
+      "nameEn": "Alistar",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 45,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Alistar.png"
+    },
+    {
+      "key": "samira",
+      "championId": 360,
+      "nameZh": "沙漠玫瑰",
+      "nameEn": "Samira",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 46,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Samira.png"
+    },
+    {
+      "key": "milio",
+      "championId": 902,
+      "nameZh": "明烛",
+      "nameEn": "Milio",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 47,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Milio.png"
+    },
+    {
+      "key": "ahri",
+      "championId": 103,
+      "nameZh": "九尾妖狐",
+      "nameEn": "Ahri",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 48,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Ahri.png"
+    },
+    {
+      "key": "trundle",
+      "championId": 48,
+      "nameZh": "巨魔之王",
+      "nameEn": "Trundle",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 49,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Trundle.png"
+    },
+    {
+      "key": "yasuo",
+      "championId": 157,
+      "nameZh": "疾风剑豪",
+      "nameEn": "Yasuo",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 50,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Yasuo.png"
+    },
+    {
+      "key": "janna",
+      "championId": 40,
+      "nameZh": "风暴之怒",
+      "nameEn": "Janna",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 51,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Janna.png"
+    },
+    {
+      "key": "nasus",
+      "championId": 75,
+      "nameZh": "沙漠死神",
+      "nameEn": "Nasus",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 52,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Nasus.png"
+    },
+    {
+      "key": "kassadin",
+      "championId": 38,
+      "nameZh": "虚空行者",
+      "nameEn": "Kassadin",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 53,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Kassadin.png"
+    },
+    {
+      "key": "zilean",
+      "championId": 26,
+      "nameZh": "时光守护者",
+      "nameEn": "Zilean",
+      "tier": 3,
+      "tierLabel": "B",
+      "rank": 54,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Zilean.png"
+    },
+    {
+      "key": "heimerdinger",
+      "championId": 74,
+      "nameZh": "大发明家",
+      "nameEn": "Heimerdinger",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 55,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Heimerdinger.png"
+    },
+    {
+      "key": "gwen",
+      "championId": 887,
+      "nameZh": "灵罗娃娃",
+      "nameEn": "Gwen",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 56,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Gwen.png"
+    },
+    {
+      "key": "jax",
+      "championId": 24,
+      "nameZh": "武器大师",
+      "nameEn": "Jax",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 57,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Jax.png"
+    },
+    {
+      "key": "kindred",
+      "championId": 203,
+      "nameZh": "永猎双子",
+      "nameEn": "Kindred",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 58,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Kindred.png"
+    },
+    {
+      "key": "zaahen",
+      "championId": 904,
+      "nameZh": "不落魔锋",
+      "nameEn": "Zaahen",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 59,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Zaahen.png"
+    },
+    {
+      "key": "syndra",
+      "championId": 134,
+      "nameZh": "暗黑元首",
+      "nameEn": "Syndra",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 60,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Syndra.png"
+    },
+    {
+      "key": "ornn",
+      "championId": 516,
+      "nameZh": "山隐之焰",
+      "nameEn": "Ornn",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 61,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Ornn.png"
+    },
+    {
+      "key": "velkoz",
+      "championId": 161,
+      "nameZh": "虚空之眼",
+      "nameEn": "Velkoz",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 62,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Velkoz.png"
+    },
+    {
+      "key": "poppy",
+      "championId": 78,
+      "nameZh": "圣锤之毅",
+      "nameEn": "Poppy",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 63,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Poppy.png"
+    },
+    {
+      "key": "renata",
+      "championId": 888,
+      "nameZh": "炼金男爵",
+      "nameEn": "Renata",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 64,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Renata.png"
+    },
+    {
+      "key": "rumble",
+      "championId": 68,
+      "nameZh": "机械公敌",
+      "nameEn": "Rumble",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 65,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Rumble.png"
+    },
+    {
+      "key": "xinzhao",
+      "championId": 5,
+      "nameZh": "德邦总管",
+      "nameEn": "Xinzhao",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 66,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/XinZhao.png"
+    },
+    {
+      "key": "singed",
+      "championId": 27,
+      "nameZh": "炼金术士",
+      "nameEn": "Singed",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 67,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Singed.png"
+    },
+    {
+      "key": "illaoi",
+      "championId": 420,
+      "nameZh": "海兽祭司",
+      "nameEn": "Illaoi",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 68,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Illaoi.png"
+    },
+    {
+      "key": "rammus",
+      "championId": 33,
+      "nameZh": "披甲龙龟",
+      "nameEn": "Rammus",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 69,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Rammus.png"
+    },
+    {
+      "key": "fiora",
+      "championId": 114,
+      "nameZh": "无双剑姬",
+      "nameEn": "Fiora",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 70,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Fiora.png"
+    },
+    {
+      "key": "amumu",
+      "championId": 32,
+      "nameZh": "殇之木乃伊",
+      "nameEn": "Amumu",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 71,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Amumu.png"
+    },
+    {
+      "key": "sejuani",
+      "championId": 113,
+      "nameZh": "北地之怒",
+      "nameEn": "Sejuani",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 72,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Sejuani.png"
+    },
+    {
+      "key": "shyvana",
+      "championId": 102,
+      "nameZh": "龙血武姬",
+      "nameEn": "Shyvana",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 73,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Shyvana.png"
+    },
+    {
+      "key": "azir",
+      "championId": 268,
+      "nameZh": "沙漠皇帝",
+      "nameEn": "Azir",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 74,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Azir.png"
+    },
+    {
+      "key": "monkeyking",
+      "championId": 62,
+      "nameZh": "齐天大圣",
+      "nameEn": "Monkeyking",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 75,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/MonkeyKing.png"
+    },
+    {
+      "key": "ivern",
+      "championId": 427,
+      "nameZh": "翠神",
+      "nameEn": "Ivern",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 76,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Ivern.png"
+    },
+    {
+      "key": "kalista",
+      "championId": 429,
+      "nameZh": "复仇之矛",
+      "nameEn": "Kalista",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 77,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Kalista.png"
+    },
+    {
+      "key": "taric",
+      "championId": 44,
+      "nameZh": "瓦洛兰之盾",
+      "nameEn": "Taric",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 78,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Taric.png"
+    },
+    {
+      "key": "skarner",
+      "championId": 72,
+      "nameZh": "上古领主",
+      "nameEn": "Skarner",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 79,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Skarner.png"
+    },
+    {
+      "key": "tristana",
+      "championId": 18,
+      "nameZh": "麦林炮手",
+      "nameEn": "Tristana",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 80,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Tristana.png"
+    },
+    {
+      "key": "kled",
+      "championId": 240,
+      "nameZh": "暴怒骑士",
+      "nameEn": "Kled",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 81,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Kled.png"
+    },
+    {
+      "key": "reksai",
+      "championId": 421,
+      "nameZh": "虚空遁地兽",
+      "nameEn": "Reksai",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 82,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/RekSai.png"
+    },
+    {
+      "key": "nami",
+      "championId": 267,
+      "nameZh": "唤潮鲛姬",
+      "nameEn": "Nami",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 83,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Nami.png"
+    },
+    {
+      "key": "nilah",
+      "championId": 895,
+      "nameZh": "不羁之悦",
+      "nameEn": "Nilah",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 84,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Nilah.png"
+    },
+    {
+      "key": "elise",
+      "championId": 60,
+      "nameZh": "蜘蛛女皇",
+      "nameEn": "Elise",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 85,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Elise.png"
+    },
+    {
+      "key": "locke",
+      "championId": 805,
+      "nameZh": "灰烬驱魔人",
+      "nameEn": "Locke",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 86,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Locke.png"
+    },
+    {
+      "key": "evelynn",
+      "championId": 28,
+      "nameZh": "痛苦之拥",
+      "nameEn": "Evelynn",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 87,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Evelynn.png"
+    },
+    {
+      "key": "olaf",
+      "championId": 2,
+      "nameZh": "狂战士",
+      "nameEn": "Olaf",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 88,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Olaf.png"
+    },
+    {
+      "key": "riven",
+      "championId": 92,
+      "nameZh": "放逐之刃",
+      "nameEn": "Riven",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 89,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Riven.png"
+    },
+    {
+      "key": "briar",
+      "championId": 233,
+      "nameZh": "狂厄蔷薇",
+      "nameEn": "Briar",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 90,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Briar.png"
+    },
+    {
+      "key": "gnar",
+      "championId": 150,
+      "nameZh": "迷失之牙",
+      "nameEn": "Gnar",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 91,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Gnar.png"
+    },
+    {
+      "key": "vex",
+      "championId": 711,
+      "nameZh": "愁云使者",
+      "nameEn": "Vex",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 92,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Vex.png"
+    },
+    {
+      "key": "volibear",
+      "championId": 106,
+      "nameZh": "不灭狂雷",
+      "nameEn": "Volibear",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 93,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Volibear.png"
+    },
+    {
+      "key": "belveth",
+      "championId": 200,
+      "nameZh": "虚空女皇",
+      "nameEn": "Belveth",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 94,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Belveth.png"
+    },
+    {
+      "key": "twitch",
+      "championId": 29,
+      "nameZh": "瘟疫之源",
+      "nameEn": "Twitch",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 95,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Twitch.png"
+    },
+    {
+      "key": "fizz",
+      "championId": 105,
+      "nameZh": "潮汐海灵",
+      "nameEn": "Fizz",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 96,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Fizz.png"
+    },
+    {
+      "key": "yorick",
+      "championId": 83,
+      "nameZh": "牧魂人",
+      "nameEn": "Yorick",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 97,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Yorick.png"
+    },
+    {
+      "key": "camille",
+      "championId": 164,
+      "nameZh": "青钢影",
+      "nameEn": "Camille",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 98,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Camille.png"
+    },
+    {
+      "key": "lulu",
+      "championId": 117,
+      "nameZh": "仙灵女巫",
+      "nameEn": "Lulu",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 99,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Lulu.png"
+    },
+    {
+      "key": "renekton",
+      "championId": 58,
+      "nameZh": "荒漠屠夫",
+      "nameEn": "Renekton",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 100,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Renekton.png"
+    },
+    {
+      "key": "fiddlesticks",
+      "championId": 9,
+      "nameZh": "远古恐惧",
+      "nameEn": "Fiddlesticks",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 101,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Fiddlesticks.png"
+    },
+    {
+      "key": "warwick",
+      "championId": 19,
+      "nameZh": "祖安怒兽",
+      "nameEn": "Warwick",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 102,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Warwick.png"
+    },
+    {
+      "key": "ambessa",
+      "championId": 799,
+      "nameZh": "铁血狼母",
+      "nameEn": "Ambessa",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 103,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Ambessa.png"
+    },
+    {
+      "key": "zeri",
+      "championId": 221,
+      "nameZh": "祖安花火",
+      "nameEn": "Zeri",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 104,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Zeri.png"
+    },
+    {
+      "key": "sylas",
+      "championId": 517,
+      "nameZh": "解脱者",
+      "nameEn": "Sylas",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 105,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Sylas.png"
+    },
+    {
+      "key": "kayn",
+      "championId": 141,
+      "nameZh": "影流之镰",
+      "nameEn": "Kayn",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 106,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Kayn.png"
+    },
+    {
+      "key": "tryndamere",
+      "championId": 23,
+      "nameZh": "蛮族之王",
+      "nameEn": "Tryndamere",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 107,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Tryndamere.png"
+    },
+    {
+      "key": "vi",
+      "championId": 254,
+      "nameZh": "皮城执法官",
+      "nameEn": "Vi",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 108,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Vi.png"
+    },
+    {
+      "key": "qiyana",
+      "championId": 246,
+      "nameZh": "元素女皇",
+      "nameEn": "Qiyana",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 109,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Qiyana.png"
+    },
+    {
+      "key": "quinn",
+      "championId": 133,
+      "nameZh": "德玛西亚之翼",
+      "nameEn": "Quinn",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 110,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Quinn.png"
+    },
+    {
+      "key": "vladimir",
+      "championId": 8,
+      "nameZh": "猩红收割者",
+      "nameEn": "Vladimir",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 111,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Vladimir.png"
+    },
+    {
+      "key": "nocturne",
+      "championId": 56,
+      "nameZh": "永恒梦魇",
+      "nameEn": "Nocturne",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 112,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Nocturne.png"
+    },
+    {
+      "key": "draven",
+      "championId": 119,
+      "nameZh": "荣耀行刑官",
+      "nameEn": "Draven",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 113,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Draven.png"
+    },
+    {
+      "key": "rengar",
+      "championId": 107,
+      "nameZh": "傲之追猎者",
+      "nameEn": "Rengar",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 114,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Rengar.png"
+    },
+    {
+      "key": "corki",
+      "championId": 42,
+      "nameZh": "英勇投弹手",
+      "nameEn": "Corki",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 115,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Corki.png"
+    },
+    {
+      "key": "diana",
+      "championId": 131,
+      "nameZh": "皎月女神",
+      "nameEn": "Diana",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 116,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Diana.png"
+    },
+    {
+      "key": "rakan",
+      "championId": 497,
+      "nameZh": "幻翎",
+      "nameEn": "Rakan",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 117,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Rakan.png"
+    },
+    {
+      "key": "taliyah",
+      "championId": 163,
+      "nameZh": "岩雀",
+      "nameEn": "Taliyah",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 118,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Taliyah.png"
+    },
+    {
+      "key": "lux",
+      "championId": 99,
       "nameZh": "光辉女郎",
       "nameEn": "Lux",
-      "aliases": [
-        "光辉",
-        "拉克丝",
-        "lux",
-        "法师"
-      ],
-      "marker": "L",
-      "tier": "A",
-      "winRate": "Sample",
-      "pickRate": "Sample",
-      "patternZh": "控制命中后接爆发，优先选择远程技能、法强与冷却收益。",
-      "patternEn": "Bind into burst. Prefer long-range spell, AP, and cooldown value.",
-      "hexes": {
-        "silver": [
-          {
-            "id": "lux-silver-shield",
-            "nameZh": "护盾强化",
-            "nameEn": "Shield Boost",
-            "tier": "silver",
-            "priority": "situational",
-            "reasonZh": "对面消耗强时提高团队容错。",
-            "reasonEn": "Adds team stability into heavy poke."
-          }
-        ],
-        "gold": [
-          {
-            "id": "lux-gold-burst",
-            "nameZh": "技能爆发",
-            "nameEn": "Spell Burst",
-            "tier": "gold",
-            "priority": "core",
-            "reasonZh": "强化 Q 命中后的完整连招斩杀线。",
-            "reasonEn": "Improves the full combo after Q lands."
-          }
-        ],
-        "prismatic": [
-          {
-            "id": "lux-prismatic-laser",
-            "nameZh": "终极闪光强化",
-            "nameEn": "Final Spark Upgrade",
-            "tier": "prismatic",
-            "priority": "core",
-            "reasonZh": "直接提高收割和远程压制能力。",
-            "reasonEn": "Raises execute pressure and long-range control."
-          }
-        ]
-      },
-      "builds": [
-        {
-          "id": "lux-burst",
-          "nameZh": "法强爆发流",
-          "nameEn": "AP Burst",
-          "role": "mage",
-          "coreItems": [
-            "卢登的伙伴",
-            "影焰",
-            "灭世者的死亡之帽"
-          ],
-          "situationalItems": [
-            "虚空之杖",
-            "中娅沙漏"
-          ],
-          "notesZh": "适合拿到技能爆发或终极闪光强化时。",
-          "notesEn": "Best with burst or Final Spark augments.",
-          "linkedHexes": [
-            "lux-gold-burst",
-            "lux-prismatic-laser"
-          ]
-        }
-      ],
-      "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem",
-      "updatedAt": "2026-06-26"
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 119,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Lux.png"
     },
     {
-      "id": "malphite",
+      "key": "cassiopeia",
+      "championId": 69,
+      "nameZh": "魔蛇之拥",
+      "nameEn": "Cassiopeia",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 120,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Cassiopeia.png"
+    },
+    {
+      "key": "irelia",
+      "championId": 39,
+      "nameZh": "刀锋舞者",
+      "nameEn": "Irelia",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 121,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Irelia.png"
+    },
+    {
+      "key": "annie",
+      "championId": 1,
+      "nameZh": "黑暗之女",
+      "nameEn": "Annie",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 122,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Annie.png"
+    },
+    {
+      "key": "viego",
+      "championId": 234,
+      "nameZh": "破败之王",
+      "nameEn": "Viego",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 123,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Viego.png"
+    },
+    {
+      "key": "gangplank",
+      "championId": 41,
+      "nameZh": "海洋之灾",
+      "nameEn": "Gangplank",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 124,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Gangplank.png"
+    },
+    {
+      "key": "orianna",
+      "championId": 61,
+      "nameZh": "发条魔灵",
+      "nameEn": "Orianna",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 125,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Orianna.png"
+    },
+    {
+      "key": "hecarim",
+      "championId": 120,
+      "nameZh": "战争之影",
+      "nameEn": "Hecarim",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 126,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Hecarim.png"
+    },
+    {
+      "key": "udyr",
+      "championId": 77,
+      "nameZh": "兽灵行者",
+      "nameEn": "Udyr",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 127,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Udyr.png"
+    },
+    {
+      "key": "braum",
+      "championId": 201,
+      "nameZh": "弗雷尔卓德之心",
+      "nameEn": "Braum",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 128,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Braum.png"
+    },
+    {
+      "key": "zac",
+      "championId": 154,
+      "nameZh": "生化魔人",
+      "nameEn": "Zac",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 129,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Zac.png"
+    },
+    {
+      "key": "veigar",
+      "championId": 45,
+      "nameZh": "邪恶小法师",
+      "nameEn": "Veigar",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 130,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Veigar.png"
+    },
+    {
+      "key": "lissandra",
+      "championId": 127,
+      "nameZh": "冰霜女巫",
+      "nameEn": "Lissandra",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 131,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Lissandra.png"
+    },
+    {
+      "key": "talon",
+      "championId": 91,
+      "nameZh": "刀锋之影",
+      "nameEn": "Talon",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 132,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Talon.png"
+    },
+    {
+      "key": "kennen",
+      "championId": 85,
+      "nameZh": "狂暴之心",
+      "nameEn": "Kennen",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 133,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Kennen.png"
+    },
+    {
+      "key": "ksante",
+      "championId": 897,
+      "nameZh": "纳祖芒荣耀",
+      "nameEn": "Ksante",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 134,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/KSante.png"
+    },
+    {
+      "key": "xerath",
+      "championId": 101,
+      "nameZh": "远古巫灵",
+      "nameEn": "Xerath",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 135,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Xerath.png"
+    },
+    {
+      "key": "urgot",
+      "championId": 6,
+      "nameZh": "无畏战车",
+      "nameEn": "Urgot",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 136,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Urgot.png"
+    },
+    {
+      "key": "teemo",
+      "championId": 17,
+      "nameZh": "迅捷斥候",
+      "nameEn": "Teemo",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 137,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Teemo.png"
+    },
+    {
+      "key": "mordekaiser",
+      "championId": 82,
+      "nameZh": "铁铠冥魂",
+      "nameEn": "Mordekaiser",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 138,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Mordekaiser.png"
+    },
+    {
+      "key": "naafiri",
+      "championId": 950,
+      "nameZh": "百裂冥犬",
+      "nameEn": "Naafiri",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 139,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Naafiri.png"
+    },
+    {
+      "key": "darius",
+      "championId": 122,
+      "nameZh": "诺克萨斯之手",
+      "nameEn": "Darius",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 140,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Darius.png"
+    },
+    {
+      "key": "gragas",
+      "championId": 79,
+      "nameZh": "酒桶",
+      "nameEn": "Gragas",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 141,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Gragas.png"
+    },
+    {
+      "key": "nunu",
+      "championId": 20,
+      "nameZh": "雪原双子",
+      "nameEn": "Nunu",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 142,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Nunu.png"
+    },
+    {
+      "key": "zoe",
+      "championId": 142,
+      "nameZh": "暮光星灵",
+      "nameEn": "Zoe",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 143,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Zoe.png"
+    },
+    {
+      "key": "ziggs",
+      "championId": 115,
+      "nameZh": "爆破鬼才",
+      "nameEn": "Ziggs",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 144,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Ziggs.png"
+    },
+    {
+      "key": "khazix",
+      "championId": 121,
+      "nameZh": "虚空掠夺者",
+      "nameEn": "Khazix",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 145,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Khazix.png"
+    },
+    {
+      "key": "katarina",
+      "championId": 55,
+      "nameZh": "不祥之刃",
+      "nameEn": "Katarina",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 146,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Katarina.png"
+    },
+    {
+      "key": "aatrox",
+      "championId": 266,
+      "nameZh": "暗裔剑魔",
+      "nameEn": "Aatrox",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 147,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Aatrox.png"
+    },
+    {
+      "key": "akali",
+      "championId": 84,
+      "nameZh": "离群之刺",
+      "nameEn": "Akali",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 148,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Akali.png"
+    },
+    {
+      "key": "varus",
+      "championId": 110,
+      "nameZh": "惩戒之箭",
+      "nameEn": "Varus",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 149,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Varus.png"
+    },
+    {
+      "key": "bard",
+      "championId": 432,
+      "nameZh": "星界游神",
+      "nameEn": "Bard",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 150,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Bard.png"
+    },
+    {
+      "key": "karma",
+      "championId": 43,
+      "nameZh": "天启者",
+      "nameEn": "Karma",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 151,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Karma.png"
+    },
+    {
+      "key": "pantheon",
+      "championId": 80,
+      "nameZh": "不屈之枪",
+      "nameEn": "Pantheon",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 152,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Pantheon.png"
+    },
+    {
+      "key": "garen",
+      "championId": 86,
+      "nameZh": "德玛西亚之力",
+      "nameEn": "Garen",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 153,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Garen.png"
+    },
+    {
+      "key": "neeko",
+      "championId": 518,
+      "nameZh": "万花通灵",
+      "nameEn": "Neeko",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 154,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Neeko.png"
+    },
+    {
+      "key": "malphite",
+      "championId": 54,
       "nameZh": "熔岩巨兽",
       "nameEn": "Malphite",
-      "aliases": [
-        "石头人",
-        "墨菲特",
-        "malphite",
-        "坦克"
-      ],
-      "marker": "M",
-      "tier": "B",
-      "winRate": "Sample",
-      "pickRate": "Sample",
-      "patternZh": "承担开团和前排任务，根据海克斯选择坦克或爆发开团路线。",
-      "patternEn": "Primary engage and frontline. Choose tank or burst engage based on augments.",
-      "hexes": {
-        "silver": [
-          {
-            "id": "malphite-silver-resist",
-            "nameZh": "抗性补强",
-            "nameEn": "Resistance Patch",
-            "tier": "silver",
-            "priority": "good",
-            "reasonZh": "提升进场后站住的能力。",
-            "reasonEn": "Helps survive after engaging."
-          }
-        ],
-        "gold": [
-          {
-            "id": "malphite-gold-engage",
-            "nameZh": "开团强化",
-            "nameEn": "Engage Boost",
-            "tier": "gold",
-            "priority": "core",
-            "reasonZh": "强化大招进场后的团队收益。",
-            "reasonEn": "Improves team value after ultimate engage."
-          }
-        ],
-        "prismatic": [
-          {
-            "id": "malphite-prismatic-unstoppable",
-            "nameZh": "势不可挡强化",
-            "nameEn": "Unstoppable Upgrade",
-            "tier": "prismatic",
-            "priority": "core",
-            "reasonZh": "核心棱彩，决定团战先手质量。",
-            "reasonEn": "Core prismatic option for high-quality initiations."
-          }
-        ]
-      },
-      "builds": [
-        {
-          "id": "malphite-tank",
-          "nameZh": "前排开团流",
-          "nameEn": "Tank Engage",
-          "role": "tank",
-          "coreItems": [
-            "日炎圣盾",
-            "荆棘之甲",
-            "深渊面具"
-          ],
-          "situationalItems": [
-            "兰顿之兆",
-            "自然之力"
-          ],
-          "notesZh": "默认稳健路线，配合开团强化和抗性补强。",
-          "notesEn": "Stable default route with engage and resistance augments.",
-          "linkedHexes": [
-            "malphite-silver-resist",
-            "malphite-gold-engage",
-            "malphite-prismatic-unstoppable"
-          ]
-        }
-      ],
-      "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem",
-      "updatedAt": "2026-06-26"
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 155,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Malphite.png"
+    },
+    {
+      "key": "jarvaniv",
+      "championId": 59,
+      "nameZh": "德玛西亚皇子",
+      "nameEn": "Jarvaniv",
+      "tier": 4,
+      "tierLabel": "C",
+      "rank": 156,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/JarvanIV.png"
+    },
+    {
+      "key": "zed",
+      "championId": 238,
+      "nameZh": "影流之主",
+      "nameEn": "Zed",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 157,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Zed.png"
+    },
+    {
+      "key": "leblanc",
+      "championId": 7,
+      "nameZh": "诡术妖姬",
+      "nameEn": "Leblanc",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 158,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Leblanc.png"
+    },
+    {
+      "key": "chogath",
+      "championId": 31,
+      "nameZh": "虚空恐惧",
+      "nameEn": "Chogath",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 159,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Chogath.png"
+    },
+    {
+      "key": "jhin",
+      "championId": 202,
+      "nameZh": "戏命师",
+      "nameEn": "Jhin",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 160,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Jhin.png"
+    },
+    {
+      "key": "anivia",
+      "championId": 34,
+      "nameZh": "冰晶凤凰",
+      "nameEn": "Anivia",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 161,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Anivia.png"
+    },
+    {
+      "key": "kaisa",
+      "championId": 145,
+      "nameZh": "虚空之女",
+      "nameEn": "Kaisa",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 162,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Kaisa.png"
+    },
+    {
+      "key": "mel",
+      "championId": 800,
+      "nameZh": "流光镜影",
+      "nameEn": "Mel",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 163,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Mel.png"
+    },
+    {
+      "key": "pyke",
+      "championId": 555,
+      "nameZh": "血港鬼影",
+      "nameEn": "Pyke",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 164,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Pyke.png"
+    },
+    {
+      "key": "swain",
+      "championId": 50,
+      "nameZh": "诺克萨斯统领",
+      "nameEn": "Swain",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 165,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Swain.png"
+    },
+    {
+      "key": "smolder",
+      "championId": 901,
+      "nameZh": "炽炎雏龙",
+      "nameEn": "Smolder",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 166,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Smolder.png"
+    },
+    {
+      "key": "jayce",
+      "championId": 126,
+      "nameZh": "未来守护者",
+      "nameEn": "Jayce",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 167,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Jayce.png"
+    },
+    {
+      "key": "leesin",
+      "championId": 64,
+      "nameZh": "盲僧",
+      "nameEn": "Leesin",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 168,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/LeeSin.png"
+    },
+    {
+      "key": "ezreal",
+      "championId": 81,
+      "nameZh": "探险家",
+      "nameEn": "Ezreal",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 169,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Ezreal.png"
+    },
+    {
+      "key": "nidalee",
+      "championId": 76,
+      "nameZh": "狂野女猎手",
+      "nameEn": "Nidalee",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 170,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Nidalee.png"
+    },
+    {
+      "key": "thresh",
+      "championId": 412,
+      "nameZh": "魂锁典狱长",
+      "nameEn": "Thresh",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 171,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Thresh.png"
+    },
+    {
+      "key": "shaco",
+      "championId": 35,
+      "nameZh": "恶魔小丑",
+      "nameEn": "Shaco",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 172,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Shaco.png"
+    },
+    {
+      "key": "blitzcrank",
+      "championId": 53,
+      "nameZh": "蒸汽机器人",
+      "nameEn": "Blitzcrank",
+      "tier": 5,
+      "tierLabel": "D",
+      "rank": 173,
+      "imageUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/champion/Blitzcrank.png"
     }
   ]
 }

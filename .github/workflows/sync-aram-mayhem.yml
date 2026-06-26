@@ -3,10 +3,15 @@ name: Sync ARAM Mayhem data
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 20 * * *"
+    # Daily, 04:37 UTC. Off the hour to avoid the top-of-hour API stampede.
+    - cron: "37 4 * * *"
 
 permissions:
   contents: write
+  # Needed to dispatch the Pages deploy workflow after a data change. A push
+  # made with the default GITHUB_TOKEN does not auto-trigger other workflows,
+  # so we trigger deploy.yml explicitly below.
+  actions: write
 
 concurrency:
   group: "aram-mayhem-data-sync"
@@ -31,15 +36,31 @@ jobs:
       - name: Sync ARAM Mayhem data
         run: node scripts/sync-aram-mayhem-data.mjs
 
+      - name: Test synced data
+        run: |
+          node scripts/test-aram-mayhem-sync.mjs
+          node scripts/test-aram-mayhem-tool.mjs
+
       - name: Commit updated snapshot
+        id: commit
         run: |
           if git diff --quiet -- public/data/aram-mayhem.json; then
-            echo "No ARAM Mayhem data changes."
+            echo "No ARAM Mayhem data changes; nothing to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/data/aram-mayhem.json
           git commit -m "chore: sync ARAM Mayhem data"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger Pages deploy
+        # Only when data actually changed, and only on the default branch so a
+        # manual run from a feature branch never deploys stale content.
+        if: steps.commit.outputs.changed == 'true' && github.ref == 'refs/heads/master'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref master

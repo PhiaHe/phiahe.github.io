@@ -23,15 +23,15 @@ export interface BuildRoute {
   linkedHexes: string[];
 }
 
+/** Hand-curated, in-depth guide for a featured champion. */
 export interface AramMayhemChampion {
   id: string;
   nameZh: string;
   nameEn: string;
   aliases: string[];
   marker: string;
+  /** Curator's strength read (S/A/B/...). Live tier comes from the snapshot. */
   tier: string;
-  winRate: string;
-  pickRate: string;
   patternZh: string;
   patternEn: string;
   hexes: {
@@ -44,20 +44,50 @@ export interface AramMayhemChampion {
   updatedAt: string;
 }
 
-export interface AramMayhemDataSnapshot {
-  schemaVersion: 1;
+/**
+ * One live OP.GG tier-list entry. Scraped from the ARAM Mayhem mode page.
+ * Carries real strength/rank data for every champion in the mode.
+ */
+export interface AramMayhemTierEntry {
+  key: string;
+  championId: number;
+  nameZh: string;
+  nameEn: string;
+  /** Raw OP.GG tier bucket, 1 (strongest) .. 5 (weakest). */
+  tier: number;
+  /** Derived letter label (S/A/B/C/D) for display. */
+  tierLabel: string;
+  rank: number;
+  imageUrl: string;
+}
+
+/**
+ * How trustworthy / fresh the data on screen is:
+ * - live:     tier list was scraped from OP.GG and is recent.
+ * - stale:    scraped from OP.GG but the last successful sync is old.
+ * - curated:  no live tier list; only the hand-curated featured guides.
+ * - fallback: the public snapshot failed to load; using the bundled dataset.
+ */
+export type AramMayhemStatus = "live" | "stale" | "curated" | "fallback";
+
+/** Number of days after which a live snapshot is treated as stale. */
+export const ARAM_MAYHEM_STALE_AFTER_DAYS = 21;
+
+export interface AramMayhemSnapshot {
+  schemaVersion: 2;
   source: {
     name: string;
     url: string;
+    /** Game patch the data was computed on, e.g. "16.13". */
+    version?: string;
     updatedAt: string;
     syncedAt?: string;
-    syncStatus?: string;
-    pageTitle?: string;
-    checksum?: string;
-    contentLength?: number;
+    sourceHash?: string;
+    status: AramMayhemStatus;
   };
   tiers: Record<HexTier, string>;
-  champions: AramMayhemChampion[];
+  /** Live tier list for the whole mode (empty when only curated data exists). */
+  tierList: AramMayhemTierEntry[];
 }
 
 export const aramMayhemSource = {
@@ -65,6 +95,23 @@ export const aramMayhemSource = {
   url: "https://op.gg/zh-cn/lol/modes/aram-mayhem",
   updatedAt: "2026-06-27",
 };
+
+export const aramMayhemTierLabels: Record<HexTier, string> = {
+  silver: "银色",
+  gold: "黄金",
+  prismatic: "棱彩",
+};
+
+/** Map an OP.GG numeric tier bucket (1..5) to a display letter. */
+export function tierNumberToLabel(tier: number): string {
+  return ["S", "A", "B", "C", "D"][tier - 1] ?? "?";
+}
+
+/** Inverse of {@link tierNumberToLabel}; used to seed the fallback tier list. */
+export function tierLabelToNumber(label: string): number {
+  const index = ["S", "A", "B", "C", "D"].indexOf(label.toUpperCase());
+  return index >= 0 ? index + 1 : 3;
+}
 
 export const aramMayhemChampions: AramMayhemChampion[] = [
   {
@@ -74,8 +121,6 @@ export const aramMayhemChampions: AramMayhemChampion[] = [
     aliases: ["寒冰", "艾希", "ashe", "adc"],
     marker: "A",
     tier: "A",
-    winRate: "Sample",
-    pickRate: "Sample",
     patternZh: "远程消耗与持续减速，优先强化技能频率和团队控制。",
     patternEn: "Long-range poke and constant slows. Prioritize cast frequency and team control.",
     hexes: {
@@ -154,8 +199,6 @@ export const aramMayhemChampions: AramMayhemChampion[] = [
     aliases: ["ez", "ezreal", "伊泽瑞尔", "探险家"],
     marker: "E",
     tier: "A",
-    winRate: "Sample",
-    pickRate: "Sample",
     patternZh: "安全距离内连续命中技能，围绕技能急速与命中收益构筑。",
     patternEn: "Repeated skill hits from safe range. Build around haste and on-hit spell value.",
     hexes: {
@@ -225,8 +268,6 @@ export const aramMayhemChampions: AramMayhemChampion[] = [
     aliases: ["光辉", "拉克丝", "lux", "法师"],
     marker: "L",
     tier: "A",
-    winRate: "Sample",
-    pickRate: "Sample",
     patternZh: "控制命中后接爆发，优先选择远程技能、法强与冷却收益。",
     patternEn: "Bind into burst. Prefer long-range spell, AP, and cooldown value.",
     hexes: {
@@ -287,8 +328,6 @@ export const aramMayhemChampions: AramMayhemChampion[] = [
     aliases: ["石头人", "墨菲特", "malphite", "坦克"],
     marker: "M",
     tier: "B",
-    winRate: "Sample",
-    pickRate: "Sample",
     patternZh: "承担开团和前排任务，根据海克斯选择坦克或爆发开团路线。",
     patternEn: "Primary engage and frontline. Choose tank or burst engage based on augments.",
     hexes: {
@@ -344,16 +383,31 @@ export const aramMayhemChampions: AramMayhemChampion[] = [
   },
 ];
 
-export const aramMayhemFallbackData: AramMayhemDataSnapshot = {
-  schemaVersion: 1,
+/** Lookup map from champion key/id to its curated in-depth guide. */
+export const aramMayhemCuratedByKey: Record<string, AramMayhemChampion> = Object.fromEntries(
+  aramMayhemChampions.map((champion) => [champion.id, champion]),
+);
+
+/**
+ * Bundled snapshot used when the public JSON cannot be loaded. The tier list is
+ * seeded from the curated featured champions so the page still renders, but it
+ * is explicitly marked "fallback" so the UI never claims to be live.
+ */
+export const aramMayhemFallbackData: AramMayhemSnapshot = {
+  schemaVersion: 2,
   source: {
     ...aramMayhemSource,
-    syncStatus: "fallback",
+    status: "fallback",
   },
-  tiers: {
-    silver: "银色",
-    gold: "黄金",
-    prismatic: "棱彩",
-  },
-  champions: aramMayhemChampions,
+  tiers: aramMayhemTierLabels,
+  tierList: aramMayhemChampions.map((champion) => ({
+    key: champion.id,
+    championId: 0,
+    nameZh: champion.nameZh,
+    nameEn: champion.nameEn,
+    tier: tierLabelToNumber(champion.tier),
+    tierLabel: champion.tier,
+    rank: 0,
+    imageUrl: "",
+  })),
 };
