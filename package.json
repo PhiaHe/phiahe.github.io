@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "lint": "tsc --noEmit",
     "test:smooth-scroll": "node scripts/test-smooth-scroll.mjs",
+    "test:detail-pages": "node scripts/test-detail-pages-foundation.mjs",
     "gen:assets": "node scripts/generate-placeholders.mjs"
   },
   "dependencies": {

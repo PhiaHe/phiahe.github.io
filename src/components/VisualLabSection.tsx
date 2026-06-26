@@ -38,8 +38,10 @@ export default function VisualLabSection() {
             >
               <SpotlightCard
                 as="a"
-                href="#lab"
-                ariaLabel={t(cat.title)}
+                href={cat.href ?? "#lab"}
+                ariaLabel={
+                  cat.href ? `${t(cat.title)} lab details` : t(cat.title)
+                }
                 accent={ACCENTS[i % ACCENTS.length]}
                 tilt={i === 0 ? 3 : 6}
                 className="group block h-full"

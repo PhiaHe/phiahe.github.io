@@ -41,6 +41,7 @@ export interface LabCategory {
   blurb: Localized;
   cover: string;
   count: Localized;
+  href?: string; // optional lab-detail route (e.g. "#/lab/fluid-effects")
 }
 
 export interface ToolEntry {
@@ -60,6 +61,7 @@ export interface DevLogEntry {
   tag: Localized;
   readTime: Localized;
   cover: string;
+  href?: string; // optional article route (e.g. "#/notes/ai-workflow")
 }
 
 export interface SocialLink {
@@ -164,6 +166,7 @@ export const featuredWork: FeaturedWork[] = [
     cover: "/assets/placeholders/work-visual.svg",
     accent: "violet",
     status: { en: "Always expanding", zh: "持续扩充" },
+    href: "#/projects/visual-experiments",
   },
   {
     id: "pixel-character-lab",
@@ -224,6 +227,7 @@ export const labCategories: LabCategory[] = [
     },
     cover: "/assets/placeholders/lab-fluid.svg",
     count: { en: "Motion studies", zh: "动态研究" },
+    href: "#/lab/fluid-effects",
   },
   {
     id: "game-ui",
@@ -281,6 +285,7 @@ export const devLog: DevLogEntry[] = [
     tag: { en: "Workflow", zh: "流程" },
     readTime: { en: "6 min", zh: "6 分钟" },
     cover: "/assets/placeholders/log-workflow.svg",
+    href: "#/notes/ai-workflow",
   },
   {
     id: "combat-readability",

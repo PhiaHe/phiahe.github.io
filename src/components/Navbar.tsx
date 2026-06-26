@@ -1,6 +1,6 @@
 import { type MouseEvent, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { nav, site, ui } from "../data/siteData";
+import { nav, site, ui, type Localized, type NavLink } from "../data/siteData";
 import { useLanguage } from "../i18n/LanguageContext";
 import {
   backToWorkLabel,
@@ -15,23 +15,41 @@ import BrandLogo from "./BrandLogo";
 /**
  * Navbar — fixed glass header with the Phia Games sigil, anchor links, language
  * toggle, and a mobile sheet. Background intensifies after a small scroll.
+ *
+ * Three variants share this shell:
+ *  - "home"    → homepage section anchors (#work, #lab, …).
+ *  - "project" → Inkvoker's custom in-page nav + a "Back to Work" button.
+ *  - "detail"  → data-driven detail pages: in-page section links (intercepted,
+ *                scroll within the page) plus a "Back to {Work|Lab|Dev Log}"
+ *                anchor that navigates home via the hash router.
  */
 interface NavbarProps {
   variant?: NavbarVariant;
   currentPage?: CurrentPage;
   onBackToWork?: () => void;
+  /** "detail" variant: in-page section links derived from the page's sections. */
+  detailLinks?: NavLink[];
+  /** "detail" variant: homepage section to return to (e.g. "#work"). */
+  detailBackHref?: string;
+  /** "detail" variant: localized label for the back link. */
+  detailBackLabel?: Localized;
 }
 
 export default function Navbar({
   variant = "home",
   currentPage = "home",
   onBackToWork,
+  detailLinks,
+  detailBackHref,
+  detailBackLabel,
 }: NavbarProps) {
   const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const links = getNavbarLinks(variant, nav);
+  const links =
+    variant === "detail" ? detailLinks ?? [] : getNavbarLinks(variant, nav);
   const interceptLinks = shouldInterceptNavbarLink(variant);
+  const showDetailBack = variant === "detail" && Boolean(detailBackHref);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -114,6 +132,14 @@ export default function Navbar({
             >
               {t(backToWorkLabel)}
             </button>
+          ) : showDetailBack ? (
+            <a
+              href={detailBackHref}
+              onClick={() => setOpen(false)}
+              className="btn btn-ghost ml-2 !px-5 !py-2 text-xs"
+            >
+              {t(detailBackLabel ?? backToWorkLabel)}
+            </a>
           ) : (
             <a href="#contact" className="btn btn-ghost ml-2 !px-5 !py-2 text-xs">
               {t(ui.getInTouch)}
@@ -184,6 +210,15 @@ export default function Navbar({
                 >
                   {t(backToWorkLabel)}
                 </button>
+              )}
+              {showDetailBack && (
+                <a
+                  href={detailBackHref}
+                  onClick={() => setOpen(false)}
+                  className="rounded-lg px-3 py-3 text-base text-accent-silver/80 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  {t(detailBackLabel ?? backToWorkLabel)}
+                </a>
               )}
             </div>
           </motion.div>

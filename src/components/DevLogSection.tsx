@@ -35,6 +35,9 @@ export default function DevLogSection() {
                 accent={ACCENTS[i % ACCENTS.length]}
                 tilt={5}
                 className="group h-full"
+                as={entry.href ? "a" : "div"}
+                href={entry.href}
+                ariaLabel={entry.href ? `${t(entry.title)} article` : undefined}
               >
                 <div className="flex h-full flex-col">
                   <div className="relative aspect-[16/9] overflow-hidden rounded-t-[19px]">

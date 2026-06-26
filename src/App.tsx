@@ -16,10 +16,18 @@ import ContactFooter from "./components/ContactFooter";
 import SectionDivider from "./components/SectionDivider";
 import ProjectDetailPage from "./components/project/ProjectDetailPage";
 import AramMayhemPage from "./components/tools/AramMayhemPage";
+import GenericProjectPage from "./components/detail/GenericProjectPage";
+import LabDetailPage from "./components/detail/LabDetailPage";
+import ArticlePage from "./components/detail/ArticlePage";
 import { useReducedMotion } from "./hooks/useReducedMotion";
 import { useWheelSmoothScroll } from "./hooks/useWheelSmoothScroll";
 import { useLanguage } from "./i18n/LanguageContext";
 import { ui } from "./data/siteData";
+import { getDetailPageByRoute } from "./data/detailPages";
+import {
+  getDetailNavLinks,
+  getDetailBackTarget,
+} from "./lib/navigationBehavior";
 import { shouldUseCustomWheelScroll } from "./lib/routeScrollBehavior";
 
 function getHashRoute() {
@@ -41,8 +49,14 @@ export default function App() {
 
   const isInkvokerPage = route === "#/projects/inkvoker";
   const isAramMayhemPage = route === "#/tools/aram-mayhem";
-  const isDetailPage = isInkvokerPage || isAramMayhemPage;
-  useWheelSmoothScroll({ enabled: shouldUseCustomWheelScroll(route, reduced) });
+  const detailPage = getDetailPageByRoute(route);
+  const isDataDetailPage = Boolean(detailPage);
+  const isDetailPage = isInkvokerPage || isAramMayhemPage || isDataDetailPage;
+  // Detail pages (custom + data-driven) use native scrolling; the custom wheel
+  // smoothing is a homepage-only motif.
+  useWheelSmoothScroll({
+    enabled: shouldUseCustomWheelScroll(route, reduced) && !isDataDetailPage,
+  });
 
   // Scroll reset is handled in AnimatePresence's onExitComplete (below), not
   // here: doing it after the outgoing page has faded out and unmounted means
@@ -95,26 +109,35 @@ export default function App() {
     offset: ["start start", "end end"],
   });
 
+  // Data-driven detail pages (project / lab / article) derive their navbar from
+  // the page's own sections; the back link returns to the right homepage section.
+  const detailNavLinks = detailPage ? getDetailNavLinks(detailPage) : undefined;
+  const detailBack = detailPage ? getDetailBackTarget(detailPage) : undefined;
+
+  // The "Skip to content" target: each page kind owns a stable <main> anchor.
+  // Homepage uses #work (its first real section). Detail pages scroll in-page so
+  // the skip never mutates the route.
+  const mainAnchorId = isInkvokerPage
+    ? "project-main"
+    : isAramMayhemPage
+      ? "aram-tool-main"
+      : isDataDetailPage
+        ? "detail-main"
+        : "work";
+
   return (
     <MotionConfig reducedMotion={reduced ? "always" : "user"}>
       <a
-        href={isInkvokerPage ? "#project-main" : isAramMayhemPage ? "#aram-tool-main" : "#work"}
+        href={`#${mainAnchorId}`}
         onClick={
-          isInkvokerPage
-            ? (e) => {
+          mainAnchorId === "work"
+            ? undefined
+            : (e) => {
                 e.preventDefault();
                 document
-                  .getElementById("project-main")
+                  .getElementById(mainAnchorId)
                   ?.scrollIntoView({ behavior: "smooth", block: "start" });
               }
-            : isAramMayhemPage
-              ? (e) => {
-                  e.preventDefault();
-                  document
-                    .getElementById("aram-tool-main")
-                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }
-            : undefined
         }
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-void-700 focus:px-4 focus:py-2 focus:text-sm focus:text-white"
       >
@@ -131,9 +154,12 @@ export default function App() {
       <CustomCursor />
 
       <Navbar
-        variant={isInkvokerPage ? "project" : "home"}
-        currentPage={isInkvokerPage ? "inkvoker" : "home"}
+        variant={isInkvokerPage ? "project" : isDataDetailPage ? "detail" : "home"}
+        currentPage={isInkvokerPage ? "inkvoker" : isDataDetailPage ? "detail" : "home"}
         onBackToWork={isInkvokerPage ? handleBackToWork : undefined}
+        detailLinks={detailNavLinks}
+        detailBackHref={detailBack?.href}
+        detailBackLabel={detailBack?.label}
       />
 
       {/* Whole page is one transparent stack over the continuous liquid. No
@@ -154,6 +180,14 @@ export default function App() {
               <ProjectDetailPage onBackToWork={handleBackToWork} />
             ) : isAramMayhemPage ? (
               <AramMayhemPage />
+            ) : detailPage ? (
+              detailPage.kind === "project" ? (
+                <GenericProjectPage page={detailPage} />
+              ) : detailPage.kind === "lab" ? (
+                <LabDetailPage page={detailPage} />
+              ) : (
+                <ArticlePage page={detailPage} />
+              )
             ) : (
               <>
                 <Hero />
