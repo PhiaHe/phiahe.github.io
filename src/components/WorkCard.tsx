@@ -23,13 +23,23 @@ export default function WorkCard({ work, delay = 0, skew }: WorkCardProps) {
   return (
     <Reveal delay={delay} className="h-full">
       <motion.div style={skew ? { skewY: skew } : undefined} className="h-full">
-        <SpotlightCard accent={work.accent} className="h-full" tilt={5}>
+        <SpotlightCard
+          accent={work.accent}
+          className="h-full"
+          tilt={5}
+          as={work.href ? "a" : "div"}
+          href={work.href}
+          ariaLabel={work.href ? `${t(work.title)} project details` : undefined}
+        >
         <div className="flex h-full flex-col">
           {/* Cover */}
           <div className="relative aspect-[16/10] overflow-hidden rounded-t-[19px]">
             <img
               src={work.cover}
-              alt={`${t(work.title)} concept placeholder`}
+              alt={t({
+                en: `${work.title.en} project cover`,
+                zh: `${work.title.zh} 项目封面`,
+              })}
               loading="lazy"
               className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
               style={{ transform: "translateZ(30px) scale(1.04)" }}

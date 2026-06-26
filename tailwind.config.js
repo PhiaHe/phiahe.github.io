@@ -25,6 +25,7 @@ export default {
       },
       fontFamily: {
         display: ['"Space Grotesk"', "ui-sans-serif", "system-ui", "sans-serif"],
+        condensed: ['"Anton"', '"Space Grotesk"', "ui-sans-serif", "sans-serif"],
         sans: ['"Inter"', "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "monospace"],
       },

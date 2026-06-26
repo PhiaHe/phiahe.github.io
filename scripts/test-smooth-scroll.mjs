@@ -13,6 +13,7 @@ execFileSync(
   [
     "node_modules/typescript/bin/tsc",
     "src/lib/smoothScrollMath.ts",
+    "src/lib/routeScrollBehavior.ts",
     "--target",
     "ES2020",
     "--module",
@@ -29,6 +30,9 @@ execFileSync(
 const { advanceSmoothScroll, resolveWheelScrollDelta } = await import(
   pathToFileURL(`${process.cwd()}/${outDir}/smoothScrollMath.js`)
 );
+const { shouldUseCustomWheelScroll } = await import(
+  pathToFileURL(`${process.cwd()}/${outDir}/routeScrollBehavior.js`)
+);
 
 assert.equal(advanceSmoothScroll(0, 100, 0.1, 0.05), 10);
 assert.equal(advanceSmoothScroll(99.98, 100, 0.1, 0.05), 100);
@@ -42,5 +46,10 @@ assert.equal(resolveWheelScrollDelta(-100, 900, 700), -700);
 assert.equal(resolveWheelScrollDelta(-100, 900, 1512), -1512);
 assert.equal(resolveWheelScrollDelta(-100, 900, 1700), -828);
 assert.equal(resolveWheelScrollDelta(24, 900, 0).toFixed(1), "32.4");
+
+assert.equal(shouldUseCustomWheelScroll("", false), true);
+assert.equal(shouldUseCustomWheelScroll("#work", false), true);
+assert.equal(shouldUseCustomWheelScroll("#/projects/inkvoker", false), false);
+assert.equal(shouldUseCustomWheelScroll("#/projects/inkvoker", true), false);
 
 rmSync(outDir, { recursive: true, force: true });

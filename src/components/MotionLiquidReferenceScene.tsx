@@ -47,6 +47,18 @@ export default function MotionLiquidReferenceScene({ progress }: Props) {
 
     const mouse = { tx: 0, ty: 0, x: 0, y: 0 };
     let scroll = 0;
+    // The shader's scroll uniform is EASED toward the real progress rather than
+    // assigned directly. During a route swap App resets scrollY to 0 instantly,
+    // so raw progress jumps (e.g. 0.4 -> 0) in one frame and the liquid's
+    // scroll-driven camera visibly snaps ("flash"). Easing turns that single
+    // discontinuity into a sub-second glide hidden under the page cross-fade,
+    // while normal scrolling (small per-frame deltas) tracks with no perceptible
+    // lag. Reduced-motion snaps instead (it has no rAF loop to converge).
+    // Lower = longer, silkier glide on the route-swap jump (and a touch more
+    // trailing "liquid" lag during normal scroll, which reads as fluid here).
+    // ~0.12 lands the swap glide around 0.4s; 0.18 was ~0.25s and felt a bit fast.
+    const SCROLL_EASE = 0.12;
+    let scrollEased = progress.get();
     let W = 0;
     let H = 0;
     // Adaptive renderScale — desktop starts a touch higher for smooth edges and
@@ -88,12 +100,15 @@ export default function MotionLiquidReferenceScene({ progress }: Props) {
       mouse.x += (mouse.tx - mouse.x) * 0.045;
       mouse.y += (mouse.ty - mouse.y) * 0.045;
       scroll = progress.get();
+      // Ease the shader's scroll input so an instant scrollY reset (route swap)
+      // doesn't snap the liquid camera. Snap when reduced (no convergence loop).
+      scrollEased = reduced ? scroll : scrollEased + (scroll - scrollEased) * SCROLL_EASE;
 
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uTime, reduced ? 6.0 : t);
       gl.uniform2f(uMouse, mouse.x, mouse.y);
-      gl.uniform1f(uScroll, scroll);
-      gl.uniform1f(uQuality, isMobile ? 0.0 : scroll < 0.6 ? 1.0 : 0.0);
+      gl.uniform1f(uScroll, scrollEased);
+      gl.uniform1f(uQuality, isMobile ? 0.0 : scrollEased < 0.6 ? 1.0 : 0.0);
       prog.draw();
     };
 

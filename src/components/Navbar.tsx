@@ -1,7 +1,14 @@
-import { useEffect, useState } from "react";
+import { type MouseEvent, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { nav, site, ui } from "../data/siteData";
 import { useLanguage } from "../i18n/LanguageContext";
+import {
+  backToWorkLabel,
+  getNavbarLinks,
+  shouldInterceptNavbarLink,
+  type CurrentPage,
+  type NavbarVariant,
+} from "../lib/navigationBehavior";
 import LanguageToggle from "./LanguageToggle";
 import BrandLogo from "./BrandLogo";
 
@@ -9,10 +16,22 @@ import BrandLogo from "./BrandLogo";
  * Navbar — fixed glass header with the Phia Games sigil, anchor links, language
  * toggle, and a mobile sheet. Background intensifies after a small scroll.
  */
-export default function Navbar() {
+interface NavbarProps {
+  variant?: NavbarVariant;
+  currentPage?: CurrentPage;
+  onBackToWork?: () => void;
+}
+
+export default function Navbar({
+  variant = "home",
+  currentPage = "home",
+  onBackToWork,
+}: NavbarProps) {
   const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const links = getNavbarLinks(variant, nav);
+  const interceptLinks = shouldInterceptNavbarLink(variant);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -27,6 +46,21 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  const scrollToProjectTarget = (href: string) => {
+    const targetId = href.startsWith("#") ? href.slice(1) : href;
+    document
+      .getElementById(targetId)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const handleNavClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (interceptLinks) {
+      event.preventDefault();
+      scrollToProjectTarget(href);
+    }
+    setOpen(false);
+  };
 
   return (
     <header
@@ -61,19 +95,30 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <div className="hidden items-center gap-1 md:flex">
-          {nav.map((link) => (
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
+              onClick={(event) => handleNavClick(event, link.href)}
               className="rounded-full px-4 py-2 text-sm text-accent-silver/70 transition-colors hover:text-white"
             >
               {t(link.label)}
             </a>
           ))}
           <LanguageToggle className="ml-2" />
-          <a href="#contact" className="btn btn-ghost ml-2 !px-5 !py-2 text-xs">
-            {t(ui.getInTouch)}
-          </a>
+          {currentPage === "inkvoker" && onBackToWork ? (
+            <button
+              type="button"
+              onClick={onBackToWork}
+              className="btn btn-ghost ml-2 !px-5 !py-2 text-xs"
+            >
+              {t(backToWorkLabel)}
+            </button>
+          ) : (
+            <a href="#contact" className="btn btn-ghost ml-2 !px-5 !py-2 text-xs">
+              {t(ui.getInTouch)}
+            </a>
+          )}
         </div>
 
         {/* Mobile controls */}
@@ -118,16 +163,28 @@ export default function Navbar() {
             className="md:hidden"
           >
             <div className="container-lab flex flex-col gap-1 border-t border-white/5 bg-void-900/95 pb-6 pt-2 backdrop-blur-xl">
-              {nav.map((link) => (
+              {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(event) => handleNavClick(event, link.href)}
                   className="rounded-lg px-3 py-3 text-base text-accent-silver/80 transition-colors hover:bg-white/5 hover:text-white"
                 >
                   {t(link.label)}
                 </a>
               ))}
+              {currentPage === "inkvoker" && onBackToWork && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    onBackToWork();
+                  }}
+                  className="rounded-lg px-3 py-3 text-left text-base text-accent-silver/80 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  {t(backToWorkLabel)}
+                </button>
+              )}
             </div>
           </motion.div>
         )}

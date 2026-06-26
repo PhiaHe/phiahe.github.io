@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { MotionConfig, useScroll } from "framer-motion";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, MotionConfig, motion, useScroll } from "framer-motion";
 // The site's global liquid visual: the reference-inspired single-blob scene,
 // recolored to Phia's palette. (The earlier 4-metaball GlobalLiquidScene was
 // retired in favor of this lighter, smoother implementation.)
@@ -13,15 +13,72 @@ import DevLogSection from "./components/DevLogSection";
 import AboutSection from "./components/AboutSection";
 import ContactFooter from "./components/ContactFooter";
 import SectionDivider from "./components/SectionDivider";
+import ProjectDetailPage from "./components/project/ProjectDetailPage";
 import { useReducedMotion } from "./hooks/useReducedMotion";
 import { useWheelSmoothScroll } from "./hooks/useWheelSmoothScroll";
 import { useLanguage } from "./i18n/LanguageContext";
 import { ui } from "./data/siteData";
+import { shouldUseCustomWheelScroll } from "./lib/routeScrollBehavior";
+
+function getHashRoute() {
+  if (typeof window === "undefined") return "";
+  return window.location.hash;
+}
 
 export default function App() {
   const reduced = useReducedMotion();
   const { t } = useLanguage();
-  useWheelSmoothScroll({ enabled: !reduced });
+
+  const [route, setRoute] = useState(getHashRoute);
+
+  useEffect(() => {
+    const onHashChange = () => setRoute(getHashRoute());
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  const isInkvokerPage = route === "#/projects/inkvoker";
+  useWheelSmoothScroll({ enabled: shouldUseCustomWheelScroll(route, reduced) });
+
+  // Scroll reset is handled in AnimatePresence's onExitComplete (below), not
+  // here: doing it after the outgoing page has faded out and unmounted means
+  // the jump-to-top happens while only the liquid background is visible, so the
+  // user never sees the "yank from mid-page to top" that an effect-based reset
+  // produced. The incoming page then fades in already at its hero.
+
+  // Cross-page landing (home<->project) is finalized in AnimatePresence's
+  // onExitComplete, so we only flip the route here. The actual scroll happens
+  // once the outgoing page has unmounted and the incoming one is mounting.
+  const handleBackToWork = useMemo(
+    () => () => {
+      window.location.hash = "#work";
+      setRoute("#work");
+    },
+    []
+  );
+
+  // Where to land after a page swap, read in onExitComplete. Project route ->
+  // top of its hero; any homepage hash -> that section (e.g. #work for
+  // "Back to Work", #about/#contact from the navbar). With AnimatePresence
+  // mode="wait" the incoming page mounts *after* onExitComplete, so the DOM
+  // lookup is deferred one frame to let the target section exist.
+  //
+  // behavior:"instant" is REQUIRED: the document has `scroll-smooth` globally
+  // (index.html), so an unqualified scroll would animate — and because the
+  // incoming page is already fading in, the user would see it glide from
+  // mid-content up to the target. Instant lands it before the fade is visible.
+  const finalizeRouteScroll = () => {
+    const id = route.startsWith("#") ? route.slice(1) : route;
+    const wantsSection = Boolean(id) && !id.startsWith("/");
+    requestAnimationFrame(() => {
+      const target = wantsSection ? document.getElementById(id) : null;
+      if (target) {
+        target.scrollIntoView({ behavior: "instant", block: "start" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
+    });
+  };
 
   // The liquid is a GLOBAL motif across the WHOLE page. Track progress over the
   // entire scrollable document so the shader's intensity ramp spans every
@@ -37,7 +94,17 @@ export default function App() {
   return (
     <MotionConfig reducedMotion={reduced ? "always" : "user"}>
       <a
-        href="#work"
+        href={isInkvokerPage ? "#project-main" : "#work"}
+        onClick={
+          isInkvokerPage
+            ? (e) => {
+                e.preventDefault();
+                document
+                  .getElementById("project-main")
+                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            : undefined
+        }
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-void-700 focus:px-4 focus:py-2 focus:text-sm focus:text-white"
       >
         {t(ui.skipToContent)}
@@ -52,20 +119,43 @@ export default function App() {
       {/* Refined trailing cursor (fine-pointer only; no-op under reduced-motion). */}
       <CustomCursor />
 
-      <Navbar />
+      <Navbar
+        variant={isInkvokerPage ? "project" : "home"}
+        currentPage={isInkvokerPage ? "inkvoker" : "home"}
+        onBackToWork={isInkvokerPage ? handleBackToWork : undefined}
+      />
 
       {/* Whole page is one transparent stack over the continuous liquid. No
-          opaque section backgrounds → the liquid reads as one connected space. */}
+          opaque section backgrounds → the liquid reads as one connected space.
+          AnimatePresence cross-fades between the home and project routes; the
+          scroll reset happens in onExitComplete (outgoing page already gone,
+          only the liquid showing) so the swap never looks like a scroll jump. */}
       <div ref={pageRef} className="relative z-10">
-        <Hero />
-        <FeaturedWorkSection />
-        <SectionDivider />
-        <VisualLabSection />
-        <SectionDivider />
-        <DevLogSection />
-        <SectionDivider />
-        <AboutSection />
-        <ContactFooter />
+        <AnimatePresence mode="wait" onExitComplete={finalizeRouteScroll}>
+          <motion.div
+            key={isInkvokerPage ? "project-inkvoker" : "home"}
+            initial={{ opacity: 0, scale: 0.985 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.99 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {isInkvokerPage ? (
+              <ProjectDetailPage onBackToWork={handleBackToWork} />
+            ) : (
+              <>
+                <Hero />
+                <FeaturedWorkSection />
+                <SectionDivider />
+                <VisualLabSection />
+                <SectionDivider />
+                <DevLogSection />
+                <SectionDivider />
+                <AboutSection />
+                <ContactFooter />
+              </>
+            )}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </MotionConfig>
   );

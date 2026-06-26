@@ -32,6 +32,7 @@ export interface FeaturedWork {
   cover: string;
   accent: "cyan" | "violet" | "gold";
   status: Localized;
+  href?: string; // optional project-detail route (e.g. "#/projects/inkvoker")
 }
 
 export interface LabCategory {
@@ -133,6 +134,7 @@ export const featuredWork: FeaturedWork[] = [
     cover: "/assets/placeholders/work-inkvoker.svg",
     accent: "cyan",
     status: { en: "Prototype in motion", zh: "原型进行中" },
+    href: "#/projects/inkvoker",
   },
   {
     id: "visual-experiments",
