@@ -13,7 +13,7 @@ export function normalizeChampionSearchText(value: string): string {
   return value
     .trim()
     .toLowerCase()
-    .replace(/[\s'"`’‘.·_\-]+/g, "");
+    .replace(/[\s'"`’‘“”·._-]+/g, "");
 }
 
 function normalizeMany(values: string[]): string[] {
