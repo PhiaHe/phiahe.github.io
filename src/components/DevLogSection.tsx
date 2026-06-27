@@ -43,7 +43,7 @@ export default function DevLogSection() {
                   <div className="relative aspect-[16/9] overflow-hidden rounded-t-[19px]">
                     <img
                       src={entry.cover}
-                      alt={`${t(entry.title)} thumbnail placeholder`}
+                      alt={`${t(entry.title)} thumbnail`}
                       loading="lazy"
                       className="h-full w-full object-cover opacity-75 transition-all duration-700 group-hover:scale-105 group-hover:opacity-95"
                       style={{ transform: "translateZ(26px) scale(1.04)" }}

@@ -5,8 +5,8 @@
  * generic project pages — an overview, a study/asset board, a few notes, and
  * related links.
  *
- * Image note (foundation round): reuses existing on-brand assets until Codex
- * delivers the dedicated `detail-pages/*` art. Swap `src` paths later.
+ * Image note: lab detail pages use the dedicated image pack under
+ * `public/assets/detail-pages/<slug>/hero.jpg`.
  * ============================================================================= */
 
 import type { DetailPage } from "./detailTypes";
@@ -23,7 +23,7 @@ export const labPages: DetailPage[] = [
       zh: "贯穿全站的流体能量与科幻材质方向——极光场、全息表面，以及驱动首页背景的着色器母题。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/field-wudang-taiji.png",
+      src: "/assets/detail-pages/fluid-effects/hero.jpg",
       alt: {
         en: "A glowing energy field with layered light and motion.",
         zh: "一张带有层叠光影与动态的能量场画面。",
@@ -127,7 +127,7 @@ export const labPages: DetailPage[] = [
       zh: "精灵表实验：方向、帧数与动作一致性——把一张静态角色概念，变成俯视游戏能真正驱动起来的过程。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/character-cyber-fox.png",
+      src: "/assets/detail-pages/pixel-characters/hero.jpg",
       alt: {
         en: "A pixel-leaning character study posed for sprite work.",
         zh: "一张偏像素风、为精灵创作摆好姿态的角色研究。",
@@ -217,7 +217,7 @@ export const labPages: DetailPage[] = [
       zh: "围绕游戏 UI、工具页与卡牌框的研究——信息层级、可读性与交互反馈。它们是实验，而不是一套完整的设计系统。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/card-shushan.png",
+      src: "/assets/detail-pages/game-ui/hero.jpg",
       alt: {
         en: "A game card frame used to study layout and readability.",
         zh: "一张用于研究排版与可读性的游戏卡牌框。",
@@ -307,7 +307,7 @@ export const labPages: DetailPage[] = [
       zh: "覆盖特效、角色、图标与地图瓦片的提示词驱动资产设计——核心是把约束表达清楚。这是一套生产辅助流程，而不只是「AI 生成图」。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/hero-concept.jpg",
+      src: "/assets/detail-pages/prompt-assets/hero.jpg",
       alt: {
         en: "A concept board produced through iterative prompting.",
         zh: "一块通过反复提示词迭代产出的概念拼板。",
@@ -397,7 +397,7 @@ export const labPages: DetailPage[] = [
       zh: "武侠、科幻与元素特效图素研究——冰刺、墨波纹、剑气、毒雾、冲击波与粒子——以可读性、轮廓与背景分离的干净程度来评判。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/skill-shushan-sword-tomb.png",
+      src: "/assets/detail-pages/game-vfx/hero.jpg",
       alt: {
         en: "A sword-energy VFX study isolated for in-game use.",
         zh: "一张为实装隔离出来的剑气特效研究。",
@@ -487,7 +487,7 @@ export const labPages: DetailPage[] = [
       zh: "世界概念与场景方向——地图瓦片、废弃空间站与武侠幻想设定。这是视觉方向与概念探索，而不是一个已完成的游戏世界。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/hero-map.jpg",
+      src: "/assets/detail-pages/world-concepts/hero.jpg",
       alt: {
         en: "A concept frame exploring a world and scene direction.",
         zh: "一张探索世界与场景方向的概念画面。",

@@ -9,7 +9,7 @@ const ACCENTS = ["gold", "cyan", "violet", "silver", "cyan", "violet"] as const;
 /**
  * VisualLabSection — refined creative archive as a mosaic of SpotlightCards.
  * The first tile spans larger on desktop for editorial rhythm. Tiles accept
- * real imagery later (swap the `cover` path in siteData).
+ * dedicated artwork through the `cover` path in siteData.
  */
 export default function VisualLabSection() {
   const { t } = useLanguage();
@@ -49,7 +49,7 @@ export default function VisualLabSection() {
                 <div className="relative h-full">
                   <img
                     src={cat.cover}
-                    alt={`${t(cat.title)} placeholder`}
+                    alt={`${t(cat.title)} cover`}
                     loading="lazy"
                     className="absolute inset-0 h-full w-full rounded-[19px] object-cover opacity-70 transition-all duration-700 group-hover:scale-105 group-hover:opacity-90"
                   />

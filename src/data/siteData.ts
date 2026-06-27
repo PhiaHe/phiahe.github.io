@@ -8,8 +8,8 @@
  *    (see src/i18n/LanguageContext.tsx + the t() helper).
  *  - Structural / non-text fields (ids, tags, image paths, accents) are shared
  *    across languages and live directly on each item.
- *  - Swap placeholder cover art by replacing files in
- *    `public/assets/placeholders/` (keep filenames) or repoint `cover` paths.
+ *  - Detail-page and homepage card artwork lives in
+ *    `public/assets/detail-pages/<slug>/hero.jpg`.
  *
  * To add a language later: extend `Lang`, add the key to every Localized value.
  * ============================================================================= */
@@ -88,8 +88,8 @@ export const ui = {
   read: { en: "read", zh: "阅读" } as Localized,
   langName: { en: "EN", zh: "中" } as Localized,
   placeholderNote: {
-    en: "// Placeholder tiles — replace covers in public/assets/placeholders/",
-    zh: "// 占位图 — 替换 public/assets/placeholders/ 中的封面即可",
+    en: "// Visual studies use dedicated detail-page image pack assets",
+    zh: "// 视觉研究卡片使用专用详情页配图资源",
   } as Localized,
 };
 
@@ -163,7 +163,7 @@ export const featuredWork: FeaturedWork[] = [
       { en: "Sci-fi UI", zh: "科幻 UI" },
       { en: "Game Feel", zh: "游戏手感" },
     ],
-    cover: "/assets/placeholders/work-visual.svg",
+    cover: "/assets/detail-pages/visual-experiments/hero.jpg",
     accent: "violet",
     status: { en: "Always expanding", zh: "持续扩充" },
     href: "#/projects/visual-experiments",
@@ -182,7 +182,7 @@ export const featuredWork: FeaturedWork[] = [
       { en: "Character Motion", zh: "角色动作" },
       { en: "Game Assets", zh: "游戏素材" },
     ],
-    cover: "/assets/placeholders/work-pixel.svg",
+    cover: "/assets/detail-pages/pixel-character-lab/hero.jpg",
     accent: "gold",
     status: { en: "Sprite work", zh: "精灵创作中" },
     href: "#/projects/pixel-character-lab",
@@ -217,7 +217,7 @@ export const labCategories: LabCategory[] = [
       en: "Sprites, idle loops, and action frames for expressive top-down play.",
       zh: "精灵、待机循环与动作帧，服务于富有表现力的俯视玩法。",
     },
-    cover: "/assets/placeholders/lab-pixel.svg",
+    cover: "/assets/detail-pages/pixel-characters/hero.jpg",
     count: { en: "Sprite sets", zh: "精灵集" },
     href: "#/lab/pixel-characters",
   },
@@ -228,7 +228,7 @@ export const labCategories: LabCategory[] = [
       en: "Liquid-energy shaders, aurora fields, and holographic surface tests.",
       zh: "液态能量着色、极光场与全息表面测试。",
     },
-    cover: "/assets/placeholders/lab-fluid.svg",
+    cover: "/assets/detail-pages/fluid-effects/hero.jpg",
     count: { en: "Motion studies", zh: "动态研究" },
     href: "#/lab/fluid-effects",
   },
@@ -239,7 +239,7 @@ export const labCategories: LabCategory[] = [
       en: "HUDs, card frames, and interface moods built for readable game-feel.",
       zh: "HUD、卡牌框与界面氛围，为清晰的游戏手感而设计。",
     },
-    cover: "/assets/placeholders/lab-ui.svg",
+    cover: "/assets/detail-pages/game-ui/hero.jpg",
     count: { en: "Interface moods", zh: "界面氛围" },
     href: "#/lab/game-ui",
   },
@@ -250,7 +250,7 @@ export const labCategories: LabCategory[] = [
       en: "Prompt-driven textures, tiles, and concept directions for iteration.",
       zh: "提示词驱动的材质、瓦片与概念方向，用于快速迭代。",
     },
-    cover: "/assets/placeholders/lab-prompt.svg",
+    cover: "/assets/detail-pages/prompt-assets/hero.jpg",
     count: { en: "Prompt sets", zh: "提示词集" },
     href: "#/lab/prompt-assets",
   },
@@ -261,7 +261,7 @@ export const labCategories: LabCategory[] = [
       en: "Impact flashes, elemental bursts, and feedback layers (optional set).",
       zh: "受击闪光、元素爆发与反馈层（可选系列）。",
     },
-    cover: "/assets/placeholders/lab-vfx.svg",
+    cover: "/assets/detail-pages/game-vfx/hero.jpg",
     count: { en: "Effect tests", zh: "特效测试" },
     href: "#/lab/game-vfx",
   },
@@ -272,7 +272,7 @@ export const labCategories: LabCategory[] = [
       en: "Map tiles, abandoned stations, and wuxia-fantasy concept directions.",
       zh: "地图瓦片、废弃空间站与武侠幻想的概念方向。",
     },
-    cover: "/assets/placeholders/lab-concept.svg",
+    cover: "/assets/detail-pages/world-concepts/hero.jpg",
     count: { en: "Concept frames", zh: "概念画面" },
     href: "#/lab/world-concepts",
   },
@@ -291,7 +291,7 @@ export const devLog: DevLogEntry[] = [
     },
     tag: { en: "Workflow", zh: "流程" },
     readTime: { en: "6 min", zh: "6 分钟" },
-    cover: "/assets/placeholders/log-workflow.svg",
+    cover: "/assets/detail-pages/ai-workflow/hero.jpg",
     href: "#/notes/ai-workflow",
   },
   {
@@ -306,7 +306,7 @@ export const devLog: DevLogEntry[] = [
     },
     tag: { en: "Game Feel", zh: "游戏手感" },
     readTime: { en: "5 min", zh: "5 分钟" },
-    cover: "/assets/placeholders/log-combat.svg",
+    cover: "/assets/detail-pages/combat-readability/hero.jpg",
     href: "#/notes/combat-readability",
   },
   {
@@ -318,7 +318,7 @@ export const devLog: DevLogEntry[] = [
     },
     tag: { en: "Pixel Art", zh: "像素艺术" },
     readTime: { en: "4 min", zh: "4 分钟" },
-    cover: "/assets/placeholders/log-pixel.svg",
+    cover: "/assets/detail-pages/pixel-iteration/hero.jpg",
     href: "#/notes/pixel-iteration",
   },
   {
@@ -333,7 +333,7 @@ export const devLog: DevLogEntry[] = [
     },
     tag: { en: "Prompt Design", zh: "提示词设计" },
     readTime: { en: "7 min", zh: "7 分钟" },
-    cover: "/assets/placeholders/log-prompt.svg",
+    cover: "/assets/detail-pages/prompt-engineering/hero.jpg",
     href: "#/notes/prompt-engineering",
   },
   {
@@ -348,7 +348,7 @@ export const devLog: DevLogEntry[] = [
     },
     tag: { en: "Design", zh: "设计" },
     readTime: { en: "5 min", zh: "5 分钟" },
-    cover: "/assets/placeholders/log-validation.svg",
+    cover: "/assets/detail-pages/prototype-validation/hero.jpg",
     href: "#/notes/prototype-validation",
   },
 ];

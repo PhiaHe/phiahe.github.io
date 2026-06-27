@@ -4,9 +4,8 @@
  * Featured Work cards that are bodies of work rather than a single project.
  * Inkvoker is NOT here — it keeps its richer custom page in `projectData.ts`.
  *
- * Image note (foundation round): the dedicated `detail-pages/*` art is not in
- * the repo yet, so these reuse existing on-brand assets. Swap `src` paths once
- * Codex delivers the final covers/heroes; the data shape stays the same.
+ * Image note: data-driven project pages use the dedicated image pack under
+ * `public/assets/detail-pages/<slug>/hero.jpg`.
  * ============================================================================= */
 
 import type { DetailPage } from "./detailTypes";
@@ -23,7 +22,7 @@ export const projectPages: DetailPage[] = [
       zh: "实验室的视觉研究档案——概念画面、界面氛围、着色器材质与精灵研究。它们服务于真实项目，而不是停留在画廊里。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/hero-concept-gemini.jpg",
+      src: "/assets/detail-pages/visual-experiments/hero.jpg",
       alt: {
         en: "A composed board of concept frames and visual surface studies.",
         zh: "由概念画面与视觉材质研究组成的拼板。",
@@ -127,7 +126,7 @@ export const projectPages: DetailPage[] = [
       zh: "一组围绕「狼系拟人探索者」的资产探索——精灵表、八方向移动与动作姿态，目标是让角色能真正实装进俯视视角的构建里。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/character-cyber-fox.png",
+      src: "/assets/detail-pages/pixel-character-lab/hero.jpg",
       alt: {
         en: "A stylized wolf-like anthro explorer character study.",
         zh: "一张风格化的狼系拟人探索者角色研究。",

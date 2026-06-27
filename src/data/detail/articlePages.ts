@@ -5,8 +5,8 @@
  * not a marketing post. Each article uses a few short body sections plus a
  * "Key Takeaways" section (items) and related links.
  *
- * Image note (foundation round): reuses existing on-brand assets until Codex
- * delivers the dedicated `detail-pages/*` art. Swap `src` paths later.
+ * Image note: article detail pages use the dedicated image pack under
+ * `public/assets/detail-pages/<slug>/hero.jpg`.
  * ============================================================================= */
 
 import type { DetailPage } from "./detailTypes";
@@ -23,7 +23,7 @@ export const articlePages: DetailPage[] = [
       zh: "生成、提示词与人的判断如何组合成一个快速循环，用来打造可玩的小点子——以及每一环到底在哪里真正起作用。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/hero-map.jpg",
+      src: "/assets/detail-pages/ai-workflow/hero.jpg",
       alt: {
         en: "A production desk view of an in-progress game build.",
         zh: "正在开发中的游戏构建的工作台视角。",
@@ -101,7 +101,7 @@ export const articlePages: DetailPage[] = [
       zh: "一篇关于「让动作卡牌战斗保持可读」的短笔记：把卡牌文字分布到 tooltip、小卡与大卡三层，并疏解拥挤的 HUD。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/card-shaolin.png",
+      src: "/assets/detail-pages/combat-readability/hero.jpg",
       alt: {
         en: "A combat card whose text has to read at several sizes.",
         zh: "一张文字需要在多种尺寸下都可读的战斗卡牌。",
@@ -179,7 +179,7 @@ export const articlePages: DetailPage[] = [
       zh: "一张角色图如何变成可实装的精灵表：八方向、动作帧、背景换色与朝向修正——靠提示词约束和人工验收串起来。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/character-cyber-fox.png",
+      src: "/assets/detail-pages/pixel-iteration/hero.jpg",
       alt: {
         en: "A character study being worked toward a sprite sheet.",
         zh: "一张正被推进为精灵表的角色研究。",
@@ -257,7 +257,7 @@ export const articlePages: DetailPage[] = [
       zh: "关于游戏素材实用提示词的笔记——描述约束、负约束、背景与构图控制、尺寸与用途。把它当作一个迭代工具，而不是万能方案。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/hero-concept-gemini.jpg",
+      src: "/assets/detail-pages/prompt-engineering/hero.jpg",
       alt: {
         en: "A concept image refined through iterative prompting.",
         zh: "一张通过反复提示词打磨出来的概念图。",
@@ -335,7 +335,7 @@ export const articlePages: DetailPage[] = [
       zh: "小项目——Inkvoker、ARAM 工具、视觉实验——如何被快速验证：build、lint、test，再做实机检查与上线后检查。原则是先可用，再增强。",
     },
     heroImage: {
-      src: "/assets/projects/inkvoker/enemy-boss.jpg",
+      src: "/assets/detail-pages/prototype-validation/hero.jpg",
       alt: {
         en: "An in-progress build frame used to validate a prototype.",
         zh: "一张用于验证原型的开发中构建画面。",
