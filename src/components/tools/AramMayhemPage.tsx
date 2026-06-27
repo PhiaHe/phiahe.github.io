@@ -11,6 +11,7 @@ import {
 } from "../../data/aramMayhemData";
 import { searchAramMayhemChampions } from "../../data/aramMayhemSearch";
 import { useLanguage } from "../../i18n/LanguageContext";
+import { aramUpdatedLabel } from "../../lib/aramMayhemTime";
 
 const DATA_URL = "/data/aram-mayhem.json";
 
@@ -181,7 +182,7 @@ export default function AramMayhemPage() {
     if (first) setSelectedKey(first.key);
   };
 
-  const lastSynced = dataSnapshot.syncedAt ? dataSnapshot.syncedAt.slice(0, 10) : "—";
+  const updatedLabel = aramUpdatedLabel(dataSnapshot.syncedAt);
   const detailCoverage =
     dataSnapshot.championCount > 0
       ? Math.round((dataSnapshot.detailCount / dataSnapshot.championCount) * 100)
@@ -214,18 +215,24 @@ export default function AramMayhemPage() {
             </h1>
             <p className="mt-5 max-w-[30ch] text-base leading-relaxed text-accent-silver/70 sm:max-w-2xl md:text-lg">
               {t({
-                en: "Search any champion in the mode, then scan their recommended augments, item build, and skill order from a live OP.GG snapshot.",
-                zh: "搜索模式内任意英雄，查看来自 OP.GG 实时快照的推荐海克斯、出装路线与技能加点。",
+                en: "Search champions, nicknames, or abbreviations to view OP.GG recommended augments, item builds, and skill orders.",
+                zh: "搜索英雄、外号或简写，快速查看 OP.GG 推荐海克斯、出装路线与技能加点。",
               })}
             </p>
-            <div className="mt-7 flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap">
-              <span className={`rounded-full border px-3 py-1 font-mono text-[11px] uppercase tracking-widest ${meta.className}`}>
+            <div className="mt-7 flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:items-center">
+              <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 font-mono text-[11px] uppercase tracking-widest ${meta.className}`}>
+                {status === "live" && <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-current" />}
                 {t(meta)}
               </span>
               {dataSnapshot.patch && (
                 <span className="chip">{t({ en: `Patch ${dataSnapshot.patch}`, zh: `版本 ${dataSnapshot.patch}` })}</span>
               )}
-              <span className="chip">{t({ en: `Last synced ${lastSynced}`, zh: `更新时间 ${lastSynced}` })}</span>
+              <span className="chip">
+                {t({
+                  en: `${dataSnapshot.championCount} champions`,
+                  zh: `${dataSnapshot.championCount} 英雄`,
+                })}
+              </span>
               <span className="chip">
                 {t({
                   en: `Detail coverage ${detailCoverage}% (${dataSnapshot.detailCount}/${dataSnapshot.championCount})`,
@@ -233,6 +240,9 @@ export default function AramMayhemPage() {
                 })}
               </span>
             </div>
+            <p className="mt-3 font-mono text-[11px] tracking-wide text-accent-silver/50">
+              {t(updatedLabel)}
+            </p>
           </div>
         </div>
       </section>

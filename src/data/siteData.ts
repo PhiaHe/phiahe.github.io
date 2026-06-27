@@ -199,11 +199,12 @@ export const tools: ToolEntry[] = [
     },
     cover: "/assets/tools/aram-mayhem/tool-aram-mayhem-cover.jpg",
     href: "#/tools/aram-mayhem",
-    status: { en: "Sample data", zh: "样例数据" },
+    status: { en: "Live OP.GG data", zh: "实时数据" },
     tags: [
       { en: "Champion search", zh: "英雄搜索" },
-      { en: "Silver / Gold / Prismatic", zh: "银色 / 黄金 / 棱彩" },
-      { en: "Item routes", zh: "装备路线" },
+      { en: "Recommended augments", zh: "推荐海克斯" },
+      { en: "Item builds", zh: "装备路线" },
+      { en: "Skill order", zh: "技能加点" },
     ],
   },
 ];

@@ -11,6 +11,7 @@
     "lint": "tsc --noEmit",
     "test:aram-icons": "node scripts/test-aram-mayhem-icons.mjs",
     "test:aram-search-aliases": "node scripts/test-aram-mayhem-search-aliases.mjs",
+    "test:aram-time": "node scripts/test-aram-mayhem-time.mjs",
     "test:smooth-scroll": "node scripts/test-smooth-scroll.mjs",
     "test:detail-pages": "node scripts/test-detail-pages-foundation.mjs",
     "gen:assets": "node scripts/generate-placeholders.mjs"

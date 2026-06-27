@@ -46,7 +46,7 @@ check("page surfaces live/stale/fallback status + coverage", () => {
     assert.match(aramPage, new RegExp(`\\b${status}\\b`), `page should handle ${status} status`);
   }
   assert.match(aramPage, /Live OP\.GG snapshot/, "page should show the live snapshot label");
-  assert.match(aramPage, /Last synced|更新时间/, "page should show last synced time");
+  assert.match(aramPage, /aramUpdatedLabel/, "page should show the synced time (via the time util)");
   assert.match(aramPage, /Patch|版本/, "page should show the patch");
   assert.match(aramPage, /Detail coverage|详情覆盖/, "page should show detail coverage");
 });
@@ -97,6 +97,61 @@ check("page does not use runes, rarity buckets, or 'Sample data'", () => {
   assert.doesNotMatch(aramPage, /银色海克斯|黄金海克斯|棱彩海克斯|棱镜/, "no rarity-bucketed augments");
   // The data layer must not carry rune or fabricated rarity fields either.
   assert.doesNotMatch(aramData, /"rarity"|HexTier|silver:|prismatic:/, "data should not carry rarity buckets");
+});
+
+// --- Outdated placeholder copy must not regress (homepage tool entry) ---
+check("homepage tool copy is no longer sample/placeholder", () => {
+  // Tool status + tags live in siteData; the data-plan card lives in ToolsSection.
+  assert.doesNotMatch(siteData, /Sample data|样例数据/, "tool status must not say 'Sample data'");
+  assert.doesNotMatch(
+    toolsSection,
+    /Sample data|样例数据|first pass uses sample data|第一版先使用样例数据/,
+    "data-plan card must not use placeholder copy",
+  );
+  // Live status wording is present instead.
+  assert.match(siteData, /Live OP\.GG data|实时数据/, "tool status should signal live data");
+});
+
+check("rarity words (silver/gold/prismatic) are not feature labels", () => {
+  // They must not appear as homepage tool tags / cards. The ARAM page may only
+  // mention them inside an explanatory note — but here we keep them out entirely.
+  assert.doesNotMatch(
+    siteData,
+    /Silver \/ Gold \/ Prismatic|银色 \/ 黄金 \/ 棱彩/,
+    "tool tags must not be rarity buckets",
+  );
+  assert.doesNotMatch(
+    toolsSection,
+    /Silver|Gold|Prismatic|银色|黄金|棱彩/,
+    "data-plan card must not present rarity buckets",
+  );
+});
+
+check("data-plan card shows real capability metrics + pipeline copy", () => {
+  assert.match(toolsSection, /Data pipeline|数据方案/, "card keeps the data-plan/pipeline heading");
+  assert.match(toolsSection, /GitHub Actions/, "card explains the daily GitHub Actions sync");
+  assert.match(toolsSection, /LIVE/, "card shows a LIVE capability metric");
+  assert.match(toolsSection, /V4/, "card shows the V4 snapshot metric");
+});
+
+// --- Sync time comes from syncedAt, formatted to UTC+8, with fallbacks ---
+check("sync time is sourced from snapshot.syncedAt and formatted via the util", () => {
+  // ARAM page hero shows the formatted updated label.
+  assert.match(aramPage, /aramUpdatedLabel/, "page should format syncedAt via the time util");
+  assert.match(aramPage, /dataSnapshot\.syncedAt/, "page should read syncedAt from the snapshot");
+  assert.doesNotMatch(aramPage, /slice\(0, 10\)/, "page should not hand-slice the ISO date anymore");
+  // Homepage tool card + data-plan card both surface a time line from the util.
+  assert.match(toolsSection, /aramUpdatedLabel/, "tool card should show the updated time");
+  assert.match(toolsSection, /aramLastSyncLabel/, "data-plan card should show last sync");
+  assert.match(toolsSection, /syncedAt/, "ToolsSection should read syncedAt");
+  // No hard-coded sync date anywhere.
+  assert.doesNotMatch(aramPage, /20\d\d-\d\d-\d\d \d\d:\d\d/, "ARAM page must not hard-code a sync date");
+  assert.doesNotMatch(toolsSection, /20\d\d-\d\d-\d\d \d\d:\d\d/, "ToolsSection must not hard-code a sync date");
+});
+
+check("homepage fetch of the snapshot fails soft (no crash, degraded line)", () => {
+  assert.match(toolsSection, /\.catch\(/, "ToolsSection fetch should have a catch");
+  assert.match(toolsSection, /aram-mayhem\.json/, "ToolsSection should fetch the public snapshot");
 });
 
 // --- Assets ---
