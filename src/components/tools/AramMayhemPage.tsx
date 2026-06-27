@@ -3,12 +3,12 @@ import {
   ARAM_MAYHEM_STALE_AFTER_DAYS,
   aramMayhemFallbackData,
   aramMayhemSource,
-  type AramMayhemChampion,
   type AramMayhemSnapshot,
   type AramMayhemStatus,
   type ChampionItems,
   type ItemRow,
 } from "../../data/aramMayhemData";
+import { searchAramMayhemChampions } from "../../data/aramMayhemSearch";
 import { useLanguage } from "../../i18n/LanguageContext";
 
 const DATA_URL = "/data/aram-mayhem.json";
@@ -57,15 +57,6 @@ const statusMeta: Record<AramMayhemStatus, { en: string; zh: string; className: 
     className: "border-slate-300/25 bg-slate-200/[0.07] text-slate-200",
   },
 };
-
-function searchChampions(champions: AramMayhemChampion[], query: string) {
-  const normalized = query.trim().toLowerCase();
-  if (!normalized) return champions;
-  return champions.filter((champion) => {
-    const haystack = [champion.name.zh, champion.name.en, champion.key].join(" ").toLowerCase();
-    return haystack.includes(normalized);
-  });
-}
 
 function ItemPath({ row }: { row: ItemRow }) {
   return (
@@ -119,7 +110,7 @@ export default function AramMayhemPage() {
 
   const status = useMemo(() => resolveStatus(dataSnapshot), [dataSnapshot]);
   const champions = dataSnapshot.champions;
-  const results = useMemo(() => searchChampions(champions, query), [champions, query]);
+  const results = useMemo(() => searchAramMayhemChampions(champions, query), [champions, query]);
   const [selectedKey, setSelectedKey] = useState(champions[0]?.key ?? "");
 
   const selected =
@@ -160,7 +151,7 @@ export default function AramMayhemPage() {
 
   const handleQueryChange = (value: string) => {
     setQuery(value);
-    const [first] = searchChampions(champions, value);
+    const [first] = searchAramMayhemChampions(champions, value);
     if (first) setSelectedKey(first.key);
   };
 
@@ -232,7 +223,7 @@ export default function AramMayhemPage() {
             onKeyDown={(event) => {
               if (event.key === "Enter" && results[0]) setSelectedKey(results[0].key);
             }}
-            placeholder={t({ en: "Jinx, Ashe, Lux...", zh: "金克丝、寒冰、光辉..." })}
+            placeholder={t({ en: "Search champion, nickname, or abbreviation", zh: "搜索英雄 / 外号 / 简写" })}
             className="mt-3 w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-accent-silver/35 focus:border-accent-cyan/60"
           />
           <p className="mt-3 font-mono text-[11px] text-accent-silver/40">

@@ -5,6 +5,8 @@ const app = readFileSync("src/App.tsx", "utf8");
 const siteData = readFileSync("src/data/siteData.ts", "utf8");
 const aramPage = readFileSync("src/components/tools/AramMayhemPage.tsx", "utf8");
 const aramData = readFileSync("src/data/aramMayhemData.ts", "utf8");
+const aramAliases = readFileSync("src/data/aramMayhemAliases.ts", "utf8");
+const aramSearch = readFileSync("src/data/aramMayhemSearch.ts", "utf8");
 const toolsSection = readFileSync("src/components/ToolsSection.tsx", "utf8");
 const dataPath = "public/data/aram-mayhem.json";
 
@@ -52,7 +54,16 @@ check("page surfaces live/stale/fallback status + coverage", () => {
 // --- The whole champion pool, not a few samples ---
 check("page is driven by the full champion list", () => {
   assert.match(aramPage, /dataSnapshot\.champions/, "page should render from the champions list");
-  assert.match(aramPage, /searchChampions/, "search should run over the champion list");
+  assert.match(aramPage, /searchAramMayhemChampions/, "search should run over the champion list");
+});
+
+check("champion search supports aliases without changing the public snapshot", () => {
+  assert.match(aramPage, /Search champion, nickname, or abbreviation/, "English placeholder should mention nicknames");
+  assert.match(aramPage, /搜索英雄 \/ 外号 \/ 简写/, "Chinese placeholder should mention aliases");
+  assert.match(aramAliases, /ARAM_CHAMPION_ALIASES/, "aliases should live in a dedicated data file");
+  assert.match(aramSearch, /normalizeChampionSearchText/, "search should normalize queries");
+  assert.match(aramSearch, /searchAramMayhemChampions/, "search helper should be reusable outside the component");
+  assert.doesNotMatch(readFileSync(dataPath, "utf8"), /ARAM_CHAMPION_ALIASES|快乐风男|男枪|女枪/, "public JSON should not contain alias data");
 });
 
 // --- Required detail fields rendered ---
