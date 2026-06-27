@@ -17,7 +17,7 @@ function check(label, fn) {
   console.log(`  ok ${label}`);
 }
 
-console.log("ARAM Mayhem tool-page tests (schema v3)");
+console.log("ARAM Mayhem tool-page tests (schema v4)");
 
 // --- Routing / navigation ---
 check("route and nav are wired", () => {
@@ -29,10 +29,10 @@ check("route and nav are wired", () => {
 });
 
 // --- Data loading ---
-check("page loads and validates the v3 public JSON snapshot", () => {
+check("page loads and validates the v4 public JSON snapshot", () => {
   assert.match(aramPage, /\/data\/aram-mayhem\.json/, "page should fetch the public JSON");
   assert.match(aramPage, /isAramMayhemSnapshot/, "page should validate the snapshot before use");
-  assert.match(aramPage, /version === 3/, "page should accept the v3 schema");
+  assert.match(aramPage, /version === 4/, "page should accept the v4 schema");
 });
 
 check("page keeps a typed fallback but does not claim it is live", () => {
@@ -76,6 +76,15 @@ check("page renders augments, item build, and skill order", () => {
   assert.match(aramPage, /Core|核心装/, "page should render core items");
 });
 
+check("page renders item and augment icons as decorative progressive enhancement", () => {
+  assert.match(aramPage, /augment\.icon\?\.url/, "augment icon URL should be rendered");
+  assert.match(aramPage, /item\.icon\?\.url/, "item icon URL should be rendered");
+  assert.match(aramPage, /loading="lazy"/, "external icons should lazy-load");
+  assert.match(aramPage, /referrerPolicy="no-referrer"/, "external icons should not send referrers");
+  assert.match(aramPage, /aria-hidden="true"/, "icons should be decorative when text is adjacent");
+  assert.match(aramPage, /event\.currentTarget\.style\.display = "none"/, "broken images should hide themselves");
+});
+
 // --- Missing fields are honest, not faked ---
 check("missing fields show 'Unavailable from source', not fake data", () => {
   assert.match(aramPage, /Unavailable from source|来源未提供/, "page should show an unavailable state");
@@ -104,10 +113,13 @@ check("tool cover and hero assets exist", () => {
 check("shipped snapshot has the fields the UI renders", () => {
   const snapshot = JSON.parse(readFileSync(dataPath, "utf8"));
   const sample = snapshot.champions[0];
+  assert.equal(snapshot.version, 4, "snapshot should be v4");
   for (const field of ["key", "name", "image", "tier", "tierLabel", "rank", "detailStatus", "augments", "items", "skills"]) {
     assert.ok(field in sample, `champion should expose ${field}`);
   }
   assert.ok("starter" in sample.items && "boots" in sample.items && "core" in sample.items, "items has starter/boots/core");
+  assert.ok(sample.augments.some((augment) => augment.icon?.url), "sample augments should expose icons");
+  assert.ok(sample.items.core.some((row) => row.items.some((item) => item.icon?.url)), "sample items should expose icons");
   assert.ok(!("runes" in sample), "champion should not expose a runes field");
 });
 

@@ -5,6 +5,7 @@ import {
   aramMayhemSource,
   type AramMayhemSnapshot,
   type AramMayhemStatus,
+  type BuildItem,
   type ChampionItems,
   type ItemRow,
 } from "../../data/aramMayhemData";
@@ -17,7 +18,7 @@ function isAramMayhemSnapshot(value: unknown): value is AramMayhemSnapshot {
   if (!value || typeof value !== "object") return false;
   const snapshot = value as Partial<AramMayhemSnapshot>;
   return (
-    snapshot.version === 3 &&
+    snapshot.version === 4 &&
     snapshot.sourceUrl === aramMayhemSource.url &&
     Array.isArray(snapshot.champions) &&
     snapshot.champions.length > 0
@@ -58,14 +59,39 @@ const statusMeta: Record<AramMayhemStatus, { en: string; zh: string; className: 
   },
 };
 
+function ItemIcon({ item }: { item: BuildItem }) {
+  if (!item.icon?.url) return null;
+  return (
+    <img
+      src={item.icon.url}
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+      referrerPolicy="no-referrer"
+      onError={(event) => {
+        event.currentTarget.style.display = "none";
+      }}
+      className="h-8 w-8 shrink-0 rounded-md border border-white/10 object-cover"
+    />
+  );
+}
+
 function ItemPath({ row }: { row: ItemRow }) {
   return (
     <div className="flex flex-wrap items-center gap-1.5">
       {row.items.map((item, index) => (
         <span key={`${item.id}-${index}`} className="flex items-center gap-1.5">
           {index > 0 && <span className="text-accent-silver/30">›</span>}
-          <span className="rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1.5 text-xs text-white">
-            {item.name}
+          <span className="flex min-h-9 max-w-full items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-2 py-1.5 text-xs text-white">
+            <ItemIcon item={item} />
+            <span className="min-w-0">
+              <span className="block truncate">{item.name}</span>
+              {(item.pickRate || item.winRate) && (
+                <span className="mt-0.5 block font-mono text-[10px] text-accent-silver/45">
+                  {[item.pickRate, item.winRate].filter(Boolean).join(" / ")}
+                </span>
+              )}
+            </span>
           </span>
         </span>
       ))}
@@ -333,8 +359,26 @@ export default function AramMayhemPage() {
                       <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-accent-cyan/30 bg-accent-cyan/[0.08] font-mono text-xs text-accent-cyan">
                         {augment.priority}
                       </span>
-                      <span className="text-sm font-medium text-white">
-                        {lang === "zh" ? augment.name.zh : augment.name.en}
+                      {augment.icon?.url && (
+                        <img
+                          src={augment.icon.url}
+                          alt=""
+                          aria-hidden="true"
+                          loading="lazy"
+                          referrerPolicy="no-referrer"
+                          onError={(event) => {
+                            event.currentTarget.style.display = "none";
+                          }}
+                          className="h-7 w-7 shrink-0 rounded-md border border-white/10 object-cover"
+                        />
+                      )}
+                      <span className="min-w-0 text-sm font-medium text-white">
+                        <span className="block truncate">{lang === "zh" ? augment.name.zh : augment.name.en}</span>
+                        {(augment.pickRate || augment.winRate) && (
+                          <span className="mt-0.5 block font-mono text-[10px] text-accent-silver/45">
+                            {[augment.pickRate, augment.winRate].filter(Boolean).join(" / ")}
+                          </span>
+                        )}
                       </span>
                     </li>
                   ))}

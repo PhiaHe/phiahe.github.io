@@ -15,6 +15,7 @@ const tempPath = `${DATA_PATH}.tmp`;
 const MIN_CHAMPIONS = 150;
 const MIN_DETAIL_COVERAGE = 0.9; // >= 90% of champions must have parsed details
 const MIN_FIELD_COVERAGE = 0.9; // >= 90% must have augments and items
+const MIN_ICON_COVERAGE = 0.8; // icons are enhancement fields, but very low coverage means parsing broke
 
 const REQUEST_TIMEOUT_MS = 15000;
 const MIN_DELAY_MS = 500;
@@ -89,10 +90,46 @@ function extractArrayAfter(text, marker) {
   return null;
 }
 
-/** Derive the game patch (e.g. "16.13") from any champion/item image URL. */
+/** Derive the game patch from any champion/item image URL. */
 function extractPatch(text) {
-  const match = /\/lol\/(\d+\.\d+)(?:\.\d+)?\/(?:champion|item)\//.exec(text);
+  const match = /\/lol\/(\d+\.\d+(?:\.\d+)?)\/(?:champion|item)\//.exec(text);
   return match ? match[1] : undefined;
+}
+
+function sanitizeIconUrl(rawUrl) {
+  let normalized = rawUrl.replaceAll("\\u002F", "/").replaceAll("\\/", "/").replaceAll("&amp;", "&");
+  if (normalized.startsWith("//")) normalized = `https:${normalized}`;
+  try {
+    const url = new URL(normalized);
+    url.hash = "";
+    url.search = "";
+    return url.toString();
+  } catch {
+    return normalized.split("?")[0].split("#")[0];
+  }
+}
+
+function unique(values) {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function collectIconUrls(block, folder) {
+  const refs = [];
+  const fullUrlRe = new RegExp(`https?:\\\\?/\\\\?/[^"'\\s\\\\]+/${folder}/[^"'\\s\\\\]+\\.png`, "gi");
+  const pathRe = new RegExp(`(?:/[^"'\\s\\\\]*)?/${folder}/[^"'\\s\\\\]+\\.png`, "gi");
+
+  for (const match of block.matchAll(fullUrlRe)) refs.push(sanitizeIconUrl(match[0]));
+  for (const match of block.matchAll(pathRe)) refs.push(sanitizeIconUrl(match[0]));
+
+  return unique(refs);
+}
+
+function iconFileFromUrl(url, folder) {
+  return url.match(new RegExp(`${folder}/([^/?#]+\\.png)$`))?.[1] ?? "";
+}
+
+function dataDragonItemIconUrl(patch, itemId) {
+  return patch ? `https://ddragon.leagueoflegends.com/cdn/${patch}/img/item/${itemId}.png` : "";
 }
 
 /** Normalize the whole-mode tier list from the list page RSC text. */
@@ -138,12 +175,30 @@ export function parseAugments(rsc) {
     const end = i + 1 < markers.length ? markers[i + 1].index : start + 1400;
     const block = rsc.slice(start, end);
     const id = (block.match(/"metaId":(\d+),"metaType":"aram-augment"/) || [])[1] ?? null;
+    const iconUrl = collectIconUrls(block, "aram-augment").find((url) =>
+      /\/latest\/aram-augment\/[^/?#]+\.png$/.test(url),
+    ) ?? "";
+    const iconFile = iconFileFromUrl(iconUrl, "aram-augment");
     const name =
       (block.match(/text-gray-900","children":"([^"]+)"/) || [])[1] ??
       (block.match(/"alt":"([^"]+)"/) || [])[1] ??
       null;
     if (id || name) {
-      out.push({ id: id ?? "", name: { zh: name ?? "", en: "" }, priority: out.length + 1 });
+      out.push({
+        id: id ?? "",
+        metaId: id ?? "",
+        iconFile,
+        icon: iconUrl
+          ? {
+              url: iconUrl,
+              source: "opgg",
+              id: id ?? "",
+              file: iconFile,
+            }
+          : undefined,
+        name: { zh: name ?? "", en: "" },
+        priority: out.length + 1,
+      });
     }
   }
   return out;
@@ -154,7 +209,7 @@ export function parseAugments(rsc) {
  * collect the distinct items per row in order, bounding each row at the next
  * row/section marker so rows don't bleed into each other.
  */
-export function parseItemSection(rsc, prefix) {
+export function parseItemSection(rsc, prefix, patch = extractPatch(rsc)) {
   const markers = [...rsc.matchAll(new RegExp(`"${prefix}_(\\d+)"`, "g"))];
   const rows = [];
   for (let i = 0; i < markers.length; i++) {
@@ -170,7 +225,24 @@ export function parseItemSection(rsc, prefix) {
       const id = Number(it[1]);
       if (!seen.has(id)) {
         seen.add(id);
-        items.push({ id, name: it[2] });
+        const itemBlock = it[0];
+        const opggIconUrl =
+          collectIconUrls(itemBlock, "item").find((url) => new RegExp(`/item/${id}\\.png$`).test(url)) ??
+          (patch ? `https://opgg-static.akamaized.net/meta/images/lol/${patch}/item/${id}.png` : "");
+        const dataDragonIconUrl = dataDragonItemIconUrl(patch, id);
+        items.push({
+          id,
+          name: it[2],
+          opggIconUrl,
+          dataDragonIconUrl,
+          icon: opggIconUrl
+            ? {
+                url: opggIconUrl,
+                source: "opgg",
+                id,
+              }
+            : undefined,
+        });
       }
     }
     if (items.length > 0) rows.push({ row: Number(markers[i][1]), items });
@@ -195,24 +267,40 @@ export function parseSkills(rsc) {
 
 /** Parse one champion detail page into the v3 champion detail shape. */
 export function parseDetail(rsc) {
+  const patch = extractPatch(rsc);
   const augments = parseAugments(rsc);
   const items = {
-    starter: parseItemSection(rsc, "starter_items"),
-    boots: parseItemSection(rsc, "boots"),
-    core: parseItemSection(rsc, "core_items"),
+    starter: parseItemSection(rsc, "starter_items", patch),
+    boots: parseItemSection(rsc, "boots", patch),
+    core: parseItemSection(rsc, "core_items", patch),
   };
   const skills = parseSkills(rsc);
-  const patch = extractPatch(rsc);
 
   const hasAugments = augments.length > 0;
   const hasItems = items.core.length > 0 || items.boots.length > 0;
   const hasSkills = !!skills;
+  const augmentIconCount = augments.filter((augment) => augment.icon?.url).length;
+  const itemList = [...items.starter, ...items.boots, ...items.core].flatMap((row) => row.items);
+  const itemIconCount = itemList.filter((item) => item.icon?.url).length;
 
   // "synced" = augments + items + skills all present. Missing skills (or any
   // single field) downgrades to "partial" rather than failing the champion.
   const detailStatus = hasAugments && hasItems && hasSkills ? "synced" : "partial";
 
-  return { augments, items, skills, patch, detailStatus, hasAugments, hasItems, hasSkills };
+  return {
+    augments,
+    items,
+    skills,
+    patch,
+    detailStatus,
+    hasAugments,
+    hasItems,
+    hasSkills,
+    augmentCount: augments.length,
+    augmentIconCount,
+    itemCount: itemList.length,
+    itemIconCount,
+  };
 }
 
 // --- Networking ---
@@ -250,7 +338,13 @@ function readExisting() {
 export function buildSnapshot({ listHtml, detailsByKey, now }) {
   const listRsc = decodeRscPayload(listHtml);
   const tierList = extractTierList(listRsc);
-  const sourceHash = createHash("sha256").update(listHtml).digest("hex");
+  const sourceHashInput = [
+    listHtml,
+    ...[...detailsByKey.entries()]
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([key, detailText]) => `${key}\n${detailText}`),
+  ].join("\n---ARAM_DETAIL---\n");
+  const sourceHash = createHash("sha256").update(sourceHashInput).digest("hex");
 
   if (tierList.length < MIN_CHAMPIONS) {
     return {
@@ -265,6 +359,10 @@ export function buildSnapshot({ listHtml, detailsByKey, now }) {
   let augOk = 0;
   let itemOk = 0;
   let skillOk = 0;
+  let augmentCount = 0;
+  let augmentIconCount = 0;
+  let itemCount = 0;
+  let itemIconCount = 0;
   let patch;
 
   const champions = tierList.map((entry) => {
@@ -297,11 +395,18 @@ export function buildSnapshot({ listHtml, detailsByKey, now }) {
     if (detail.hasAugments) augOk += 1;
     if (detail.hasItems) itemOk += 1;
     if (detail.hasSkills) skillOk += 1;
+    augmentCount += detail.augmentCount;
+    augmentIconCount += detail.augmentIconCount;
+    itemCount += detail.itemCount;
+    itemIconCount += detail.itemIconCount;
     if (!patch && detail.patch) patch = detail.patch;
 
     // English augment names are not published; carry the zh name through.
     const augments = detail.augments.map((a) => ({
       id: a.id,
+      metaId: a.metaId || a.id,
+      iconFile: a.iconFile,
+      icon: a.icon,
       name: { zh: a.name.zh, en: a.name.en || a.name.zh },
       priority: a.priority,
     }));
@@ -322,6 +427,8 @@ export function buildSnapshot({ listHtml, detailsByKey, now }) {
   const augCoverage = augOk / total;
   const itemCoverage = itemOk / total;
   const skillCoverage = skillOk / total;
+  const augmentIconCoverage = augmentCount > 0 ? augmentIconCount / augmentCount : 0;
+  const itemIconCoverage = itemCount > 0 ? itemIconCount / itemCount : 0;
   const stats = {
     championCount: total,
     detailCount,
@@ -330,6 +437,12 @@ export function buildSnapshot({ listHtml, detailsByKey, now }) {
     augCoverage,
     itemCoverage,
     skillCoverage,
+    augmentCount,
+    augmentIconCount,
+    augmentIconCoverage,
+    itemCount,
+    itemIconCount,
+    itemIconCoverage,
   };
 
   if (detailCoverage < MIN_DETAIL_COVERAGE) {
@@ -346,12 +459,19 @@ export function buildSnapshot({ listHtml, detailsByKey, now }) {
       stats,
     };
   }
+  if (augmentIconCoverage < MIN_ICON_COVERAGE || itemIconCoverage < MIN_ICON_COVERAGE) {
+    return {
+      ok: false,
+      reason: `Icon coverage too low (augment icons ${(augmentIconCoverage * 100).toFixed(0)}%, item icons ${(itemIconCoverage * 100).toFixed(0)}%); refusing to overwrite.`,
+      stats,
+    };
+  }
 
   return {
     ok: true,
     stats,
     snapshot: {
-      version: 3,
+      version: 4,
       status: "live",
       source: "opgg",
       sourceUrl: SOURCE_URL,
@@ -361,6 +481,18 @@ export function buildSnapshot({ listHtml, detailsByKey, now }) {
       championCount: total,
       detailCount,
       failedDetailCount,
+      iconCoverage: {
+        augments: {
+          total: augmentCount,
+          withIcon: augmentIconCount,
+          pct: Number((augmentIconCoverage * 100).toFixed(1)),
+        },
+        items: {
+          total: itemCount,
+          withIcon: itemIconCount,
+          pct: Number((itemIconCoverage * 100).toFixed(1)),
+        },
+      },
       champions,
     },
   };
@@ -374,7 +506,7 @@ export function validateSnapshot(snapshot) {
 
   fail(snapshot && typeof snapshot === "object", "Snapshot must be an object");
   if (snapshot && typeof snapshot === "object") {
-    fail(snapshot.version === 3, "version must be 3");
+    fail(snapshot.version === 4, "version must be 4");
     fail(snapshot.sourceUrl === SOURCE_URL, "sourceUrl must cite the OP.GG ARAM Mayhem URL");
     fail(typeof snapshot.syncedAt === "string", "syncedAt must be set");
     fail(["live", "stale", "curated", "fallback"].includes(snapshot.status), "status must be a known value");
@@ -388,6 +520,10 @@ export function validateSnapshot(snapshot) {
 
     let augOk = 0;
     let itemOk = 0;
+    let augmentCount = 0;
+    let augmentIconCount = 0;
+    let itemCount = 0;
+    let itemIconCount = 0;
     for (const champion of snapshot.champions ?? []) {
       fail(typeof champion.key === "string" && champion.key.length > 0, "champion needs key");
       fail(champion.name?.zh && champion.name?.en, `${champion.key} needs name.zh/name.en`);
@@ -401,12 +537,48 @@ export function validateSnapshot(snapshot) {
       fail(champion.items && typeof champion.items === "object", `${champion.key} needs items`);
       if (champion.augments.length > 0) augOk += 1;
       if ((champion.items.core?.length ?? 0) > 0 || (champion.items.boots?.length ?? 0) > 0) itemOk += 1;
+      for (const augment of champion.augments ?? []) {
+        augmentCount += 1;
+        fail(!("rarity" in augment), `${champion.key} augment must not carry rarity`);
+        fail(augment.metaId || augment.id, `${champion.key} augment needs metaId/id`);
+        if (augment.icon?.url) {
+          augmentIconCount += 1;
+          fail(augment.icon.source === "opgg", `${champion.key} augment icon source must be opgg`);
+          fail(
+            /\/latest\/aram-augment\/[^/?#]+\.png$/.test(augment.icon.url),
+            `${champion.key} augment icon must use OP.GG latest aram-augment URL`,
+          );
+          fail(
+            !/\/\d+\.\d+(?:\.\d+)?\/aram-augment\//.test(augment.icon.url),
+            `${champion.key} augment icon must not use patch-fixed aram-augment URL`,
+          );
+        }
+      }
+      for (const item of [
+        ...(champion.items?.starter ?? []),
+        ...(champion.items?.boots ?? []),
+        ...(champion.items?.core ?? []),
+      ].flatMap((row) => row.items ?? [])) {
+        itemCount += 1;
+        fail(Number.isFinite(item.id), `${champion.key} item needs numeric id`);
+        if (item.icon?.url) {
+          itemIconCount += 1;
+          fail(item.icon.source === "opgg", `${champion.key} item icon source must be opgg`);
+          fail(/\/item\/\d+\.png$/.test(item.icon.url), `${champion.key} item icon URL should end with item id png`);
+        }
+      }
     }
 
     const total = snapshot.champions?.length ?? 0;
     if (total > 0) {
       fail(augOk / total >= MIN_FIELD_COVERAGE, `augments coverage ${(augOk / total * 100).toFixed(0)}% < ${MIN_FIELD_COVERAGE * 100}%`);
       fail(itemOk / total >= MIN_FIELD_COVERAGE, `items coverage ${(itemOk / total * 100).toFixed(0)}% < ${MIN_FIELD_COVERAGE * 100}%`);
+      if (augmentCount > 0) {
+        fail(augmentIconCount / augmentCount >= MIN_ICON_COVERAGE, `augment icon coverage ${(augmentIconCount / augmentCount * 100).toFixed(0)}% < ${MIN_ICON_COVERAGE * 100}%`);
+      }
+      if (itemCount > 0) {
+        fail(itemIconCount / itemCount >= MIN_ICON_COVERAGE, `item icon coverage ${(itemIconCount / itemCount * 100).toFixed(0)}% < ${MIN_ICON_COVERAGE * 100}%`);
+      }
     }
   }
 
@@ -480,12 +652,17 @@ async function main() {
   validateSnapshot(JSON.parse(readFileSync(tempPath, "utf8")));
   renameSync(tempPath, DATA_PATH);
   console.log(
-    `Synced v3 snapshot: ${result.stats.championCount} champions, ` +
+    `Synced v${result.snapshot.version} snapshot: ${result.stats.championCount} champions, ` +
       `${result.stats.detailCount} detailed, ${result.stats.failedDetailCount} failed, patch ${result.snapshot.patch ?? "?"}.`,
   );
   console.log(
     `Coverage: augments ${(result.stats.augCoverage * 100).toFixed(0)}%, ` +
       `items ${(result.stats.itemCoverage * 100).toFixed(0)}%, skills ${(result.stats.skillCoverage * 100).toFixed(0)}%.`,
+  );
+  console.log(
+    `Icon coverage: augments ${(result.stats.augmentIconCoverage * 100).toFixed(0)}% ` +
+      `(${result.stats.augmentIconCount}/${result.stats.augmentCount}), items ${(result.stats.itemIconCoverage * 100).toFixed(0)}% ` +
+      `(${result.stats.itemIconCount}/${result.stats.itemCount}).`,
   );
 }
 

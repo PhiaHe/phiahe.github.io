@@ -46,9 +46,9 @@ function sampleChampions(count) {
 // A minimal but real-shaped detail RSC fragment with augments, items, skills.
 function makeDetailRsc() {
   const aug = (idx, id, name, icon) =>
-    `["$","li","aram-augment-${idx}",{"children":[["$","div",null,{"children":["$","$L62",null,{"metaId":${id},"metaType":"aram-augment","children":["$","$L63",null,{"src":"https://x/aram-augment/${icon}.png","width":36,"height":36,"alt":"${name}"}]}]}],["$","strong",null,{"className":"text-sm text-gray-900","children":"${name}"}]]}]`;
+    `["$","li","aram-augment-${idx}",{"children":[["$","div",null,{"children":["$","$L62",null,{"metaId":${id},"metaType":"aram-augment","children":["$","$L63",null,{"src":"https://opgg-static.akamaized.net/meta/images/lol/latest/aram-augment/${icon}.png","width":36,"height":36,"alt":"${name}"}]}]}],["$","strong",null,{"className":"text-sm text-gray-900","children":"${name}"}]]}]`;
   const item = (id, name) =>
-    `["$","$1","${id}-0",{"children":["$","$L62",null,{"metaType":"item","metaId":${id},"children":["$","$L63",null,{"className":"rounded","src":"https://x/item/${id}.png","alt":"${name}","width":32,"height":32}]}]}]`;
+    `["$","$1","${id}-0",{"children":["$","$L62",null,{"metaType":"item","metaId":${id},"children":["$","$L63",null,{"className":"rounded","src":"https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/${id}.png","alt":"${name}","width":32,"height":32}]}]}]`;
   const augs = [aug(0, 2096, "通用强化", "GenericAbilityAugmentIcon_Gold"), aug(1, 1356, "暴击飞弹", "Crit_large")].join(",");
   const starter = `"starter_items_0",{"children":[${item(1038, "暴风之剑")}]}`;
   const boots = `"boots_0",{"children":[${item(3006, "狂战士胫甲")}]}`;
@@ -57,7 +57,7 @@ function makeDetailRsc() {
   return `${augs},["$","tr",${starter}],["$","tr",${boots}],["$","tr",${core}],["$","li",${skills}`;
 }
 
-console.log("ARAM Mayhem sync tests (schema v3)");
+console.log("ARAM Mayhem sync tests (schema v4)");
 
 // --- List-page parser ---
 check("extractTierList parses real fields and sorts by rank", () => {
@@ -75,6 +75,9 @@ check("parseAugments returns a priority-ordered list with no fabricated rarity",
   assert.equal(augs[0].priority, 1);
   assert.equal(augs[1].priority, 2);
   assert.ok(augs[0].name.zh.length > 0, "augment needs a zh name");
+  assert.equal(augs[0].metaId, "2096", "augment needs metaId");
+  assert.equal(augs[0].icon?.source, "opgg", "augment icon should use OP.GG");
+  assert.match(augs[0].icon?.url ?? "", /\/aram-augment\/GenericAbilityAugmentIcon_Gold\.png$/, "augment should expose icon URL");
   assert.ok(!("rarity" in augs[0]), "augments must not carry a rarity field");
 });
 
@@ -84,6 +87,9 @@ check("parseItemSection groups item rows by section", () => {
   assert.ok(parseItemSection(rsc, "boots").length >= 1, "boots parsed");
   const core = parseItemSection(rsc, "core_items");
   assert.ok(core.length >= 1 && core[0].items.length >= 1, "core parsed");
+  assert.equal(core[0].items[0].icon?.source, "opgg", "item icon should prefer OP.GG");
+  assert.match(core[0].items[0].opggIconUrl, /\/item\/3031\.png$/, "item should expose OP.GG icon URL");
+  assert.match(core[0].items[0].dataDragonIconUrl, /\/img\/item\/3031\.png$/, "item should expose Data Dragon icon URL");
 });
 
 check("parseSkills returns order + sequence, or null when absent", () => {
@@ -118,9 +124,11 @@ check("buildSnapshot succeeds with full detail coverage", () => {
   for (const c of champs) details.set(c.key, makeDetailRsc());
   const result = buildSnapshot({ listHtml: html, detailsByKey: details, now: "2026-06-27T00:00:00.000Z" });
   assert.equal(result.ok, true, result.reason);
-  assert.equal(result.snapshot.version, 3);
+  assert.equal(result.snapshot.version, 4);
   assert.equal(result.snapshot.status, "live");
   assert.equal(result.snapshot.failedDetailCount, 0);
+  assert.ok(result.stats.augmentIconCoverage >= 0.8, "augment icon coverage should be tracked");
+  assert.ok(result.stats.itemIconCoverage >= 0.8, "item icon coverage should be tracked");
   assert.ok(result.snapshot.champions.every((c) => c.detailStatus === "synced" || c.detailStatus === "partial"));
 });
 
@@ -153,11 +161,11 @@ check("validateSnapshot rejects fabricated augment rarity", () => {
 });
 
 // --- Shipped snapshot ---
-check("shipped public JSON is valid live v3 data with strong coverage", () => {
+check("shipped public JSON is valid live v4 data with strong coverage", () => {
   assert.equal(existsSync(dataPath), true, "public JSON snapshot should exist");
   const snapshot = JSON.parse(readFileSync(dataPath, "utf8"));
   validateSnapshot(snapshot);
-  assert.equal(snapshot.version, 3, "shipped snapshot should be v3");
+  assert.equal(snapshot.version, 4, "shipped snapshot should be v4");
   assert.equal(snapshot.sourceUrl, SOURCE_URL);
   assert.ok(snapshot.championCount >= MIN_CHAMPIONS, `championCount >= ${MIN_CHAMPIONS}`);
   assert.ok(snapshot.detailCount >= MIN_CHAMPIONS, `detailCount >= ${MIN_CHAMPIONS}`);
@@ -172,6 +180,8 @@ check("shipped public JSON is valid live v3 data with strong coverage", () => {
   assert.ok(augOk / total >= 0.95, `augments coverage ${(augOk / total * 100).toFixed(0)}% should be >= 95%`);
   assert.ok(itemOk / total >= 0.95, `items coverage ${(itemOk / total * 100).toFixed(0)}% should be >= 95%`);
   assert.ok(skillOk / total >= 0.95, `skills coverage ${(skillOk / total * 100).toFixed(0)}% should be >= 95%`);
+  assert.ok(snapshot.iconCoverage?.augments?.pct >= 95, "augment icon coverage should be reported");
+  assert.ok(snapshot.iconCoverage?.items?.pct >= 95, "item icon coverage should be reported");
 
   // Runes must NOT be a required field anywhere in the snapshot.
   assert.doesNotMatch(JSON.stringify(snapshot), /"runes"/, "snapshot should not carry a runes field");

@@ -9,6 +9,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "tsc --noEmit",
+    "test:aram-icons": "node scripts/test-aram-mayhem-icons.mjs",
     "test:aram-search-aliases": "node scripts/test-aram-mayhem-search-aliases.mjs",
     "test:smooth-scroll": "node scripts/test-smooth-scroll.mjs",
     "test:detail-pages": "node scripts/test-detail-pages-foundation.mjs",
