@@ -185,6 +185,7 @@ export const featuredWork: FeaturedWork[] = [
     cover: "/assets/placeholders/work-pixel.svg",
     accent: "gold",
     status: { en: "Sprite work", zh: "精灵创作中" },
+    href: "#/projects/pixel-character-lab",
   },
 ];
 
@@ -217,6 +218,7 @@ export const labCategories: LabCategory[] = [
     },
     cover: "/assets/placeholders/lab-pixel.svg",
     count: { en: "Sprite sets", zh: "精灵集" },
+    href: "#/lab/pixel-characters",
   },
   {
     id: "fluid-effects",
@@ -238,6 +240,7 @@ export const labCategories: LabCategory[] = [
     },
     cover: "/assets/placeholders/lab-ui.svg",
     count: { en: "Interface moods", zh: "界面氛围" },
+    href: "#/lab/game-ui",
   },
   {
     id: "prompt-assets",
@@ -248,6 +251,7 @@ export const labCategories: LabCategory[] = [
     },
     cover: "/assets/placeholders/lab-prompt.svg",
     count: { en: "Prompt sets", zh: "提示词集" },
+    href: "#/lab/prompt-assets",
   },
   {
     id: "game-vfx",
@@ -258,16 +262,18 @@ export const labCategories: LabCategory[] = [
     },
     cover: "/assets/placeholders/lab-vfx.svg",
     count: { en: "Effect tests", zh: "特效测试" },
+    href: "#/lab/game-vfx",
   },
   {
-    id: "concept",
-    title: { en: "Concept Placeholders", zh: "概念占位" },
+    id: "world-concepts",
+    title: { en: "World Concepts", zh: "世界概念" },
     blurb: {
-      en: "Reserved tiles for upcoming worlds, characters, and systems.",
-      zh: "为即将到来的世界、角色与系统预留的位置。",
+      en: "Map tiles, abandoned stations, and wuxia-fantasy concept directions.",
+      zh: "地图瓦片、废弃空间站与武侠幻想的概念方向。",
     },
     cover: "/assets/placeholders/lab-concept.svg",
-    count: { en: "Reserved", zh: "预留" },
+    count: { en: "Concept frames", zh: "概念画面" },
+    href: "#/lab/world-concepts",
   },
 ];
 
@@ -300,6 +306,7 @@ export const devLog: DevLogEntry[] = [
     tag: { en: "Game Feel", zh: "游戏手感" },
     readTime: { en: "5 min", zh: "5 分钟" },
     cover: "/assets/placeholders/log-combat.svg",
+    href: "#/notes/combat-readability",
   },
   {
     id: "pixel-iteration",
@@ -311,6 +318,7 @@ export const devLog: DevLogEntry[] = [
     tag: { en: "Pixel Art", zh: "像素艺术" },
     readTime: { en: "4 min", zh: "4 分钟" },
     cover: "/assets/placeholders/log-pixel.svg",
+    href: "#/notes/pixel-iteration",
   },
   {
     id: "prompt-engineering",
@@ -325,6 +333,7 @@ export const devLog: DevLogEntry[] = [
     tag: { en: "Prompt Design", zh: "提示词设计" },
     readTime: { en: "7 min", zh: "7 分钟" },
     cover: "/assets/placeholders/log-prompt.svg",
+    href: "#/notes/prompt-engineering",
   },
   {
     id: "prototype-validation",
@@ -339,6 +348,7 @@ export const devLog: DevLogEntry[] = [
     tag: { en: "Design", zh: "设计" },
     readTime: { en: "5 min", zh: "5 分钟" },
     cover: "/assets/placeholders/log-validation.svg",
+    href: "#/notes/prototype-validation",
   },
 ];
 
