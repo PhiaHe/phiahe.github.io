@@ -193,6 +193,8 @@ check("shipped public JSON is valid live v4 data with strong coverage", () => {
 check("workflow is scheduled, manual, runs tests, and can commit", () => {
   const workflow = readFileSync(workflowPath, "utf8");
   assert.match(workflow, /schedule:/);
+  assert.match(workflow, /cron:\s*"30 3 \* \* \*"/, "main sync should run daily at 11:30 UTC+8");
+  assert.match(workflow, /cron:\s*"30 6 \* \* \*"/, "backup sync should run daily at 14:30 UTC+8");
   assert.match(workflow, /workflow_dispatch:/);
   assert.match(workflow, /sync-aram-mayhem-data\.mjs/);
   assert.match(workflow, /test-aram-mayhem-sync\.mjs/);

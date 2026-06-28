@@ -3,8 +3,11 @@ name: Sync ARAM Mayhem data
 on:
   workflow_dispatch:
   schedule:
-    # Daily, 04:37 UTC. Off the hour to avoid the top-of-hour API stampede.
-    - cron: "37 4 * * *"
+    # Daily primary sync, 03:30 UTC / 11:30 UTC+8.
+    - cron: "30 3 * * *"
+    # Daily backup sync, 06:30 UTC / 14:30 UTC+8, in case GitHub drops or delays
+    # the primary scheduled event.
+    - cron: "30 6 * * *"
 
 permissions:
   contents: write
