@@ -4,8 +4,8 @@
   "source": "opgg",
   "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem",
   "patch": "16.13.1",
-  "syncedAt": "2026-07-09T07:05:13.382Z",
-  "sourceHash": "da34d764595723431eefba092b124b0ef80378f342c9aac95dd9cb48dc21fe61",
+  "syncedAt": "2026-07-09T10:05:59.983Z",
+  "sourceHash": "c57c5303eb4592b34057c7b9c1716dadd49d44dce71e6f8a835eef1ba571a8e8",
   "championCount": 173,
   "detailCount": 173,
   "failedDetailCount": 0,
@@ -16,8 +16,8 @@
       "pct": 100
     },
     "items": {
-      "total": 3672,
-      "withIcon": 3672,
+      "total": 3671,
+      "withIcon": 3671,
       "pct": 100
     }
   },
@@ -34,7 +34,7 @@
       "tierLabel": "S",
       "rank": 1,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/jinx/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -511,7 +511,7 @@
       "tierLabel": "S",
       "rank": 2,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/vayne/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -999,7 +999,7 @@
       "tierLabel": "S",
       "rank": 3,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/seraphine/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -1465,7 +1465,7 @@
       "tierLabel": "S",
       "rank": 4,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/caitlyn/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -1953,7 +1953,7 @@
       "tierLabel": "S",
       "rank": 5,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/brand/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -2419,7 +2419,7 @@
       "tierLabel": "A",
       "rank": 6,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/graves/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -2929,7 +2929,7 @@
       "tierLabel": "A",
       "rank": 7,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/sett/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -3417,7 +3417,7 @@
       "tierLabel": "A",
       "rank": 8,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/sion/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -3905,7 +3905,7 @@
       "tierLabel": "A",
       "rank": 9,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/drmundo/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -4393,7 +4393,7 @@
       "tierLabel": "A",
       "rank": 10,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/ashe/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -4870,7 +4870,7 @@
       "tierLabel": "A",
       "rank": 11,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/yunara/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -5347,7 +5347,7 @@
       "tierLabel": "A",
       "rank": 12,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/lillia/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -5824,7 +5824,7 @@
       "tierLabel": "A",
       "rank": 13,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/kayle/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -6312,7 +6312,7 @@
       "tierLabel": "B",
       "rank": 14,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/maokai/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -6833,7 +6833,7 @@
       "tierLabel": "B",
       "rank": 15,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/rell/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -7262,17 +7262,6 @@
                 }
               },
               {
-                "id": 2502,
-                "name": "无终恨意",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2502.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
-                  "source": "opgg",
-                  "id": 2502
-                }
-              },
-              {
                 "id": 3075,
                 "name": "荆棘之甲",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3075.png",
@@ -7281,6 +7270,17 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3075.png",
                   "source": "opgg",
                   "id": 3075
+                }
+              },
+              {
+                "id": 2502,
+                "name": "无终恨意",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2502.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
+                  "source": "opgg",
+                  "id": 2502
                 }
               }
             ]
@@ -7300,14 +7300,14 @@
                 }
               },
               {
-                "id": 3075,
-                "name": "荆棘之甲",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3075.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3075.png",
+                "id": 2502,
+                "name": "无终恨意",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2502.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3075.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
                   "source": "opgg",
-                  "id": 3075
+                  "id": 2502
                 }
               }
             ]
@@ -7354,7 +7354,7 @@
       "tierLabel": "B",
       "rank": 16,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/ryze/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -7875,7 +7875,7 @@
       "tierLabel": "B",
       "rank": 17,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/tahmkench/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -8363,7 +8363,7 @@
       "tierLabel": "B",
       "rank": 18,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/sona/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -8884,7 +8884,7 @@
       "tierLabel": "B",
       "rank": 19,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/leona/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -9340,14 +9340,14 @@
                 }
               },
               {
-                "id": 3075,
-                "name": "荆棘之甲",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3075.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3075.png",
+                "id": 3083,
+                "name": "狂徒铠甲",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3083.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3083.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3075.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3083.png",
                   "source": "opgg",
-                  "id": 3075
+                  "id": 3083
                 }
               }
             ]
@@ -9394,7 +9394,7 @@
       "tierLabel": "B",
       "rank": 20,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/shen/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -9882,7 +9882,7 @@
       "tierLabel": "B",
       "rank": 21,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/hwei/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -10348,7 +10348,7 @@
       "tierLabel": "B",
       "rank": 22,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/aurora/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -10814,7 +10814,7 @@
       "tierLabel": "B",
       "rank": 23,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/zyra/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -11280,7 +11280,7 @@
       "tierLabel": "B",
       "rank": 24,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/soraka/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -11801,7 +11801,7 @@
       "tierLabel": "B",
       "rank": 25,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/twistedfate/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -12267,7 +12267,7 @@
       "tierLabel": "B",
       "rank": 26,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/aurelionsol/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -12520,14 +12520,14 @@
             "row": 1,
             "items": [
               {
-                "id": 3111,
-                "name": "水银之靴",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3111.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3111.png",
+                "id": 3158,
+                "name": "明朗之靴",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3158.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3158.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3111.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3158.png",
                   "source": "opgg",
-                  "id": 3111
+                  "id": 3158
                 }
               }
             ]
@@ -12777,7 +12777,7 @@
       "tierLabel": "B",
       "rank": 27,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/viktor/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -13205,7 +13205,7 @@
       "tierLabel": "B",
       "rank": 28,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/malzahar/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -13671,7 +13671,7 @@
       "tierLabel": "B",
       "rank": 29,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/galio/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -14192,7 +14192,7 @@
       "tierLabel": "B",
       "rank": 30,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/morgana/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -14658,7 +14658,7 @@
       "tierLabel": "B",
       "rank": 31,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/samira/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -15157,7 +15157,7 @@
       "tierLabel": "B",
       "rank": 32,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/akshan/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -15645,7 +15645,7 @@
       "tierLabel": "B",
       "rank": 33,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/yuumi/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -16177,7 +16177,7 @@
       "tierLabel": "B",
       "rank": 34,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/aphelios/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -16665,7 +16665,7 @@
       "tierLabel": "B",
       "rank": 35,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/sivir/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -17131,7 +17131,7 @@
       "tierLabel": "B",
       "rank": 36,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/lucian/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -17630,7 +17630,7 @@
       "tierLabel": "B",
       "rank": 37,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/nautilus/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -18162,7 +18162,7 @@
       "tierLabel": "B",
       "rank": 38,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/zilean/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -18628,7 +18628,7 @@
       "tierLabel": "B",
       "rank": 39,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/ahri/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -19094,7 +19094,7 @@
       "tierLabel": "B",
       "rank": 40,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/karthus/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -19560,7 +19560,7 @@
       "tierLabel": "B",
       "rank": 41,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/xayah/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -20026,7 +20026,7 @@
       "tierLabel": "B",
       "rank": 42,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/masteryi/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -20514,7 +20514,7 @@
       "tierLabel": "B",
       "rank": 43,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/yasuo/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -21002,7 +21002,7 @@
       "tierLabel": "B",
       "rank": 44,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/janna/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -21523,7 +21523,7 @@
       "tierLabel": "B",
       "rank": 45,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/syndra/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -21989,7 +21989,7 @@
       "tierLabel": "B",
       "rank": 46,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/milio/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -22510,7 +22510,7 @@
       "tierLabel": "B",
       "rank": 47,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/tristana/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -22976,7 +22976,7 @@
       "tierLabel": "B",
       "rank": 48,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/kassadin/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -23497,7 +23497,7 @@
       "tierLabel": "B",
       "rank": 49,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/kogmaw/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -23985,7 +23985,7 @@
       "tierLabel": "B",
       "rank": 50,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/jax/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -24473,7 +24473,7 @@
       "tierLabel": "B",
       "rank": 51,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/ekko/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -24950,7 +24950,7 @@
       "tierLabel": "B",
       "rank": 52,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/nasus/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -25438,7 +25438,7 @@
       "tierLabel": "B",
       "rank": 53,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/heimerdinger/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -25785,14 +25785,14 @@
                 }
               },
               {
-                "id": 3089,
-                "name": "灭世者的死亡之帽",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3089.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3089.png",
+                "id": 3157,
+                "name": "中娅沙漏",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3157.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3157.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3089.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3157.png",
                   "source": "opgg",
-                  "id": 3089
+                  "id": 3157
                 }
               }
             ]
@@ -25823,14 +25823,14 @@
                 }
               },
               {
-                "id": 3157,
-                "name": "中娅沙漏",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3157.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3157.png",
+                "id": 3089,
+                "name": "灭世者的死亡之帽",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3089.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3089.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3157.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3089.png",
                   "source": "opgg",
-                  "id": 3157
+                  "id": 3089
                 }
               }
             ]
@@ -25904,7 +25904,7 @@
       "tierLabel": "B",
       "rank": 54,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/alistar/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -26436,7 +26436,7 @@
       "tierLabel": "B",
       "rank": 55,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/ornn/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -26924,7 +26924,7 @@
       "tierLabel": "B",
       "rank": 56,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/velkoz/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -27390,7 +27390,7 @@
       "tierLabel": "B",
       "rank": 57,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/gwen/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -27878,7 +27878,7 @@
       "tierLabel": "B",
       "rank": 58,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/renata/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -28209,17 +28209,6 @@
                 }
               },
               {
-                "id": 3118,
-                "name": "残疫",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3118.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
-                  "source": "opgg",
-                  "id": 3118
-                }
-              },
-              {
                 "id": 2530,
                 "name": "歌之权冠",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2530.png",
@@ -28228,6 +28217,17 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2530.png",
                   "source": "opgg",
                   "id": 2530
+                }
+              },
+              {
+                "id": 3118,
+                "name": "残疫",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3118.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
+                  "source": "opgg",
+                  "id": 3118
                 }
               }
             ]
@@ -28258,17 +28258,6 @@
                 }
               },
               {
-                "id": 2530,
-                "name": "歌之权冠",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2530.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2530.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2530.png",
-                  "source": "opgg",
-                  "id": 2530
-                }
-              },
-              {
                 "id": 3118,
                 "name": "残疫",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
@@ -28277,6 +28266,17 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
                   "source": "opgg",
                   "id": 3118
+                }
+              },
+              {
+                "id": 2530,
+                "name": "歌之权冠",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2530.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2530.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2530.png",
+                  "source": "opgg",
+                  "id": 2530
                 }
               }
             ]
@@ -28388,7 +28388,7 @@
       "tierLabel": "B",
       "rank": 59,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/trundle/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -28876,7 +28876,7 @@
       "tierLabel": "B",
       "rank": 60,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/illaoi/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -29364,7 +29364,7 @@
       "tierLabel": "B",
       "rank": 61,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/zaahen/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -29841,7 +29841,7 @@
       "tierLabel": "B",
       "rank": 62,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/rumble/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -30253,14 +30253,14 @@
                 }
               },
               {
-                "id": 4645,
-                "name": "影焰",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/4645.png",
+                "id": 3118,
+                "name": "残疫",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3118.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
                   "source": "opgg",
-                  "id": 4645
+                  "id": 3118
                 }
               }
             ]
@@ -30307,7 +30307,7 @@
       "tierLabel": "B",
       "rank": 63,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/fiora/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -30795,7 +30795,7 @@
       "tierLabel": "B",
       "rank": 64,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/kindred/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -31207,17 +31207,6 @@
             "row": 4,
             "items": [
               {
-                "id": 6672,
-                "name": "海妖杀手",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6672.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6672.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6672.png",
-                  "source": "opgg",
-                  "id": 6672
-                }
-              },
-              {
                 "id": 6676,
                 "name": "收集者",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6676.png",
@@ -31226,6 +31215,17 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6676.png",
                   "source": "opgg",
                   "id": 6676
+                }
+              },
+              {
+                "id": 3031,
+                "name": "无尽之刃",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3031.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3031.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3031.png",
+                  "source": "opgg",
+                  "id": 3031
                 }
               }
             ]
@@ -31272,7 +31272,7 @@
       "tierLabel": "B",
       "rank": 65,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/senna/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -31749,7 +31749,7 @@
       "tierLabel": "B",
       "rank": 66,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/sejuani/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -32281,7 +32281,7 @@
       "tierLabel": "B",
       "rank": 67,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/azir/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -32769,7 +32769,7 @@
       "tierLabel": "B",
       "rank": 68,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/vladimir/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -33246,7 +33246,7 @@
       "tierLabel": "B",
       "rank": 69,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/yone/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -33734,7 +33734,7 @@
       "tierLabel": "B",
       "rank": 70,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/teemo/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -34200,7 +34200,7 @@
       "tierLabel": "B",
       "rank": 71,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/xinzhao/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -34677,7 +34677,7 @@
       "tierLabel": "B",
       "rank": 72,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/ivern/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -35198,7 +35198,7 @@
       "tierLabel": "B",
       "rank": 73,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/kayn/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -35708,7 +35708,7 @@
       "tierLabel": "B",
       "rank": 74,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/poppy/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -36240,7 +36240,7 @@
       "tierLabel": "B",
       "rank": 75,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/nami/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -36772,7 +36772,7 @@
       "tierLabel": "B",
       "rank": 76,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/shyvana/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -37157,44 +37157,6 @@
             "row": 3,
             "items": [
               {
-                "id": 3078,
-                "name": "三相之力",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3078.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3078.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3078.png",
-                  "source": "opgg",
-                  "id": 3078
-                }
-              },
-              {
-                "id": 6610,
-                "name": "焚天",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6610.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
-                  "source": "opgg",
-                  "id": 6610
-                }
-              },
-              {
-                "id": 3161,
-                "name": "朔极之矛",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3161.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3161.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3161.png",
-                  "source": "opgg",
-                  "id": 3161
-                }
-              }
-            ]
-          },
-          {
-            "row": 4,
-            "items": [
-              {
                 "id": 2510,
                 "name": "黄昏与黎明",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2510.png",
@@ -37214,6 +37176,44 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6653.png",
                   "source": "opgg",
                   "id": 6653
+                }
+              },
+              {
+                "id": 4645,
+                "name": "影焰",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/4645.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
+                  "source": "opgg",
+                  "id": 4645
+                }
+              }
+            ]
+          },
+          {
+            "row": 4,
+            "items": [
+              {
+                "id": 3078,
+                "name": "三相之力",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3078.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3078.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3078.png",
+                  "source": "opgg",
+                  "id": 3078
+                }
+              },
+              {
+                "id": 6610,
+                "name": "焚天",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6610.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
+                  "source": "opgg",
+                  "id": 6610
                 }
               }
             ]
@@ -37260,7 +37260,7 @@
       "tierLabel": "B",
       "rank": 77,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/lulu/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -37792,7 +37792,7 @@
       "tierLabel": "B",
       "rank": 78,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/rammus/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -38291,7 +38291,7 @@
       "tierLabel": "B",
       "rank": 79,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/taric/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -38769,14 +38769,14 @@
                 }
               },
               {
-                "id": 3065,
-                "name": "振奋盔甲",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3065.png",
+                "id": 2502,
+                "name": "无终恨意",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2502.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
                   "source": "opgg",
-                  "id": 3065
+                  "id": 2502
                 }
               }
             ]
@@ -38823,7 +38823,7 @@
       "tierLabel": "B",
       "rank": 80,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/amumu/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -39344,7 +39344,7 @@
       "tierLabel": "B",
       "rank": 81,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/fiddlesticks/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -39810,7 +39810,7 @@
       "tierLabel": "B",
       "rank": 82,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/skarner/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -40331,7 +40331,7 @@
       "tierLabel": "B",
       "rank": 83,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/vex/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -40797,7 +40797,7 @@
       "tierLabel": "B",
       "rank": 84,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/kled/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -41285,7 +41285,7 @@
       "tierLabel": "B",
       "rank": 85,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/reksai/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -41605,44 +41605,6 @@
                 }
               },
               {
-                "id": 3065,
-                "name": "振奋盔甲",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3065.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
-                  "source": "opgg",
-                  "id": 3065
-                }
-              },
-              {
-                "id": 2502,
-                "name": "无终恨意",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2502.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
-                  "source": "opgg",
-                  "id": 2502
-                }
-              }
-            ]
-          },
-          {
-            "row": 2,
-            "items": [
-              {
-                "id": 3084,
-                "name": "心之钢",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3084.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3084.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3084.png",
-                  "source": "opgg",
-                  "id": 3084
-                }
-              },
-              {
                 "id": 2502,
                 "name": "无终恨意",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
@@ -41662,6 +41624,44 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3075.png",
                   "source": "opgg",
                   "id": 3075
+                }
+              }
+            ]
+          },
+          {
+            "row": 2,
+            "items": [
+              {
+                "id": 3084,
+                "name": "心之钢",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3084.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3084.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3084.png",
+                  "source": "opgg",
+                  "id": 3084
+                }
+              },
+              {
+                "id": 3065,
+                "name": "振奋盔甲",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3065.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
+                  "source": "opgg",
+                  "id": 3065
+                }
+              },
+              {
+                "id": 2502,
+                "name": "无终恨意",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2502.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
+                  "source": "opgg",
+                  "id": 2502
                 }
               }
             ]
@@ -41773,7 +41773,7 @@
       "tierLabel": "B",
       "rank": 86,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/fizz/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -42131,44 +42131,6 @@
                 }
               },
               {
-                "id": 4646,
-                "name": "风暴狂涌",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4646.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/4646.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4646.png",
-                  "source": "opgg",
-                  "id": 4646
-                }
-              },
-              {
-                "id": 4645,
-                "name": "影焰",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/4645.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
-                  "source": "opgg",
-                  "id": 4645
-                }
-              }
-            ]
-          },
-          {
-            "row": 3,
-            "items": [
-              {
-                "id": 6655,
-                "name": "卢登的回声",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6655.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6655.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6655.png",
-                  "source": "opgg",
-                  "id": 6655
-                }
-              },
-              {
                 "id": 3100,
                 "name": "巫妖之祸",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3100.png",
@@ -42188,6 +42150,44 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4646.png",
                   "source": "opgg",
                   "id": 4646
+                }
+              }
+            ]
+          },
+          {
+            "row": 3,
+            "items": [
+              {
+                "id": 6655,
+                "name": "卢登的回声",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6655.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6655.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6655.png",
+                  "source": "opgg",
+                  "id": 6655
+                }
+              },
+              {
+                "id": 4646,
+                "name": "风暴狂涌",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4646.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/4646.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4646.png",
+                  "source": "opgg",
+                  "id": 4646
+                }
+              },
+              {
+                "id": 4645,
+                "name": "影焰",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/4645.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
+                  "source": "opgg",
+                  "id": 4645
                 }
               }
             ]
@@ -42261,7 +42261,7 @@
       "tierLabel": "B",
       "rank": 87,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/singed/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -42570,44 +42570,6 @@
                 }
               },
               {
-                "id": 3116,
-                "name": "瑞莱的冰晶节杖",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3116.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3116.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3116.png",
-                  "source": "opgg",
-                  "id": 3116
-                }
-              },
-              {
-                "id": 3742,
-                "name": "亡者的板甲",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3742.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3742.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3742.png",
-                  "source": "opgg",
-                  "id": 3742
-                }
-              }
-            ]
-          },
-          {
-            "row": 2,
-            "items": [
-              {
-                "id": 6657,
-                "name": "时光之杖",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6657.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6657.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6657.png",
-                  "source": "opgg",
-                  "id": 6657
-                }
-              },
-              {
                 "id": 6653,
                 "name": "兰德里的折磨",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6653.png",
@@ -42627,6 +42589,44 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3116.png",
                   "source": "opgg",
                   "id": 3116
+                }
+              }
+            ]
+          },
+          {
+            "row": 2,
+            "items": [
+              {
+                "id": 6657,
+                "name": "时光之杖",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6657.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6657.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6657.png",
+                  "source": "opgg",
+                  "id": 6657
+                }
+              },
+              {
+                "id": 3116,
+                "name": "瑞莱的冰晶节杖",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3116.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3116.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3116.png",
+                  "source": "opgg",
+                  "id": 3116
+                }
+              },
+              {
+                "id": 3742,
+                "name": "亡者的板甲",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3742.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3742.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3742.png",
+                  "source": "opgg",
+                  "id": 3742
                 }
               }
             ]
@@ -42738,7 +42738,7 @@
       "tierLabel": "B",
       "rank": 88,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/evelynn/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -43215,7 +43215,7 @@
       "tierLabel": "B",
       "rank": 89,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/missfortune/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -43703,7 +43703,7 @@
       "tierLabel": "B",
       "rank": 90,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/elise/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -44169,7 +44169,7 @@
       "tierLabel": "B",
       "rank": 91,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/volibear/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -44565,14 +44565,14 @@
                 }
               },
               {
-                "id": 2502,
-                "name": "无终恨意",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2502.png",
+                "id": 3065,
+                "name": "振奋盔甲",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3065.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
                   "source": "opgg",
-                  "id": 2502
+                  "id": 3065
                 }
               },
               {
@@ -44603,14 +44603,14 @@
                 }
               },
               {
-                "id": 3065,
-                "name": "振奋盔甲",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3065.png",
+                "id": 2502,
+                "name": "无终恨意",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2502.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
                   "source": "opgg",
-                  "id": 3065
+                  "id": 2502
                 }
               }
             ]
@@ -44657,7 +44657,7 @@
       "tierLabel": "B",
       "rank": 92,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/olaf/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -45134,7 +45134,7 @@
       "tierLabel": "B",
       "rank": 93,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/briar/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -45470,44 +45470,6 @@
             "row": 2,
             "items": [
               {
-                "id": 6610,
-                "name": "焚天",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6610.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
-                  "source": "opgg",
-                  "id": 6610
-                }
-              },
-              {
-                "id": 6692,
-                "name": "星蚀",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6692.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6692.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6692.png",
-                  "source": "opgg",
-                  "id": 6692
-                }
-              },
-              {
-                "id": 3065,
-                "name": "振奋盔甲",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3065.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
-                  "source": "opgg",
-                  "id": 3065
-                }
-              }
-            ]
-          },
-          {
-            "row": 3,
-            "items": [
-              {
                 "id": 6676,
                 "name": "收集者",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6676.png",
@@ -45543,7 +45505,7 @@
             ]
           },
           {
-            "row": 4,
+            "row": 3,
             "items": [
               {
                 "id": 6610,
@@ -45557,6 +45519,17 @@
                 }
               },
               {
+                "id": 6692,
+                "name": "星蚀",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6692.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6692.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6692.png",
+                  "source": "opgg",
+                  "id": 6692
+                }
+              },
+              {
                 "id": 3065,
                 "name": "振奋盔甲",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
@@ -45565,6 +45538,33 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3065.png",
                   "source": "opgg",
                   "id": 3065
+                }
+              }
+            ]
+          },
+          {
+            "row": 4,
+            "items": [
+              {
+                "id": 3084,
+                "name": "心之钢",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3084.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3084.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3084.png",
+                  "source": "opgg",
+                  "id": 3084
+                }
+              },
+              {
+                "id": 6610,
+                "name": "焚天",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6610.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
+                  "source": "opgg",
+                  "id": 6610
                 }
               }
             ]
@@ -45611,7 +45611,7 @@
       "tierLabel": "B",
       "rank": 94,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/orianna/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -46077,7 +46077,7 @@
       "tierLabel": "B",
       "rank": 95,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/nilah/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -46565,7 +46565,7 @@
       "tierLabel": "B",
       "rank": 96,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/lux/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -47031,7 +47031,7 @@
       "tierLabel": "B",
       "rank": 97,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/riven/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -47454,14 +47454,14 @@
                 }
               },
               {
-                "id": 6610,
-                "name": "焚天",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6610.png",
+                "id": 3161,
+                "name": "朔极之矛",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3161.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3161.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3161.png",
                   "source": "opgg",
-                  "id": 6610
+                  "id": 3161
                 }
               }
             ]
@@ -47508,7 +47508,7 @@
       "tierLabel": "B",
       "rank": 98,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/gnar/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -47996,7 +47996,7 @@
       "tierLabel": "B",
       "rank": 99,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/camille/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -48484,7 +48484,7 @@
       "tierLabel": "B",
       "rank": 100,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/monkeyking/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -48961,7 +48961,7 @@
       "tierLabel": "B",
       "rank": 101,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/kalista/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -49449,7 +49449,7 @@
       "tierLabel": "B",
       "rank": 102,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/yorick/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -49937,7 +49937,7 @@
       "tierLabel": "B",
       "rank": 103,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/warwick/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -50414,7 +50414,7 @@
       "tierLabel": "B",
       "rank": 104,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/draven/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -50913,7 +50913,7 @@
       "tierLabel": "B",
       "rank": 105,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/annie/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -51276,44 +51276,6 @@
             "row": 3,
             "items": [
               {
-                "id": 3118,
-                "name": "残疫",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3118.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
-                  "source": "opgg",
-                  "id": 3118
-                }
-              },
-              {
-                "id": 6653,
-                "name": "兰德里的折磨",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6653.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6653.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6653.png",
-                  "source": "opgg",
-                  "id": 6653
-                }
-              },
-              {
-                "id": 4645,
-                "name": "影焰",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/4645.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
-                  "source": "opgg",
-                  "id": 4645
-                }
-              }
-            ]
-          },
-          {
-            "row": 4,
-            "items": [
-              {
                 "id": 6655,
                 "name": "卢登的回声",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6655.png",
@@ -51333,6 +51295,44 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4646.png",
                   "source": "opgg",
                   "id": 4646
+                }
+              },
+              {
+                "id": 4645,
+                "name": "影焰",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/4645.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
+                  "source": "opgg",
+                  "id": 4645
+                }
+              }
+            ]
+          },
+          {
+            "row": 4,
+            "items": [
+              {
+                "id": 3118,
+                "name": "残疫",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3118.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
+                  "source": "opgg",
+                  "id": 3118
+                }
+              },
+              {
+                "id": 6653,
+                "name": "兰德里的折磨",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6653.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6653.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6653.png",
+                  "source": "opgg",
+                  "id": 6653
                 }
               }
             ]
@@ -51379,7 +51379,7 @@
       "tierLabel": "B",
       "rank": 106,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/zeri/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -51867,7 +51867,7 @@
       "tierLabel": "B",
       "rank": 107,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/belveth/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -52333,7 +52333,7 @@
       "tierLabel": "B",
       "rank": 108,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/ambessa/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -52821,7 +52821,7 @@
       "tierLabel": "B",
       "rank": 109,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/renekton/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -53195,17 +53195,6 @@
             "row": 3,
             "items": [
               {
-                "id": 6610,
-                "name": "焚天",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6610.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
-                  "source": "opgg",
-                  "id": 6610
-                }
-              },
-              {
                 "id": 6692,
                 "name": "星蚀",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6692.png",
@@ -53217,14 +53206,25 @@
                 }
               },
               {
-                "id": 3053,
-                "name": "斯特拉克的挑战护手",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3053.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3053.png",
+                "id": 6610,
+                "name": "焚天",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6610.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3053.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
                   "source": "opgg",
-                  "id": 3053
+                  "id": 6610
+                }
+              },
+              {
+                "id": 6333,
+                "name": "死亡之舞",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6333.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6333.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6333.png",
+                  "source": "opgg",
+                  "id": 6333
                 }
               }
             ]
@@ -53233,17 +53233,6 @@
             "row": 4,
             "items": [
               {
-                "id": 6692,
-                "name": "星蚀",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6692.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6692.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6692.png",
-                  "source": "opgg",
-                  "id": 6692
-                }
-              },
-              {
                 "id": 6610,
                 "name": "焚天",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
@@ -53252,6 +53241,17 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
                   "source": "opgg",
                   "id": 6610
+                }
+              },
+              {
+                "id": 6692,
+                "name": "星蚀",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6692.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6692.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6692.png",
+                  "source": "opgg",
+                  "id": 6692
                 }
               }
             ]
@@ -53298,7 +53298,7 @@
       "tierLabel": "B",
       "rank": 110,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/quinn/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -53786,7 +53786,7 @@
       "tierLabel": "B",
       "rank": 111,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/rakan/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -54318,7 +54318,7 @@
       "tierLabel": "B",
       "rank": 112,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/corki/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -54839,7 +54839,7 @@
       "tierLabel": "B",
       "rank": 113,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/taliyah/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -55305,7 +55305,7 @@
       "tierLabel": "B",
       "rank": 114,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/hecarim/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -55837,7 +55837,7 @@
       "tierLabel": "B",
       "rank": 115,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/vi/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -56271,25 +56271,25 @@
             "row": 4,
             "items": [
               {
-                "id": 3134,
-                "name": "锯齿短匕",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3134.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3134.png",
+                "id": 6610,
+                "name": "焚天",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6610.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3134.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
                   "source": "opgg",
-                  "id": 3134
+                  "id": 6610
                 }
               },
               {
-                "id": 126697,
-                "name": "狂妄",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/126697.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/126697.png",
+                "id": 3071,
+                "name": "黑色切割者",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3071.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3071.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/126697.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3071.png",
                   "source": "opgg",
-                  "id": 126697
+                  "id": 3071
                 }
               }
             ]
@@ -56336,7 +56336,7 @@
       "tierLabel": "B",
       "rank": 116,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/xerath/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -56802,7 +56802,7 @@
       "tierLabel": "B",
       "rank": 117,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/nocturne/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -57312,7 +57312,7 @@
       "tierLabel": "B",
       "rank": 118,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/irelia/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -57811,7 +57811,7 @@
       "tierLabel": "B",
       "rank": 119,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/qiyana/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -58332,7 +58332,7 @@
       "tierLabel": "B",
       "rank": 120,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/gangplank/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -58820,7 +58820,7 @@
       "tierLabel": "B",
       "rank": 121,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/veigar/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -59319,7 +59319,7 @@
       "tierLabel": "B",
       "rank": 122,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/diana/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -59796,7 +59796,7 @@
       "tierLabel": "B",
       "rank": 123,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/tryndamere/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -60284,7 +60284,7 @@
       "tierLabel": "B",
       "rank": 124,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/sylas/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -60761,7 +60761,7 @@
       "tierLabel": "B",
       "rank": 125,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/talon/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -61293,7 +61293,7 @@
       "tierLabel": "B",
       "rank": 126,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/udyr/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -61759,7 +61759,7 @@
       "tierLabel": "B",
       "rank": 127,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/rengar/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -62291,7 +62291,7 @@
       "tierLabel": "B",
       "rank": 128,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/cassiopeia/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -62812,7 +62812,7 @@
       "tierLabel": "B",
       "rank": 129,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/viego/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -63289,7 +63289,7 @@
       "tierLabel": "B",
       "rank": 130,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/ksante/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -63497,6 +63497,17 @@
             "row": 1,
             "items": [
               {
+                "id": 1011,
+                "name": "巨人腰带",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/1011.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/1011.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/1011.png",
+                  "source": "opgg",
+                  "id": 1011
+                }
+              },
+              {
                 "id": 1028,
                 "name": "红水晶",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/1028.png",
@@ -63505,28 +63516,6 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/1028.png",
                   "source": "opgg",
                   "id": 1028
-                }
-              },
-              {
-                "id": 2003,
-                "name": "生命药水",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2003.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2003.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2003.png",
-                  "source": "opgg",
-                  "id": 2003
-                }
-              },
-              {
-                "id": 3057,
-                "name": "耀光",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3057.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3057.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3057.png",
-                  "source": "opgg",
-                  "id": 3057
                 }
               }
             ]
@@ -63788,7 +63777,7 @@
       "tierLabel": "B",
       "rank": 131,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/braum/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -64320,7 +64309,7 @@
       "tierLabel": "B",
       "rank": 132,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/varus/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -64830,7 +64819,7 @@
       "tierLabel": "B",
       "rank": 133,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/urgot/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -65318,7 +65307,7 @@
       "tierLabel": "B",
       "rank": 134,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/lissandra/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -65784,7 +65773,7 @@
       "tierLabel": "B",
       "rank": 135,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/kennen/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -66104,14 +66093,14 @@
                 }
               },
               {
-                "id": 3089,
-                "name": "灭世者的死亡之帽",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3089.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3089.png",
+                "id": 3157,
+                "name": "中娅沙漏",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3157.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3157.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3089.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3157.png",
                   "source": "opgg",
-                  "id": 3089
+                  "id": 3157
                 }
               }
             ]
@@ -66142,14 +66131,14 @@
                 }
               },
               {
-                "id": 3157,
-                "name": "中娅沙漏",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3157.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3157.png",
+                "id": 3089,
+                "name": "灭世者的死亡之帽",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3089.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3089.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3157.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3089.png",
                   "source": "opgg",
-                  "id": 3157
+                  "id": 3089
                 }
               }
             ]
@@ -66261,7 +66250,7 @@
       "tierLabel": "B",
       "rank": 136,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/ziggs/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -66727,7 +66716,7 @@
       "tierLabel": "B",
       "rank": 137,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/naafiri/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -67259,7 +67248,7 @@
       "tierLabel": "B",
       "rank": 138,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/twitch/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -67736,7 +67725,7 @@
       "tierLabel": "B",
       "rank": 139,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/darius/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -68224,7 +68213,7 @@
       "tierLabel": "B",
       "rank": 140,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/karma/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -68690,7 +68679,7 @@
       "tierLabel": "B",
       "rank": 141,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/zac/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -69178,7 +69167,7 @@
       "tierLabel": "B",
       "rank": 142,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/khazix/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -69688,7 +69677,7 @@
       "tierLabel": "B",
       "rank": 143,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/gragas/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -70165,7 +70154,7 @@
       "tierLabel": "B",
       "rank": 144,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/zoe/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -70631,7 +70620,7 @@
       "tierLabel": "B",
       "rank": 145,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/nunu/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -71108,7 +71097,7 @@
       "tierLabel": "B",
       "rank": 146,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/pantheon/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -71585,7 +71574,7 @@
       "tierLabel": "B",
       "rank": 147,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/aatrox/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -72073,7 +72062,7 @@
       "tierLabel": "B",
       "rank": 148,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/mordekaiser/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -72561,7 +72550,7 @@
       "tierLabel": "B",
       "rank": 149,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/katarina/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -73038,7 +73027,7 @@
       "tierLabel": "B",
       "rank": 150,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/neeko/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -73515,7 +73504,7 @@
       "tierLabel": "B",
       "rank": 151,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/akali/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -74003,7 +73992,7 @@
       "tierLabel": "B",
       "rank": 152,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/bard/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -74480,7 +74469,7 @@
       "tierLabel": "B",
       "rank": 153,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/malphite/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -74946,7 +74935,7 @@
       "tierLabel": "B",
       "rank": 154,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/garen/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -75423,7 +75412,7 @@
       "tierLabel": "B",
       "rank": 155,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/zed/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -75955,7 +75944,7 @@
       "tierLabel": "B",
       "rank": 156,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/leblanc/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -76421,7 +76410,7 @@
       "tierLabel": "C",
       "rank": 157,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/jarvaniv/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -76844,25 +76833,25 @@
             "row": 4,
             "items": [
               {
-                "id": 6692,
-                "name": "星蚀",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6692.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6692.png",
+                "id": 3134,
+                "name": "锯齿短匕",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3134.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3134.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6692.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3134.png",
                   "source": "opgg",
-                  "id": 6692
+                  "id": 3134
                 }
               },
               {
-                "id": 6610,
-                "name": "焚天",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6610.png",
+                "id": 126697,
+                "name": "狂妄",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/126697.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/126697.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6610.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/126697.png",
                   "source": "opgg",
-                  "id": 6610
+                  "id": 126697
                 }
               }
             ]
@@ -76909,7 +76898,7 @@
       "tierLabel": "C",
       "rank": 158,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/kaisa/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -77386,7 +77375,7 @@
       "tierLabel": "C",
       "rank": 159,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/jhin/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -77885,7 +77874,7 @@
       "tierLabel": "C",
       "rank": 160,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/chogath/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -78216,14 +78205,14 @@
                 }
               },
               {
-                "id": 2502,
-                "name": "无终恨意",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2502.png",
+                "id": 2504,
+                "name": "败魔",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2504.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2504.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2504.png",
                   "source": "opgg",
-                  "id": 2502
+                  "id": 2504
                 }
               }
             ]
@@ -78254,14 +78243,14 @@
                 }
               },
               {
-                "id": 2504,
-                "name": "败魔",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2504.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2504.png",
+                "id": 2502,
+                "name": "无终恨意",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/2502.png",
                 "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2504.png",
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/2502.png",
                   "source": "opgg",
-                  "id": 2504
+                  "id": 2502
                 }
               }
             ]
@@ -78373,7 +78362,7 @@
       "tierLabel": "C",
       "rank": 161,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/anivia/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -78905,7 +78894,7 @@
       "tierLabel": "C",
       "rank": 162,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/ezreal/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -79426,7 +79415,7 @@
       "tierLabel": "C",
       "rank": 163,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/mel/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -79892,7 +79881,7 @@
       "tierLabel": "C",
       "rank": 164,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/swain/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -80369,7 +80358,7 @@
       "tierLabel": "C",
       "rank": 165,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/pyke/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -80890,7 +80879,7 @@
       "tierLabel": "C",
       "rank": 166,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/smolder/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -81411,7 +81400,7 @@
       "tierLabel": "C",
       "rank": 167,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/leesin/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -81899,7 +81888,7 @@
       "tierLabel": "C",
       "rank": 168,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/jayce/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -82431,7 +82420,7 @@
       "tierLabel": "C",
       "rank": 169,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/nidalee/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -82897,7 +82886,7 @@
       "tierLabel": "C",
       "rank": 170,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/shaco/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -83222,44 +83211,6 @@
             "row": 2,
             "items": [
               {
-                "id": 3118,
-                "name": "残疫",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3118.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
-                  "source": "opgg",
-                  "id": 3118
-                }
-              },
-              {
-                "id": 6653,
-                "name": "兰德里的折磨",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6653.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6653.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6653.png",
-                  "source": "opgg",
-                  "id": 6653
-                }
-              },
-              {
-                "id": 4645,
-                "name": "影焰",
-                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
-                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/4645.png",
-                "icon": {
-                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
-                  "source": "opgg",
-                  "id": 4645
-                }
-              }
-            ]
-          },
-          {
-            "row": 3,
-            "items": [
-              {
                 "id": 6676,
                 "name": "收集者",
                 "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6676.png",
@@ -83290,6 +83241,44 @@
                   "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3031.png",
                   "source": "opgg",
                   "id": 3031
+                }
+              }
+            ]
+          },
+          {
+            "row": 3,
+            "items": [
+              {
+                "id": 3118,
+                "name": "残疫",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/3118.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/3118.png",
+                  "source": "opgg",
+                  "id": 3118
+                }
+              },
+              {
+                "id": 6653,
+                "name": "兰德里的折磨",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6653.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/6653.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/6653.png",
+                  "source": "opgg",
+                  "id": 6653
+                }
+              },
+              {
+                "id": 4645,
+                "name": "影焰",
+                "opggIconUrl": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
+                "dataDragonIconUrl": "https://ddragon.leagueoflegends.com/cdn/16.13.1/img/item/4645.png",
+                "icon": {
+                  "url": "https://opgg-static.akamaized.net/meta/images/lol/16.13.1/item/4645.png",
+                  "source": "opgg",
+                  "id": 4645
                 }
               }
             ]
@@ -83363,7 +83352,7 @@
       "tierLabel": "C",
       "rank": 171,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/thresh/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -83895,7 +83884,7 @@
       "tierLabel": "D",
       "rank": 172,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/blitzcrank/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
@@ -84405,7 +84394,7 @@
       "tierLabel": "D",
       "rank": 173,
       "sourceUrl": "https://op.gg/zh-cn/lol/modes/aram-mayhem/locke/build",
-      "syncedAt": "2026-07-09T07:05:13.382Z",
+      "syncedAt": "2026-07-09T10:05:59.983Z",
       "detailStatus": "synced",
       "augments": [
         {
