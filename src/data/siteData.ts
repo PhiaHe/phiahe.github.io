@@ -32,7 +32,7 @@ export interface FeaturedWork {
   cover: string;
   accent: "cyan" | "violet" | "gold";
   status: Localized;
-  href?: string; // optional project-detail route (e.g. "#/projects/inkvoker")
+  href?: string; // project-detail route or playable game path
 }
 
 export interface LabCategory {
@@ -130,8 +130,27 @@ export const hero = {
 
 export const featuredWork: FeaturedWork[] = [
   {
-    id: "inkvoker",
+    id: "jianghu-shimeng",
     index: "01",
+    title: { en: "Jianghu Shimeng · 江湖拾梦", zh: "江湖拾梦" },
+    description: {
+      en: "A Chinese-language idle RPG you can play in your browser. Recruit martial heroes, progress through expansion chapters, collect equipment sets, and challenge dungeon bosses. Version 3.0.1.",
+      zh: "打开浏览器，开启一段像素江湖历程。结识门派侠客，逐步解锁资料片，收集套装、精炼装备，挑战秘境首领。当前版本 3.0.1。",
+    },
+    tags: [
+      { en: "Play in Browser", zh: "浏览器即玩" },
+      { en: "Idle RPG", zh: "放置养成" },
+      { en: "Hero Collection", zh: "侠客收集" },
+      { en: "Pixel Art", zh: "像素风格" },
+    ],
+    cover: "/games/jianghu/assets/pixel-daoxiang.png",
+    accent: "gold",
+    status: { en: "Play now · Chinese", zh: "可在线游玩" },
+    href: "/games/jianghu/",
+  },
+  {
+    id: "inkvoker",
+    index: "02",
     title: { en: "Inkvoker", zh: "Inkvoker" },
     description: {
       en: "An action card-based game prototype exploring elemental combat, visual feedback, card systems, and AI-assisted iteration. Its visual direction is still open — somewhere between fluid energy and refined sci-fi.",
@@ -151,7 +170,7 @@ export const featuredWork: FeaturedWork[] = [
   },
   {
     id: "visual-experiments",
-    index: "02",
+    index: "03",
     title: { en: "Visual Experiments", zh: "视觉实验" },
     description: {
       en: "A growing archive of visual tests, prompt-driven assets, sci-fi surfaces, sprite sheets, interface moods, and game-feel studies.",
@@ -170,7 +189,7 @@ export const featuredWork: FeaturedWork[] = [
   },
   {
     id: "pixel-character-lab",
-    index: "03",
+    index: "04",
     title: { en: "Pixel Character Lab", zh: "像素角色实验室" },
     description: {
       en: "Character sprites, movement sheets, action poses, and stylized pixel art explorations for top-down and semi-top-down games.",

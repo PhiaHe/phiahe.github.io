@@ -1,0 +1,27 @@
+/* Retain the original pixel GUI; only the stage's live combat layer is new. */
+.combat-scene .fighter-art,.combat-scene .enemy.boss .fighter-art{animation:none!important;transition:none}
+.combat-scene .fighter{isolation:auto;transition:opacity .22s;z-index:3}
+.combat-scene .fighter.combat-defeated{opacity:.18}
+.combat-scene .fighter-hp{width:124px;height:14px;margin-top:-5px;overflow:visible;background:#172b30;border:2px solid #213640;box-shadow:0 1px 0 #d6e8c466}
+.combat-scene .fighter-hp .hp-fill{display:block;height:100%;background:#6bda76;transition:none;max-width:100%}
+.combat-scene .enemy .fighter-hp .hp-fill{background:#f0607a}
+.combat-scene .fighter-hp.low-hp .hp-fill{background:#d6334f}
+.combat-scene .hp-readout{position:absolute;left:0;right:0;top:-1px;text-align:center;font:10px "Ark Pixel",monospace;color:#fff8df;text-shadow:-1px -1px #263b35,1px -1px #263b35,-1px 1px #263b35,1px 1px #263b35;white-space:nowrap;line-height:12px}
+.combat-effects{position:absolute;inset:0;pointer-events:none;z-index:6;overflow:hidden;border-radius:inherit}
+.combat-attack{position:absolute;top:0;left:0;transform-origin:center 85%;will-change:transform}
+.combat-sprite{width:100%;height:100%;background-image:url('assets/pixel-disciples-core.png');background-size:300% 200%;image-rendering:pixelated;background-color:transparent}
+.combat-sprite.foe-atlas,.combat-scene .fighter-art.foe-atlas{background-image:url('assets/pixel-enemies.png')}
+.combat-skill{position:absolute;top:-40px;left:50%;transform:translate(-50%,-45%);font-size:12px;color:var(--fx-color);background:#172334dc;border:1px solid var(--fx-color);padding:3px 7px;white-space:nowrap;text-shadow:1px 1px #121a2c}
+.combat-projectile{position:absolute;left:-24px;top:-4px;width:48px;height:8px;background:#faffff;border:2px solid var(--fx-color);box-shadow:-10px 0 0 -1px var(--fx-color),-20px 0 0 -2px #9eddfb77,0 0 12px var(--fx-color);image-rendering:pixelated;transform-origin:center}
+.combat-projectile.wanhua{width:19px;height:19px;border:4px solid #c7a1fa;background:#493275;box-shadow:-7px 5px #a989d5,-16px 7px #7c65bd88}
+.combat-projectile.qixiu{width:22px;height:28px;border:4px solid #ffc8eb;border-left:0;background:transparent;box-shadow:6px 0 #f498cf99,-6px 0 #f498cf55}
+.combat-impact,.combat-heal{position:absolute;left:0;top:0}
+.combat-slash{position:absolute;width:100px;height:110px;background:var(--fx-color);clip-path:polygon(95% 0,63% 30%,42% 60%,23% 100%,26% 67%,44% 36%,70% 10%);filter:drop-shadow(3px 2px #fff4d8)}
+.combat-spark{position:absolute;left:-3px;top:-3px;width:6px;height:6px;background:var(--fx-color);box-shadow:1px 1px #ffffffbb}
+.combat-damage{position:absolute;left:0;top:0;white-space:nowrap;font:700 27px "Ark Pixel",monospace;color:#fff5d5;text-shadow:-2px -2px #433244,2px -2px #433244,-2px 2px #433244,2px 2px #433244,0 4px #202c3e;z-index:2}
+.combat-damage.critical{font-size:32px;color:#ffdb68}.combat-damage.healing{color:#98ffae;font-size:23px}
+.combat-scene .stage-party button{border-color:#687992;transition:background .1s}
+.combat-scene .stage-party button.combat-active{border-color:#ffe177;background:#6f5843;box-shadow:0 0 0 1px #352b3d,0 0 9px #ffd45b88}
+.combat-scene .stage-party button.combat-fallen{filter:grayscale(1);opacity:.4}
+.combat-scene .scene-toast{z-index:7}
+@media(max-width:760px){.combat-scene .fighter-hp{width:86px;height:12px}.combat-scene .hp-readout{font-size:9px;top:-1px;line-height:10px}.combat-damage{font-size:22px}.combat-damage.critical{font-size:25px}.combat-damage.healing{font-size:20px}.combat-skill{font-size:9px;padding:2px 4px}.combat-projectile{width:32px;height:7px}.combat-spark{width:4px;height:4px}}

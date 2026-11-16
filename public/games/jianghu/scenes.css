@@ -1,0 +1,49 @@
+/* Official-reference pixel scenery. Each atlas is a precise 2 by 2 grid. */
+:is(.scene,.route-art,.route-thumb,.dungeon-art)[class*="scene-"]{
+  background-image:var(--scene-image,url('assets/pixel-daoxiang.png'))!important;
+  background-size:var(--scene-size,200% 200%)!important;
+  background-position:var(--scene-position,0% 0%)!important;
+  background-repeat:no-repeat!important;
+  filter:none!important;
+  image-rendering:pixelated;
+}
+.scene[class*="scene-"].nighttime::after{
+  background:linear-gradient(180deg,#0d173c77,#0d214a33 45%,#0d173c88);
+}
+.scene-temple_hall{--scene-image:url('assets/scenes/dungeons-a.png');--scene-position:0% 0%}
+.scene-flower_sanctum{--scene-image:url('assets/scenes/dungeons-a.png');--scene-position:100% 0%}
+.scene-imperial_palace{--scene-image:url('assets/scenes/dungeons-a.png');--scene-position:0% 100%}
+.scene-qin_tomb{--scene-image:url('assets/scenes/dungeons-a.png');--scene-position:100% 100%}
+.scene-cliff_temple{--scene-image:url('assets/scenes/landmarks-2026.png');--scene-position:0% 0%}
+.scene-mountain_city{--scene-image:url('assets/scenes/landmarks-2026.png');--scene-position:100% 0%}
+.scene-barren_ridge{--scene-image:url('assets/scenes/landmarks-2026.png');--scene-position:0% 100%}
+.scene-yellow_river{--scene-image:url('assets/scenes/landmarks-2026.png');--scene-position:100% 100%}
+.scene-desert{--scene-image:url('assets/scenes/fields-c.png');--scene-position:0% 0%}
+.scene-coastal_bay{--scene-image:url('assets/scenes/fields-c.png');--scene-position:100% 0%}
+.scene-snow_mountain{--scene-image:url('assets/scenes/fields-c.png');--scene-position:0% 100%}
+.scene-maple_valley{--scene-image:url('assets/scenes/fields-c.png');--scene-position:100% 100%}
+.scene-peaceful_city{--scene-image:url('assets/scenes/regions-extra.png');--scene-position:0% 0%}
+.scene-grassland{--scene-image:url('assets/scenes/regions-extra.png');--scene-position:100% 0%}
+.scene-miao_forest{--scene-image:url('assets/scenes/regions-extra.png');--scene-position:0% 100%}
+.scene-nanzhao_palace{--scene-image:url('assets/scenes/regions-extra.png');--scene-position:100% 100%}
+.scene-chengdu{--scene-image:url('assets/scenes/districts.png');--scene-position:0% 0%}
+.scene-valley_workshop{--scene-image:url('assets/scenes/districts.png');--scene-position:100% 0%}
+.scene-gorge_cave{--scene-image:url('assets/scenes/districts.png');--scene-position:0% 100%}
+.scene-palace_garden{--scene-image:url('assets/scenes/districts.png');--scene-position:100% 100%}
+.scene-jiangnan{--scene-image:url('assets/scenes/fields-a.png');--scene-position:0% 0%}
+.scene-bamboo{--scene-image:url('assets/scenes/fields-a.png');--scene-position:100% 0%}
+.scene-erhai{--scene-image:url('assets/scenes/fields-a.png');--scene-position:0% 100%}
+.scene-war_city{--scene-image:url('assets/scenes/fields-a.png');--scene-position:100% 100%}
+.scene-snow_pass{--scene-image:url('assets/scenes/fields-b.png');--scene-position:0% 0%}
+.scene-lake_islands{--scene-image:url('assets/scenes/fields-b.png');--scene-position:100% 0%}
+.scene-east_sea{--scene-image:url('assets/scenes/fields-b.png');--scene-position:0% 100%}
+.scene-herbal_forest{--scene-image:url('assets/scenes/fields-b.png');--scene-position:100% 100%}
+.scene-thunder_forge{--scene-image:url('assets/scenes/dungeons-b.png');--scene-position:0% 0%}
+.scene-ice_fire{--scene-image:url('assets/scenes/dungeons-b.png');--scene-position:100% 0%}
+.scene-dharma_cave{--scene-image:url('assets/scenes/dungeons-b.png');--scene-position:0% 100%}
+.scene-thunder_swamp{--scene-image:url('assets/scenes/dungeons-b.png');--scene-position:100% 100%}
+.scene-river_dock{--scene-image:url('assets/scenes/dungeons-c.png');--scene-position:0% 0%}
+.scene-ancient_cave{--scene-image:url('assets/scenes/dungeons-c.png');--scene-position:100% 0%}
+.scene-steppe_siege{--scene-image:url('assets/scenes/dungeons-c.png');--scene-position:0% 100%}
+.scene-military_fort{--scene-image:url('assets/scenes/dungeons-c.png');--scene-position:100% 100%}
+.scene-tree_village{--scene-image:url('assets/scenes/tree-village.png');--scene-position:center;--scene-size:100% 100%}
