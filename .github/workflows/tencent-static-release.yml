@@ -1,0 +1,107 @@
+# Copy to the WEBSITE repository's
+# .github/workflows/tencent-static-release.yml; do not replace deploy.yml.
+# Uses only the built-in job token. No SSH/private key or server secret is stored
+# in GitHub, and no backend package/save/credentials belong in the release.
+# GitHub release immutability must be OFF for this dedicated mutable tag.
+# Reference: https://docs.github.com/en/rest/releases/releases
+name: Publish public static bundle for Tencent
+
+on:
+  workflow_run:
+    workflows: ["Deploy static content to Pages"]
+    types: [completed]
+    branches: [master]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tencent-public-static-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      github.repository == 'PhiaHe/phiahe.github.io' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'master' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      (github.event.workflow_run.event == 'push' || github.event.workflow_run.event == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out the exact successful Pages commit
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24.x
+          cache: npm
+
+      - name: Build the public site
+        run: |
+          npm ci
+          npm run build
+
+      - name: Package only dist with SHA256
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import gzip, hashlib, pathlib, tarfile
+          root = pathlib.Path('dist')
+          assert root.is_dir() and not root.is_symlink()
+          assert (root / 'index.html').is_file() and (root / 'jianghu/index.html').is_file()
+          files = sorted(root.rglob('*'))
+          assert len(files) <= 50000
+          assert sum(p.stat().st_size for p in files if p.is_file()) <= 2*1024**3
+          for path in files:
+              parts = path.relative_to(root).parts
+              assert not path.is_symlink() and (path.is_file() or path.is_dir()), path
+              assert all(not p.startswith('.') or p == '.nojekyll' for p in parts), path
+              assert not any(p in {'node_modules', 'server', 'server-data', 'secrets'} for p in parts), path
+              assert path.suffix.lower() not in {'.pem', '.key', '.sqlite', '.db'}, path
+          def public_metadata(info):
+              info.uid = info.gid = info.mtime = 0
+              info.uname = info.gname = ''
+              info.mode = 0o755 if info.isdir() else 0o644
+              info.pax_headers = {}
+              return info
+          with open('site.tar.gz', 'wb') as output, gzip.GzipFile(fileobj=output, mode='wb', mtime=0) as compressed:
+              with tarfile.open(fileobj=compressed, mode='w', format=tarfile.PAX_FORMAT) as bundle:
+                  for path in files:
+                      bundle.add(path, arcname=path.relative_to(root).as_posix(), recursive=False, filter=public_metadata)
+          archive = pathlib.Path('site.tar.gz')
+          assert archive.stat().st_size <= 1024**3
+          with archive.open('rb') as stream:
+              digest = hashlib.file_digest(stream, 'sha256').hexdigest()
+          pathlib.Path('site.tar.gz.sha256').write_text(digest + '  site.tar.gz\n', encoding='ascii')
+          PY
+
+      - name: Publish the fixed public release assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: PhiaHe/phiahe.github.io
+          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          # Skip a completed older build if master has advanced while jobs queued.
+          master_sha="$(gh api repos/PhiaHe/phiahe.github.io/commits/master --jq .sha)"
+          if [[ "$master_sha" != "$SOURCE_SHA" ]]; then
+            echo 'Newer master commit exists; its successful Pages run will publish.'
+            exit 0
+          fi
+          if ! gh release view production-site >/dev/null 2>&1; then
+            gh release create production-site --target "$SOURCE_SHA" \
+              --title 'Production public static site' --notes 'Public dist only; managed by Actions.' --latest=false
+          fi
+          # Upload checksum last. A transient mismatched pair fails safely server-side.
+          gh release upload production-site site.tar.gz --clobber
+          gh release upload production-site site.tar.gz.sha256 --clobber
+          printf 'Public static site built from commit %s. SHA256: %s\n' \
+            "$SOURCE_SHA" "$(cut -d ' ' -f 1 site.tar.gz.sha256)" > release-notes.txt
+          gh release edit production-site --notes-file release-notes.txt

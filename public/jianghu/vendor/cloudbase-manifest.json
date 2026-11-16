@@ -1,0 +1,13 @@
+{
+  "package": "@cloudbase/js-sdk",
+  "version": "3.11.1",
+  "source": "https://registry.npmjs.org/@cloudbase/js-sdk/-/js-sdk-3.11.1.tgz",
+  "npmIntegrity": "sha512-Zpr2jjiibIWOiUzuSMobCNZAohqQmmCPWkWP+M7fJ0Mv1QTdk8Q/mGJ1XyWsk1r2g1xWuqhnu+1p3VyNBaJxMg==",
+  "file": "cloudbase-3.11.1.js",
+  "bytes": 974598,
+  "sha256": "2ef7d76f7e84cf0d32b8b7b7f0c3a69ef5f822368c0d64705b1df1278a189c36",
+  "license": "cloudbase-LICENSE.txt",
+  "lockSha256": "10455ac30e63880e2e175ac5d8956e568b97a15c7fa99fca924353befa6c1fbd",
+  "runtimeExternalImports": 0,
+  "load": "Only after explicit email account action; never startup or offline guest mode"
+}
