@@ -1,0 +1,4 @@
+# Keep generated content-hashed assets byte-for-byte identical to release manifests.
+public/jianghu/** -text
+public/games/jianghu/game.* -text
+public/games/jianghu/assets/*.*.webp -text

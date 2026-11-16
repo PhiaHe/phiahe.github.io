@@ -134,8 +134,8 @@ export const featuredWork: FeaturedWork[] = [
     index: "01",
     title: { en: "Jianghu Shimeng · 江湖拾梦", zh: "江湖拾梦" },
     description: {
-      en: "A Chinese-language idle RPG you can play in your browser. Recruit martial heroes, progress through expansion chapters, collect equipment sets, and challenge dungeon bosses. Version 3.0.1.",
-      zh: "打开浏览器，开启一段像素江湖历程。结识门派侠客，逐步解锁资料片，收集套装、精炼装备，挑战秘境首领。当前版本 3.0.1。",
+      en: "A Chinese-language idle RPG you can play in your browser. Recruit martial heroes, progress through expansion chapters, collect equipment sets, and challenge dungeon bosses. Version 4.0.0.",
+      zh: "打开浏览器，开启一段像素江湖历程。结识门派侠客，逐步解锁资料片，收集套装、精炼装备，挑战秘境首领。当前版本 4.0.0。",
     },
     tags: [
       { en: "Play in Browser", zh: "浏览器即玩" },
@@ -143,10 +143,10 @@ export const featuredWork: FeaturedWork[] = [
       { en: "Hero Collection", zh: "侠客收集" },
       { en: "Pixel Art", zh: "像素风格" },
     ],
-    cover: "/games/jianghu/assets/pixel-daoxiang.png",
+    cover: "/jianghu/assets/pixel-daoxiang.faff101d468c.webp",
     accent: "gold",
     status: { en: "Play now · Chinese", zh: "可在线游玩" },
-    href: "/games/jianghu/",
+    href: "/jianghu/",
   },
   {
     id: "inkvoker",
