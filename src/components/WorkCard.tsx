@@ -56,6 +56,7 @@ export default function WorkCard({ work, delay = 0, skew }: WorkCardProps) {
           {/* Body */}
           <div className="relative flex flex-1 flex-col p-6 md:p-7" style={{ transform: "translateZ(18px)" }}>
             <h3 className="font-display text-2xl font-semibold text-white">
+              {work.logo && <img src={work.logo} alt="" className="mr-3 inline-block h-12 w-12 object-contain align-middle" style={{ imageRendering: "pixelated" }} />}
               {t(work.title)}
             </h3>
             <p className="mt-3 flex-1 text-sm leading-relaxed text-accent-silver/60">

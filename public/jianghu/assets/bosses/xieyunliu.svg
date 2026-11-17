@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="谢云流剑客示意图">
+  <defs><linearGradient id="robe" x2="1" y2="1"><stop stop-color="#e7e2d0"/><stop offset="1" stop-color="#747e83"/></linearGradient></defs>
+  <circle cx="120" cy="116" r="87" fill="#7a9b9f" opacity=".13"/>
+  <path d="M105 92 80 109 64 160 82 182 69 226 173 226 163 181 181 157 159 109 135 92Z" fill="url(#robe)"/>
+  <path d="m104 98 18 34 18-34 16 100-33 23-36-24Z" fill="#253d4a"/>
+  <path d="m84 132 33 34 39-33 3 15-40 35-37-37Z" fill="#8799a0"/>
+  <path d="m88 184 70-5 3 11-76 5Z" fill="#27313b"/>
+  <path d="M98 76Q89 28 121 27q39 0 24 55l-7 26-33-8Z" fill="#dce0dc"/>
+  <path d="M104 58q17-15 35 0v24q-4 23-18 23t-19-23Z" fill="#cfac92"/>
+  <path d="M96 63q-2-38 27-38 29 0 27 35l-12-14-30 1-5 20Z" fill="#dbe0dc"/>
+  <path d="M98 51 86 107l15-10 12-53m28 6 17 56-17-9-9-52Z" fill="#c7d0ce"/>
+  <path d="m173 31 7 8-52 147-8-3Z" fill="#d9f0f0" stroke="#65969e" stroke-width="2"/>
+  <path d="m112 179 29 10-3 7-29-10Zm10 9-10 28" fill="none" stroke="#a58a58" stroke-width="6"/>
+</svg>
