@@ -2,17 +2,31 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#173b35">
   <meta name="description" content="剑网叁·江湖拾梦，二十门派与无相楼、五人同行、历代秘境与神兵铸造的像素放置江湖。">
   <title>江湖拾梦 · 剑网叁</title>
   <link rel="icon" type="image/png" href="assets/brand/jianghu-pixel-mark-v1.d4fb4dc1bfe2.webp">
-  <link rel="stylesheet" href="game.9f3846219abc.css">
+  <link rel="stylesheet" href="game.9f110087fde8.css">
   <script defer src="account-config.js"></script>
-  <script defer src="game.6c3bde5aee9e.js"></script>
+  <script defer src="game.832d4d910dfb.js"></script>
 </head>
 <body>
-  <div id="app"><div class="loading"><span class="loading-mark brand-mark" role="img" aria-label="江湖拾梦像素剑徽"></span><h1>江湖拾梦</h1><p>正在准备江湖图素，请稍候……</p><progress aria-label="正在准备资源"></progress></div></div>
+  <div id="app">
+    <main class="jianghu-loading" aria-label="江湖拾梦载入中">
+      <div class="loading-stage">
+        <div class="loading-emblem">
+          <canvas class="loading-fx" aria-hidden="true"></canvas>
+          <span class="brand-mark" role="img" aria-label="江湖拾梦剑徽"></span>
+        </div>
+        <div class="loading-readout">
+          <div id="asset-progress" role="progressbar" aria-label="载入进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+          <span id="asset-percent" aria-hidden="true">0%</span>
+        </div>
+        <div id="asset-recovery" hidden><span role="status">载入中断</span><button type="button" class="btn" id="asset-retry">重试</button></div>
+      </div>
+    </main>
+  </div>
   <div id="toast" role="status" aria-live="polite"></div>
   <dialog id="modal" aria-label="江湖详情"></dialog>
   <input id="import-file" type="file" accept=".json,application/json" hidden>

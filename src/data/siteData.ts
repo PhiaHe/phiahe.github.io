@@ -136,8 +136,8 @@ export const featuredWork: FeaturedWork[] = [
     index: "01",
     title: { en: "Jianghu Shimeng · 江湖拾梦", zh: "江湖拾梦" },
     description: {
-      en: "A Chinese-language idle RPG you can play in your browser. Recruit martial heroes, progress through expansion chapters, collect equipment sets, and challenge dungeon bosses. Version 6.0.0.",
-      zh: "打开浏览器，开启一段像素江湖历程。结识门派侠客，逐步解锁资料片，收集套装、精炼装备，挑战秘境首领。当前版本 6.0.0。",
+      en: "A Chinese-language idle RPG you can play in your browser. Recruit martial heroes, progress through expansion chapters, collect equipment sets, and challenge dungeon bosses. Version 6.1.0-ea.",
+      zh: "打开浏览器，开启一段像素江湖历程。结识门派侠客，逐步解锁资料片，收集套装、精炼装备，挑战秘境首领。当前版本 6.1.0-ea。",
     },
     tags: [
       { en: "Play in Browser", zh: "浏览器即玩" },
