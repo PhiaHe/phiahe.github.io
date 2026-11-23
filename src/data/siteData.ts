@@ -136,8 +136,8 @@ export const featuredWork: FeaturedWork[] = [
     index: "01",
     title: { en: "Jianghu Shimeng · 江湖拾梦", zh: "江湖拾梦" },
     description: {
-      en: "Floodwater has cut off the mountain post roads. Escort medicine from Reed Crossing, recruit fellow travelers and master their fighting styles in this Chinese-language idle RPG. Version 7.0.0.",
-      zh: "白芦渡汛起，一车药材等着过山。结识沿途的行旅，修习武艺，带领护运队从渡口一路重开驿路。当前版本 7.0.0。",
+      en: "Floodwater has cut off the mountain post roads. Escort medicine from Reed Crossing, recruit fellow travelers and lead them through ferry landings, salt yards and mountain passes in this Chinese-language idle RPG. Version 7.0.1.",
+      zh: "白芦渡汛起，一车药材等着过山。结识沿途的行旅，修习武艺，护送药车穿过渡口、盐仓与山关。当前版本 7.0.1。",
     },
     tags: [
       { en: "Play in Browser", zh: "浏览器即玩" },
@@ -145,7 +145,7 @@ export const featuredWork: FeaturedWork[] = [
       { en: "Hero Collection", zh: "侠客收集" },
       { en: "Pixel Art", zh: "像素风格" },
     ],
-    cover: "/jianghu/assets/reed-crossing.3cdfdec2e1b8.webp",
+    cover: "/jianghu/assets/maps/field-waypoint01.266468c79f14.webp",
     accent: "gold",
     status: { en: "Play now · Chinese", zh: "可在线游玩" },
     href: "/jianghu/",
