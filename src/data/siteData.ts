@@ -132,12 +132,12 @@ export const hero = {
 export const featuredWork: FeaturedWork[] = [
   {
     id: "jianghu-shimeng",
-    logo: "/brand/jianghu-pixel-mark-v1.png",
+    logo: "/brand/jianghu-relay-mark-v2.png",
     index: "01",
     title: { en: "Jianghu Shimeng · 江湖拾梦", zh: "江湖拾梦" },
     description: {
-      en: "A Chinese-language idle RPG you can play in your browser. Recruit martial heroes, progress through expansion chapters, collect equipment sets, and challenge dungeon bosses. Version 6.1.0-ea.",
-      zh: "打开浏览器，开启一段像素江湖历程。结识门派侠客，逐步解锁资料片，收集套装、精炼装备，挑战秘境首领。当前版本 6.1.0-ea。",
+      en: "Floodwater has cut off the mountain post roads. Escort medicine from Reed Crossing, recruit fellow travelers and master their fighting styles in this Chinese-language idle RPG. Version 7.0.0.",
+      zh: "白芦渡汛起，一车药材等着过山。结识沿途的行旅，修习武艺，带领护运队从渡口一路重开驿路。当前版本 7.0.0。",
     },
     tags: [
       { en: "Play in Browser", zh: "浏览器即玩" },
@@ -145,7 +145,7 @@ export const featuredWork: FeaturedWork[] = [
       { en: "Hero Collection", zh: "侠客收集" },
       { en: "Pixel Art", zh: "像素风格" },
     ],
-    cover: "/jianghu/assets/pixel-daoxiang.faff101d468c.webp",
+    cover: "/jianghu/assets/reed-crossing.3cdfdec2e1b8.webp",
     accent: "gold",
     status: { en: "Play now · Chinese", zh: "可在线游玩" },
     href: "/jianghu/",

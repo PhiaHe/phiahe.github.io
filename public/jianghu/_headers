@@ -3,6 +3,8 @@
   Cache-Control: no-cache
 /jianghu/index.html
   Cache-Control: no-cache
+/jianghu/effects-gallery.html
+  Cache-Control: no-cache
 /jianghu/account-config.js
   Cache-Control: no-cache
 /jianghu/support-config.js
